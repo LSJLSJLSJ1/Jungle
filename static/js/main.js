@@ -13,6 +13,8 @@
 
 const IS_STATIC_DEPLOYMENT = Boolean(window.SITE_CONFIG && window.SITE_CONFIG.staticMode);
 const STATIC_GUESTBOOK_MESSAGE = 'GitHub Pages 정적 배포에서는 방명록 저장 API를 사용할 수 없습니다.';
+const GUESTBOOK_CONFIG = window.GUESTBOOK_CONFIG || {};
+const SUPABASE_GUESTBOOK_SETUP_MESSAGE = '방명록 서버 설정이 아직 연결되지 않았습니다.';
 
 let scene, camera, renderer;
 let cargoPlane, propellers = [];
@@ -1886,6 +1888,10 @@ function initSectionRevealAnimations() {
    ======================================================== */
 function loadGuestbook() {
     if (IS_STATIC_DEPLOYMENT) {
+        if (hasSupabaseGuestbookConfig()) {
+            loadSupabaseGuestbook();
+            return;
+        }
         renderGuestbookError(STATIC_GUESTBOOK_MESSAGE);
         $('#guestbook-form input, #guestbook-form button').prop('disabled', true);
         return;
@@ -1903,6 +1909,55 @@ function loadGuestbook() {
             renderGuestbookError('방명록을 불러오지 못했습니다. 잠시 후 다시 시도해주세요.');
         }
     });
+}
+
+function hasSupabaseGuestbookConfig() {
+    return GUESTBOOK_CONFIG.provider === 'supabase'
+        && /^https?:\/\/[^\s]+$/i.test(String(GUESTBOOK_CONFIG.url || '').trim())
+        && String(GUESTBOOK_CONFIG.anonKey || '').trim().length > 0;
+}
+
+function supabaseGuestbookEndpoint(query) {
+    const baseUrl = String(GUESTBOOK_CONFIG.url || '').replace(/\/+$/, '');
+    return `${baseUrl}/rest/v1/guestbook${query ? `?${query}` : ''}`;
+}
+
+function supabaseGuestbookHeaders(includeJson = false) {
+    const anonKey = String(GUESTBOOK_CONFIG.anonKey || '').trim();
+    const headers = {
+        apikey: anonKey,
+        Authorization: `Bearer ${anonKey}`
+    };
+    if (includeJson) headers['Content-Type'] = 'application/json';
+    return headers;
+}
+
+async function parseSupabaseResponse(response) {
+    const raw = await response.text();
+    let data = null;
+    try {
+        data = raw ? JSON.parse(raw) : null;
+    } catch (_) {
+        data = null;
+    }
+
+    if (!response.ok) {
+        throw new Error(
+            (data && (data.message || data.error_description || data.error))
+            || '방명록 서버에 연결할 수 없습니다.'
+        );
+    }
+    return data;
+}
+
+function loadSupabaseGuestbook() {
+    fetch(supabaseGuestbookEndpoint('select=id,name,message,created_at&order=created_at.desc&limit=50'), {
+        method: 'GET',
+        headers: supabaseGuestbookHeaders()
+    })
+        .then(parseSupabaseResponse)
+        .then(items => renderGuestbookList(items))
+        .catch(error => renderGuestbookError(error.message));
 }
 
 function renderGuestbookError(message) {
@@ -1935,22 +1990,41 @@ function renderGuestbookList(items) {
 
 function submitGuestbook() {
     if (IS_STATIC_DEPLOYMENT) {
-        renderGuestbookError(STATIC_GUESTBOOK_MESSAGE);
-        return;
+        if (!hasSupabaseGuestbookConfig()) {
+            renderGuestbookError(SUPABASE_GUESTBOOK_SETUP_MESSAGE);
+            return;
+        }
     }
 
     const name = $('#input-name').val().trim();
     const message = $('#input-message').val().trim();
     if (!name || !message) { alert("이름과 메시지를 모두 입력해 주세요."); return; }
 
-    fetch('/api/guestbook', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, message })
-    })
+    const request = IS_STATIC_DEPLOYMENT
+        ? fetch(supabaseGuestbookEndpoint(''), {
+            method: 'POST',
+            headers: {
+                ...supabaseGuestbookHeaders(true),
+                Prefer: 'return=minimal'
+            },
+            body: JSON.stringify({ name, message })
+        })
+        : fetch('/api/guestbook', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, message })
+        });
+
+    request
     .then(async response => {
-        const data = await response.json();
-        if (!response.ok || !data.success) {
+        if (IS_STATIC_DEPLOYMENT) {
+            await parseSupabaseResponse(response);
+            return { success: true };
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (!data.success) {
             throw new Error(data.error || '방명록 등록에 실패했습니다.');
         }
         $('#input-name').val('');
