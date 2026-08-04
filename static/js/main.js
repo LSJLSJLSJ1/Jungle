@@ -1964,6 +1964,33 @@ function renderGuestbookError(message) {
     $('#guestbook-list').html(`<div class="guestbook-error">${escapeHtml(message)}</div>`);
 }
 
+function formatGuestbookDate(value) {
+    const rawValue = String(value || '').trim();
+    if (!rawValue) return '-';
+
+    // Flask stores local timestamps without an offset; interpret those as KST.
+    const normalizedValue = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}(?::\d{2})?$/.test(rawValue)
+        ? `${rawValue.replace(' ', 'T')}+09:00`
+        : rawValue;
+    const date = new Date(normalizedValue);
+    if (Number.isNaN(date.getTime())) return rawValue;
+
+    const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Seoul',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hourCycle: 'h23'
+    }).formatToParts(date).reduce((result, part) => {
+        result[part.type] = part.value;
+        return result;
+    }, {});
+
+    return `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute}`;
+}
+
 function renderGuestbookList(items) {
     const $c = $('#guestbook-list');
     $c.empty();
@@ -1981,7 +2008,7 @@ function renderGuestbookList(items) {
                     <div class="author-msg">${escapeHtml(item.message)}</div>
                 </div>
                 <div class="item-right">
-                    <span class="item-date">${item.created_at}</span>
+                    <span class="item-date">${formatGuestbookDate(item.created_at)}</span>
                 </div>
             </div>
         `);
