@@ -95,10 +95,10 @@
                 <nav aria-label="페이지 탐색">
                     <ul class="nav-links">
                         <li><a href="#intro">소개</a></li>
-                        <li><a href="#learned">나를 설명하는 키워드</a></li>
-                        <li><a href="#journey">플레이에서 개발로</a></li>
-                        <li><a href="#ghost-ai">작은 규칙의 조합</a></li>
-                        <li><a href="#philosophy">학습하는 규칙</a></li>
+                        <li><a href="#learned">키워드</a></li>
+                        <li><a href="#journey">개발 여정</a></li>
+                        <li><a href="#ghost-ai">게임 AI</a></li>
+                        <li><a href="#portfolio">포트폴리오</a></li>
                         <li><a href="#guestbook">방명록</a></li>
                     </ul>
                 </nav>
@@ -270,9 +270,101 @@
                 </div>
             </section>
 
+            <section id="portfolio" class="content-section portfolio-section">
+                <div class="section-title-wrap section-title-left portfolio-heading">
+                    <p class="section-eyebrow">05 / Selected Work</p>
+                    <h2 class="section-title">구현으로 증명한<br><span>네 가지 경험.</span></h2>
+                    <p class="section-lead">게임 시스템과 실시간 웹 기술, 컴퓨터 비전 연구까지. 문제를 구조화하고 실제로 동작하는 결과물로 연결한 프로젝트를 모았습니다.</p>
+                </div>
+
+                <div class="portfolio-grid">
+                    <article class="project-card project-card-cyan">
+                        <div class="project-gallery project-gallery-three" aria-label="Visual Shooting Code 프로젝트 화면">
+                            <img src="{{ url_for('static', filename='portfolio/sprint1-visual-code.png') }}" alt="Visual Shooting Code 타이틀 화면" loading="lazy">
+                            <img src="{{ url_for('static', filename='portfolio/sprint1-operators.png') }}" alt="열 가지 병과 캐릭터 선택 화면" loading="lazy">
+                            <img src="{{ url_for('static', filename='portfolio/sprint1-gameplay.png') }}" alt="개구리 병과의 실시간 전투 화면" loading="lazy">
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta"><span>01 / WEB GAME PROTOTYPE</span><span>2026</span></div>
+                            <h3>Visual Shooting Code</h3>
+                            <p>브라우저에서 동작하는 탑다운 슈팅 프로토타입입니다. 서로 다른 공격·방어·기동 규칙을 가진 10개 병과와 로비, 룸, 실시간 전투 흐름을 하나의 플레이 경험으로 구성했습니다.</p>
+                            <ul class="project-highlights">
+                                <li>데이터 기반 병과·스킬 시스템과 전투 HUD</li>
+                                <li>시야, 투사체, 충돌 판정과 WebSocket 멀티플레이 구조</li>
+                            </ul>
+                            <div class="project-footer">
+                                <div class="project-tags"><span>JavaScript</span><span>Canvas</span><span>WebSocket</span></div>
+                                <a class="project-link" href="https://github.com/Frogyyh/jungle4sprint1" target="_blank" rel="noreferrer" aria-label="Visual Shooting Code GitHub 저장소 열기">GitHub <span>↗</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card project-card-gold">
+                        <div class="project-gallery project-gallery-two" aria-label="5일 뒤 마왕 프로젝트 화면">
+                            <img src="{{ url_for('static', filename='portfolio/project3-lobby.png') }}" alt="5일 뒤 마왕 로그인과 원정대 합류 화면" loading="lazy">
+                            <img src="{{ url_for('static', filename='portfolio/project3-gameplay.png') }}" alt="5일 뒤 마왕 협동 전투와 증강 선택 화면" loading="lazy">
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta"><span>02 / CO-OP ACTION RPG</span><span>2026</span></div>
+                            <h3>5일 뒤 마왕</h3>
+                            <p>최대 3명이 함께 탐색하고 성장해 마왕을 처치하는 서버 권위형 협동 로그라이트 액션 RPG입니다. 브라우저 렌더링과 실시간 게임 서버, 인증·데이터 계층을 분리해 운영 가능한 구조로 설계했습니다.</p>
+                            <ul class="project-highlights">
+                                <li>60Hz 게임 코어와 Colyseus 기반 권위 서버</li>
+                                <li>48개 방 월드, 동료 AI, 재접속·이탈 인계와 개인 성장</li>
+                            </ul>
+                            <div class="project-footer">
+                                <div class="project-tags"><span>Next.js</span><span>Phaser</span><span>Colyseus</span></div>
+                                <a class="project-link" href="https://github.com/LH99Tw/Krafton-jungle-project3" target="_blank" rel="noreferrer" aria-label="5일 뒤 마왕 GitHub 저장소 열기">GitHub <span>↗</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card project-card-blue">
+                        <div class="project-gallery project-gallery-one">
+                            <img src="{{ url_for('static', filename='portfolio/supplement-paper.png') }}" alt="OCR LLM DB 연동 기반 영양제 라벨 자동 등록 시스템 논문 제목과 저자" loading="lazy">
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta"><span>03 / COMPUTER VISION RESEARCH</span><span>2026</span></div>
+                            <h3>영양제 라벨 자동 등록 시스템</h3>
+                            <p>스마트폰으로 촬영한 영양제 라벨에서 필요한 정보를 자동으로 등록하는 파이프라인을 설계·구현했습니다. YOLO로 라벨 영역을 검출하고, CLOVA OCR과 LLM으로 정보를 구조화한 뒤 PostgreSQL 데이터와 매칭합니다.</p>
+                            <ul class="project-highlights">
+                                <li>61장 데이터셋 전이학습으로 mAP50 0.995 검증</li>
+                                <li>OCR 결과를 제품명·성분·함량·섭취량 JSON으로 구조화</li>
+                            </ul>
+                            <div class="project-footer">
+                                <div class="project-tags"><span>YOLO</span><span>OCR · LLM</span><span>PostgreSQL</span></div>
+                                <a class="project-link" href="{{ url_for('static', filename='portfolio/supplement-label-paper.pdf') }}" target="_blank" rel="noreferrer" aria-label="영양제 라벨 자동 등록 시스템 논문 PDF 열기">논문 보기 <span>↗</span></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card project-card-green">
+                        <div class="project-gallery project-gallery-one">
+                            <img src="{{ url_for('static', filename='portfolio/auto-battle-tactics.png') }}" alt="Auto Battle Tactics 게임 전투 화면" loading="lazy">
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta"><span>04 / SUMMER GAME PROJECT</span><span>2025 · 8 WEEKS</span></div>
+                            <h3>Auto Battle Tactics</h3>
+                            <p>유닛 배치와 조합에 집중하는 싱글 플레이 자동 전투 전략 게임입니다. 프로젝트에서 AI 데이터 수집·모델링과 생성형 AI 아트워크를 담당해 게임에 필요한 일관된 캐릭터 이미지를 제작했습니다.</p>
+                            <ul class="project-highlights">
+                                <li>Diffusion·LoRA 기반 캐릭터 이미지 생성 워크플로우</li>
+                                <li>Unity 자동화 수집과 데이터 라벨링, IP-Adapter 활용</li>
+                            </ul>
+                            <div class="project-footer">
+                                <div class="project-tags"><span>Unity</span><span>LoRA</span><span>AI Artwork</span></div>
+                                <div class="project-links">
+                                    <a class="project-link" href="https://app.notion.com/p/IDLE-B-264703b78d94800b826dd22abdcc3bbd?source=copy_link" target="_blank" rel="noreferrer" aria-label="Auto Battle Tactics 프로젝트 Notion 열기">Notion <span>↗</span></a>
+                                    <a class="project-link project-link-secondary" href="{{ url_for('static', filename='portfolio/auto-battle-tactics-report.pdf') }}" target="_blank" rel="noreferrer" aria-label="Auto Battle Tactics 프로젝트 보고서 PDF 열기">보고서 <span>↗</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
             <section id="guestbook" class="guestbook-wrapper content-section">
                 <div class="section-title-wrap section-title-left">
-                    <p class="section-eyebrow">05 / guestbook</p>
+                    <p class="section-eyebrow">06 / Guestbook</p>
                     <h2 class="section-title">응원의 메시지를 남겨주세요.</h2>
                     <p class="section-lead">따뜻한 한마디가 제게는 큰 힘이 됩니다.</p>
                 </div>
