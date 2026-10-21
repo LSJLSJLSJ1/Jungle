@@ -55,6 +55,7 @@ def build(output: Path, site_url: str = DEFAULT_SITE_URL) -> None:
         raise ValueError("Unresolved template syntax")
     (output / "index.html").write_text(html, encoding="utf-8")
     shutil.copytree(ROOT / "static", output / "static")
+    shutil.copytree(ROOT / "image", output / "image")
     (output / "demos").mkdir()
     for name in ["pacman.html", "skydiving.html"]:
         shutil.copy2(ROOT / "demos" / name, output / "demos" / name)

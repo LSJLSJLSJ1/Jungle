@@ -457,18 +457,6 @@ summary::marker {
 .contact-section > .text-link {
   margin-top: 8px;
 }
-.copy-link {
-  border: 0;
-  background: none;
-  color: var(--muted);
-}
-#copy-status {
-  min-height: 24px;
-  color: var(--accent);
-  font-size: 13px;
-  margin-top: 4px;
-  overflow-wrap: anywhere;
-}
 .site-footer {
   padding-block: 24px;
   display: flex;
@@ -672,7 +660,6 @@ summary::marker {
 .intro-profile dt { color: var(--muted); font-size: 14px; }
 .intro-profile dd { font-size: 16px; overflow-wrap: anywhere; }
 .intro-profile a { text-decoration: none; }
-.intro-next { display: inline-flex; gap: 16px; margin-top: 32px; }
 .interests-section { border-top: 1px solid var(--line); padding-block: 56px 80px; }
 .interest-row { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; padding-block: 24px; }
 .interest-row h3 { font-size: 22px; font-weight: 600; }
@@ -682,3 +669,39 @@ summary::marker {
 .screenshot-link img { aspect-ratio: 16/9; }
 @media (max-width:1100px) { .intro-section,.interest-row { gap: 48px; } .intro-profile > div { grid-template-columns: 76px 1fr; gap: 16px; } }
 @media (max-width:760px) { .intro-section { grid-template-columns: 1fr; min-height: auto; gap: 40px; } .intro-profile > div { grid-template-columns: 76px 1fr; gap: 16px; } .intro-profile dd { font-size: 14px; } .interests-section { padding-block: 40px 48px; } .interest-row { grid-template-columns: 1fr; gap: 16px; padding-block: 20px; } .interest-row h3 { font-size: 20px; } }
+
+.intro-section { min-height: 440px; }
+.interest-feature { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:72px; align-items:start; padding-block:40px; }
+.interest-feature + .interest-feature { border-top:1px solid var(--line); }
+.interest-copy h3 { font-size:24px; font-weight:650; }
+.interest-copy p { color:var(--muted); font-size:17px; line-height:1.85; margin-top:20px; max-width:60ch; }
+.interest-demo,.learning-demo { min-width:0; width:100%; }
+.interest-demo canvas,.learning-demo img,.learning-demo canvas { display:block; width:100%; height:auto; border-radius:8px; }
+.pacman-demo canvas { max-width:420px; margin-inline:auto; }
+.ghost-rules { margin-top:28px; display:grid; gap:12px; font-size:14px; }
+.ghost-rules > div { display:grid; grid-template-columns:72px 1fr; gap:16px; }
+.ghost-rules dd,.demo-hint { color:var(--muted); }
+.demo-toolbar { display:flex; gap:16px; justify-content:space-between; align-items:center; margin-bottom:12px; font-size:14px; }
+.demo-toolbar h4 { font-size:16px; font-weight:600; margin:0; }
+.bug-stage { position:relative; }
+.bug-overlay { position:absolute; inset:0; display:grid; place-items:center; background:#10171cd9; pointer-events:none; border-radius:8px; }
+.bug-overlay.is-hidden { display:none; }
+.demo-controls { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:16px; }
+.demo-controls button,.learning-demo button { background:var(--surface); border:1px solid var(--line); color:var(--text); border-radius:6px; min-height:44px; padding:8px 16px; font-size:14px; }
+.demo-controls p,.demo-hint { font-size:13px; margin-top:8px; }
+.demo-controls button:hover,.learning-demo button:hover { border-color:var(--accent); }
+.ghost-targets { display:none; }
+.learning-demo figcaption { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-top:16px; font-size:13px; color:var(--muted); }
+.learning-demo [hidden] { display:none !important; }
+.interest-making { grid-template-columns:1fr; gap:32px; }
+.reference-gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+.reference-gallery figure { min-width:0; }
+.reference-gallery img { width:100%; aspect-ratio:16/10; object-fit:contain; background:var(--surface); border-radius:8px; }
+.reference-gallery figcaption { display:grid; gap:4px; margin-top:16px; }
+.reference-gallery a { font-size:16px; font-weight:600; text-decoration:none; }
+.reference-gallery a:hover { text-decoration:underline; }
+.reference-gallery span { color:var(--muted); font-size:13px; }
+.project-meta { margin-top:12px; color:var(--muted); font-size:14px; }
+.work-list > a > div { min-width:0; }
+@media(max-width:1100px) { .interest-feature { gap:40px; } }
+@media(max-width:760px) { .interest-feature { grid-template-columns:1fr; gap:28px; padding-block:32px; } .interest-copy h3 { font-size:22px; } .reference-gallery { grid-template-columns:1fr; gap:32px; } .reference-gallery img { aspect-ratio:16/9; max-height:300px; } .intro-section { min-height:0; } .work-list h3 { overflow-wrap:anywhere; } }

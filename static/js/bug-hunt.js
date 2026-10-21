@@ -7,6 +7,7 @@
     const ctx = canvas.getContext('2d');
     const overlay = document.getElementById('bug-hunt-overlay');
     const restartButton = document.getElementById('bug-hunt-restart');
+    const pauseButton = document.getElementById('bug-hunt-pause');
     const scoreNode = document.getElementById('bug-hunt-score');
     const W = canvas.width;
     const H = canvas.height;
@@ -19,6 +20,8 @@
     ];
     let player, bullets, enemies, particles, score, hp, elapsed, spawnClock;
     let running = false;
+    let paused = false;
+    let inView = false;
     let lastTime = 0;
     let animationId = 0;
 
@@ -39,6 +42,9 @@
     function begin() {
         resetState();
         running = true;
+        paused = false;
+        restartButton.textContent = '다시 시작';
+        if (pauseButton) { pauseButton.disabled = false; pauseButton.textContent = '일시정지'; }
         lastTime = performance.now();
         overlay.classList.add('is-hidden');
         canvas.focus({ preventScroll: true });
@@ -48,8 +54,9 @@
 
     function end() {
         running = false;
+        if (pauseButton) pauseButton.disabled = true;
         overlay.classList.remove('is-hidden');
-        overlay.querySelector('strong').textContent = '불편함은 끝이 없다.';
+        overlay.querySelector('strong').textContent = '다시 도전';
     }
 
     function updateHud() {
@@ -70,7 +77,7 @@
     }
 
     function shoot() {
-        if (!running || player.cooldown > 0) return;
+        if (!running || paused || player.cooldown > 0) return;
         bullets.push({ x: player.x + player.aimX * 18, y: player.y + player.aimY * 18, vx: player.aimX * 7.5, vy: player.aimY * 7.5, life: 75 });
         player.cooldown = 9;
     }
@@ -270,20 +277,21 @@
         if (!running) { draw(); return; }
         const delta = now - lastTime;
         lastTime = now;
-        update(delta);
-        draw();
+        if (!paused && inView && !document.hidden) update(delta);
+        if (inView) draw();
         if (running) animationId = requestAnimationFrame(loop);
     }
 
     window.addEventListener('keydown', event => {
         const key = event.key.toLowerCase();
-        if (running && ['w', 'a', 's', 'd'].includes(key)) { event.preventDefault(); keys.add(key); }
+        if (running && !paused && document.activeElement === canvas && ['w', 'a', 's', 'd'].includes(key)) { event.preventDefault(); keys.add(key); }
     });
     window.addEventListener('keyup', event => keys.delete(event.key.toLowerCase()));
     window.addEventListener('blur', () => keys.clear());
 
     canvas.addEventListener('pointerdown', event => {
-        if (!running) return;
+        if (!running || paused) return;
+        canvas.focus({preventScroll:true});
         const point = canvasPoint(event);
         pointer.down = true; pointer.dragged = false; pointer.startX = point.x; pointer.startY = point.y;
         setAim(point.x, point.y);
@@ -304,10 +312,17 @@
     });
 
     restartButton.addEventListener('click', begin);
+    pauseButton?.addEventListener('click', () => {
+        paused = !paused;
+        keys.clear();
+        pointer.down = false;
+        pauseButton.textContent = paused ? '계속하기' : '일시정지';
+    });
     document.addEventListener('visibilitychange', () => { if (!document.hidden && running) lastTime = performance.now(); });
     resetState();
     const visibilityObserver = new IntersectionObserver(entries => {
-        if (entries.some(entry => entry.isIntersecting) && !running) begin();
+        inView = entries.some(entry => entry.isIntersecting);
+        if (!inView) { keys.clear(); pointer.down = false; }
     }, { threshold: 0.2 });
     visibilityObserver.observe(document.getElementById('bug-hunt'));
 }());

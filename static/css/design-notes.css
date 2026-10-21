@@ -120,3 +120,10 @@ code {
     margin-inline: -8px;
   }
 }
+
+.case-meta { display:grid; gap:12px; margin-top:28px; font-size:15px; }
+.case-meta > div,.design-case > div { display:grid; grid-template-columns:112px 1fr; gap:24px; }
+.case-meta dt,.design-case dt { color:var(--muted); }
+.design-case { display:grid; gap:20px; max-width:78ch; }
+.design-case dd { line-height:1.85; }
+@media(max-width:760px) { .case-meta > div,.design-case > div { grid-template-columns:1fr; gap:4px; } }

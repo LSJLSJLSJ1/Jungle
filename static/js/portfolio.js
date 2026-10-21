@@ -1,22 +1,3 @@
-const copyButton = document.querySelector("#copy-link");
-const copyStatus = document.querySelector("#copy-status");
-copyButton?.addEventListener("click", async () => {
-  const url = new URL(location.href);
-  url.hash = "";
-  url.search = "";
-  copyButton.disabled = true;
-  try {
-    if (!navigator.clipboard) throw new Error("Clipboard unavailable");
-    await navigator.clipboard.writeText(url.href);
-    copyStatus.textContent = "링크를 복사했습니다.";
-  } catch {
-    copyStatus.textContent = `주소창의 링크를 복사해 주세요: ${url.href}`;
-  } finally {
-    copyButton.disabled = false;
-  }
-});
-
-
 const introOverlay = document.querySelector("#cutscene-overlay");
 const portfolioContent = document.querySelector("#portfolio-content");
 if (introOverlay && window.THREE && window.jQuery && !window.matchMedia("(prefers-reduced-motion: reduce)").matches && !location.hash) {

@@ -67,7 +67,8 @@
     let animationFrame;
     let lastTime = 0;
     let game;
-    let paused = false;
+    let paused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let inViewport = true;
 
     function createDots() {
         const dots = new Set();
@@ -741,7 +742,7 @@
         if (!lastTime) lastTime = timestamp;
         const dt = Math.min((timestamp - lastTime) / 1000, 0.05);
         lastTime = timestamp;
-        if (!paused && !document.hidden) update(dt);
+        if (!paused && !document.hidden && inViewport) update(dt);
         draw();
         animationFrame = window.requestAnimationFrame(loop);
     }
@@ -787,9 +788,18 @@
         ctx = canvas.getContext('2d');
         if (!ctx) return;
         canvas.tabIndex = 0;
-        canvas.addEventListener('pointerdown', () => canvas.focus());
+        canvas.addEventListener('pointerdown', () => canvas.focus({preventScroll:true}));
+        if ('IntersectionObserver' in window) {
+            inViewport = false;
+            new IntersectionObserver(entries => {
+                inViewport = entries.some(entry => entry.isIntersecting);
+                if (inViewport) lastTime = performance.now();
+            }, {threshold:0.01}).observe(canvas);
+        }
         game = createGame();
         window.addEventListener('keydown', handleKeydown, { passive: false });
+        const pauseButton = document.getElementById('pacman-pause');
+        if (pauseButton) pauseButton.textContent = paused ? '계속하기' : '일시정지';
         syncAIVisualizationUI();
         updateHud();
         const diagnostics = runPacmanDiagnostics();
