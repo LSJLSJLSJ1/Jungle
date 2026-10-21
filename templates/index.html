@@ -144,68 +144,60 @@
       </section>
       <section id="interests" class="interests-section" aria-labelledby="interests-title">
         <div class="section-heading"><h2 id="interests-title">관심 분야</h2></div>
-        <section class="interest-group" aria-labelledby="built-title">
-          <div class="group-head"><span class="tag tag-own">직접 구현</span><h3 id="built-title">규칙을 직접 만들어 보며</h3><p>모딩과 작은 시연으로 규칙이 플레이를 어떻게 바꾸는지 확인했습니다.</p></div>
-          <div class="interest-feature">
-            <div class="interest-copy">
-              <h4>게임의 규칙과 밸런스</h4>
-              <p>스카이림, 폴아웃 4, 다키스트 던전에서 모딩 툴과 JSON 편집으로 게임 데이터를 직접 고쳐 봤습니다. 공격력과 스킬 재사용 시간 같은 값이 플레이를 어떻게 바꾸는지 그때 처음 체감했습니다.</p>
-              <p>플레이어의 선택을 바꾸는 규칙에 관심이 있습니다. 연막으로 원거리 캐릭터의 시야를 차단하거나 밤에 탐험과 방어로 인원을 나누게 하는 규칙이 그런 예입니다.</p>
-            </div>
-            <div id="bug-hunt" class="interest-demo">
-              <div class="demo-toolbar"><p class="demo-name">버그 소탕 미니게임</p><span>점수 <strong id="bug-hunt-score">0</strong></span></div>
-              <div class="bug-stage"><canvas id="bug-hunt-canvas" width="560" height="420" tabindex="0" aria-label="WASD로 이동하고 마우스로 사격하는 버그 소탕 미니게임" aria-describedby="bug-controls"></canvas><div id="bug-hunt-overlay" class="bug-overlay is-hidden"><strong>다시 도전</strong></div></div>
-              <div class="demo-controls"><button id="bug-hunt-restart" type="button">시작</button><button id="bug-hunt-pause" type="button" disabled>일시정지</button><p id="bug-controls">WASD 이동 / 마우스 사격</p></div>
-            </div>
+        <div class="interest-feature">
+          <div class="interest-copy">
+            <h3>게임의 규칙과 밸런스</h3>
+            <p>스카이림, 폴아웃 4, 다키스트 던전에서 모딩 툴과 JSON 편집으로 게임 데이터를 직접 고쳐 봤습니다. 공격력과 스킬 재사용 시간 같은 값이 플레이를 어떻게 바꾸는지 그때 처음 체감했습니다.</p>
+            <p>플레이어의 선택을 바꾸는 규칙에 관심이 있습니다. 연막으로 원거리 캐릭터의 시야를 차단하거나 밤에 탐험과 방어로 인원을 나누게 하는 규칙이 그런 예입니다.</p>
           </div>
-          <div class="interest-feature">
-            <div class="interest-copy">
-              <p class="topic-kicker">모딩</p>
-              <h4>다키스트 던전 야만인 재설계</h4>
-              <p>단기전에만 쓰이던 영웅을 장기전에서도 쓸 수 있게 바꿔 본 경험입니다. 다키스트 던전 2의 숨가쁨 토큰에서 아이디어를 가져와 역할을 다시 설계했습니다.</p>
-            </div>
-            <dl class="case-steps">
-              <div><dt>문제</dt><dd>바닐라 야만인은 자기 약화 패널티와 방패파괴자와의 포지션 경쟁 때문에 거의 단기전 요원으로만 쓰였습니다.</dd></div>
-              <div><dt>참고</dt><dd>다키스트 던전 2의 숨가쁨 토큰 시스템</dd></div>
-              <div><dt>변경</dt><dd>아드레날린 기술에 디버프 제거를 넣어 장기전이 가능한 구조로 바꿨습니다.</dd></div>
-              <div><dt>결과</dt><dd>그 회차의 하이랜더 플레이에서 방패파괴자 대신 여러 번 편성할 만큼 성능이 나왔습니다.</dd></div>
-            </dl>
+          <div id="bug-hunt" class="interest-demo">
+            <div class="demo-toolbar"><p class="demo-name">버그 소탕 미니게임</p><span>점수 <strong id="bug-hunt-score">0</strong></span></div>
+            <div class="bug-stage"><canvas id="bug-hunt-canvas" width="560" height="420" tabindex="0" aria-label="WASD로 이동하고 마우스로 사격하는 버그 소탕 미니게임" aria-describedby="bug-controls"></canvas><div id="bug-hunt-overlay" class="bug-overlay is-hidden"><strong>다시 도전</strong></div></div>
+            <div class="demo-controls"><button id="bug-hunt-restart" type="button">시작</button><button id="bug-hunt-pause" type="button" disabled>일시정지</button><p id="bug-controls">WASD 이동 / 마우스 사격</p></div>
           </div>
-          <div class="interest-feature">
-            <div class="interest-copy">
-              <h4>게임 AI</h4>
-              <p>단순한 규칙도 함께 작동하면 포위나 협동처럼 보이는 행동을 만듭니다. 팩맨 유령마다 추격 목표가 다른 점이 흥미로워 네 종류의 규칙을 구현하고 움직임을 시각화했습니다.</p>
-              <dl class="ghost-rules"><div><dt>Blinky</dt><dd>팩맨이 있는 칸</dd></div><div><dt>Pinky</dt><dd>팩맨이 향한 방향으로 4칸 앞</dd></div><div><dt>Inky</dt><dd>Blinky에서 팩맨 2칸 앞까지의 벡터를 두 배로 늘린 지점</dd></div><div><dt>Clyde</dt><dd>8칸 이상 떨어지면 추격, 가까워지면 왼쪽 아래 구석으로 후퇴</dd></div></dl>
-            </div>
-            <div class="interest-demo pacman-demo">
-              <p class="demo-title">팩맨 추격 규칙 시연</p>
-              <canvas id="pacman-canvas" width="420" height="420" tabindex="0" aria-label="팩맨 추격 AI 시연" aria-describedby="pacman-controls"></canvas>
-              <div class="demo-controls"><button id="btn-ai-toggle" type="button" aria-pressed="false">AI 시각화 켜기</button><button id="pacman-reset" type="button">다시 시작</button><button id="pacman-pause" type="button">일시정지</button></div>
-              <p id="pacman-controls" class="demo-hint">화면 선택 후 WASD / 방향키 이동</p>
-              <p id="pacman-mode-label" class="demo-hint">추격 모드</p><p id="pacman-dots-label" class="demo-hint"></p><div id="ghost-target-list" class="ghost-targets"></div>
-            </div>
+        </div>
+        <div class="interest-feature">
+          <div class="interest-copy">
+            <h3>다키스트 던전 야만인 재설계</h3>
+            <p>단기전에만 쓰이던 영웅을 장기전에서도 쓸 수 있게 바꿔 본 경험입니다. 다키스트 던전 2의 숨가쁨 토큰에서 아이디어를 가져와 역할을 다시 설계했습니다.</p>
           </div>
-        </section>
-        <section class="interest-group" aria-labelledby="played-title">
-          <div class="group-head"><span class="tag tag-play">플레이 분석</span><h3 id="played-title">오래 플레이하며 본 시스템</h3></div>
-          <div class="interest-feature">
-            <div class="interest-copy">
-              <h4>스카이림과 폴아웃 4의 동료</h4>
-              <p>여러 회차를 오래 즐기게 만든 핵심 콘텐츠는 동료였다고 생각합니다. 특정 지역에 가면 동료가 로어 범위 안에서 알맞은 반응을 보이는 과정이 가장 즐거웠습니다.</p>
-              <p>언젠가 <a href="https://nexusmods.com/skyrimspecialedition/mods/98631" target="_blank" rel="noopener noreferrer">Mantella 모드</a>처럼 LLM에 NPC의 로어북과 지금 방문한 장소의 배경을 주어 맥락에 맞게 반응하는 게임을 만들어 보고 싶습니다.</p>
-            </div>
-            <dl class="case-steps">
-              <div><dt>플레이한 방식</dt><dd>스카이림 DLC 동료 세라나와 대화 추가 모드, 폴아웃 4의 바닐라 동료 시스템</dd></div>
-              <div><dt>재미의 핵심</dt><dd>방문한 장소에 따라 로어에 맞는 반응을 보여 주는 대사</dd></div>
-              <div><dt>만들고 싶은 것</dt><dd>NPC 로어북과 현재 장소의 배경을 바탕으로 맥락에 맞게 반응하는 동료</dd></div>
-            </dl>
+          <dl class="case-steps">
+            <div><dt>문제</dt><dd>바닐라 야만인은 자기 약화 패널티와 방패파괴자와의 포지션 경쟁 때문에 거의 단기전 요원으로만 쓰였습니다.</dd></div>
+            <div><dt>참고</dt><dd>다키스트 던전 2의 숨가쁨 토큰 시스템</dd></div>
+            <div><dt>변경</dt><dd>아드레날린 기술에 디버프 제거를 넣어 장기전이 가능한 구조로 바꿨습니다.</dd></div>
+            <div><dt>결과</dt><dd>그 회차의 하이랜더 플레이에서 방패파괴자 대신 여러 번 편성할 만큼 성능이 나왔습니다.</dd></div>
+          </dl>
+        </div>
+        <div class="interest-feature">
+          <div class="interest-copy">
+            <h3>게임 AI</h3>
+            <p>단순한 규칙도 함께 작동하면 포위나 협동처럼 보이는 행동을 만듭니다. 팩맨 유령마다 추격 목표가 다른 점이 흥미로워 네 종류의 규칙을 구현하고 움직임을 시각화했습니다.</p>
+            <dl class="ghost-rules"><div><dt>Blinky</dt><dd>팩맨이 있는 칸</dd></div><div><dt>Pinky</dt><dd>팩맨이 향한 방향으로 4칸 앞</dd></div><div><dt>Inky</dt><dd>Blinky에서 팩맨 2칸 앞까지의 벡터를 두 배로 늘린 지점</dd></div><div><dt>Clyde</dt><dd>8칸 이상 떨어지면 추격, 가까워지면 왼쪽 아래 구석으로 후퇴</dd></div></dl>
           </div>
-        </section>
-        <section class="interest-group watch-group" aria-labelledby="watch-title">
-          <div class="group-head"><span class="tag tag-external">외부 사례</span><h3 id="watch-title">지켜보고 있는 AI 흐름</h3><p>아래 게임과 기술은 제 작업이 아닙니다. 어떤 분야에 관심이 있는지 설명하려고 고른 다른 회사의 사례입니다.</p></div>
+          <div class="interest-demo pacman-demo">
+            <p class="demo-title">팩맨 추격 규칙 시연</p>
+            <canvas id="pacman-canvas" width="420" height="420" tabindex="0" aria-label="팩맨 추격 AI 시연" aria-describedby="pacman-controls"></canvas>
+            <div class="demo-controls"><button id="btn-ai-toggle" type="button" aria-pressed="false">AI 시각화 켜기</button><button id="pacman-reset" type="button">다시 시작</button><button id="pacman-pause" type="button">일시정지</button></div>
+            <p id="pacman-controls" class="demo-hint">화면 선택 후 WASD / 방향키 이동</p>
+            <p id="pacman-mode-label" class="demo-hint">추격 모드</p><p id="pacman-dots-label" class="demo-hint"></p><div id="ghost-target-list" class="ghost-targets"></div>
+          </div>
+        </div>
+        <div class="interest-feature">
+          <div class="interest-copy">
+            <h3>스카이림과 폴아웃 4의 동료</h3>
+            <p>여러 회차를 오래 즐기게 만든 핵심 콘텐츠는 동료였다고 생각합니다. 특정 지역에 가면 동료가 로어 범위 안에서 알맞은 반응을 보이는 과정이 가장 즐거웠습니다.</p>
+            <p>언젠가 <a href="https://nexusmods.com/skyrimspecialedition/mods/98631" target="_blank" rel="noopener noreferrer">Mantella 모드</a>처럼 LLM에 NPC의 로어북과 지금 방문한 장소의 배경을 주어 맥락에 맞게 반응하는 게임을 만들어 보고 싶습니다.</p>
+          </div>
+          <dl class="case-steps">
+            <div><dt>플레이한 방식</dt><dd>스카이림 DLC 동료 세라나와 대화 추가 모드, 폴아웃 4의 바닐라 동료 시스템</dd></div>
+            <div><dt>재미의 핵심</dt><dd>방문한 장소에 따라 로어에 맞는 반응을 보여 주는 대사</dd></div>
+            <div><dt>만들고 싶은 것</dt><dd>NPC 로어북과 현재 장소의 배경을 바탕으로 맥락에 맞게 반응하는 동료</dd></div>
+          </dl>
+        </div>
+        <section class="watch-group" aria-labelledby="watch-title">
+          <h3 id="watch-title">관심 있게 보는 AI 사례</h3>
           <article class="watch-topic is-featured" aria-labelledby="topic-system">
             <div class="watch-copy">
-              <p class="topic-kicker">가장 관심 있는 분야</p>
               <h4 id="topic-system">게임 시스템이 된 AI</h4>
               <p>AI가 플레이 규칙의 중심이 되는 게임에 가장 관심이 많습니다. 크래프톤 산하 렐루게임즈의 MIMESIS는 동료의 목소리와 행동을 흉내 내는 AI 몬스터를 중심에 둔 협동 공포 게임입니다. 국내에서 AI를 하나의 게임 시스템이자 콘텐츠로 도입한 사례라 눈여겨보고 있습니다.</p>
               <p>크래프톤이 CES 2025에서 공개한 AI 동료 캐릭터 CPC(PUBG Ally, inZOI의 Smart Zoi)도 같은 흐름으로 봅니다.</p>
@@ -217,7 +209,7 @@
           </article>
           <article class="watch-topic" aria-labelledby="topic-model">
             <div class="watch-copy">
-              <h4 id="topic-model">새로운 장르를 여는 AI 모델</h4>
+              <h4 id="topic-model">AI 모델의 발전과 게임</h4>
               <p>Fable 5를 비롯한 언어 모델이 점점 AGI에 가까워지고 있다고 느낍니다. 최근에는 TypeSafe AI의 Jev처럼 기존 분류기를 강화한 모델도 등장했습니다. 이런 모델이 늘어날수록 인공지능이 게임의 새로운 장르를 열 가능성도 커진다고 봅니다.</p>
             </div>
             <figure class="watch-case">
