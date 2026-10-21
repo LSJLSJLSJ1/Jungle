@@ -466,7 +466,6 @@
         updatePlayer(dt);
         updateGhosts(dt);
         checkCollisions();
-        updateHud();
     }
 
     function screenPoint(x, y) {
@@ -623,31 +622,6 @@
         drawOverlay();
     }
 
-    function modeLabel(mode) {
-        return '추격';
-    }
-
-    function updateHud() {
-        const mode = 'chase';
-        const modeLabelElement = document.getElementById('pacman-mode-label');
-        const dotsLabel = document.getElementById('pacman-dots-label');
-        if (modeLabelElement) modeLabelElement.textContent = `모드: ${modeLabel(mode)}`;
-        if (dotsLabel) dotsLabel.textContent = `남은 점: ${game.dots.size}`;
-
-        const list = document.getElementById('ghost-target-list');
-        if (list) {
-            list.innerHTML = game.ghosts.map((ghost) => {
-                const rawTarget = ghost.rawTarget || targetForGhost(ghost);
-                const target = ghost.target || resolveReachableTarget(rawTarget, cellOf(ghost));
-                const projected = rawTarget.x !== target.x || rawTarget.y !== target.y;
-                const coordinate = projected
-                    ? `${rawTarget.x}, ${rawTarget.y} → ${target.x}, ${target.y}`
-                    : `${target.x}, ${target.y}`;
-                return `<div class="ghost-target-row"><span class="target-color" style="background:${ghost.color}"></span><strong>${ghost.name}</strong><span title="계산한 타깃 → 이동 가능한 타깃">${coordinate}</span></div>`;
-            }).join('');
-        }
-    }
-
     function sameTile(actual, expected) {
         return actual.x === expected.x && actual.y === expected.y;
     }
@@ -756,30 +730,10 @@
         };
         const direction = keyMap[event.key] || keyMap[event.code];
         if (!direction || !game) return;
+        // With reduced motion the demo waits for the visitor's first move.
+        paused = false;
         requestPlayerDirection(direction);
         event.preventDefault();
-    }
-
-    function resetPacmanGame() {
-        if (!game) return;
-        game = createGame();
-        lastTime = performance.now();
-        syncAIVisualizationUI();
-        updateHud();
-    }
-
-    function syncAIVisualizationUI() {
-        const button = document.getElementById('btn-ai-toggle');
-        if (!button || !game) return;
-        button.textContent = game.aiVisible ? 'AI 시각화 끄기' : 'AI 시각화 켜기';
-        button.setAttribute('aria-pressed', String(game.aiVisible));
-    }
-
-    function toggleAIVisualization() {
-        if (!game) return;
-        game.aiVisible = !game.aiVisible;
-        syncAIVisualizationUI();
-        setMessage(game.aiVisible ? '점선은 각 유령이 노리는 타깃 칸입니다.' : 'AI 시각화를 끄고 유령의 협공 패턴을 관찰합니다.', 2.5);
     }
 
     function initPacmanGame(canvasId) {
@@ -798,10 +752,6 @@
         }
         game = createGame();
         window.addEventListener('keydown', handleKeydown, { passive: false });
-        const pauseButton = document.getElementById('pacman-pause');
-        if (pauseButton) pauseButton.textContent = paused ? '계속하기' : '일시정지';
-        syncAIVisualizationUI();
-        updateHud();
         const diagnostics = runPacmanDiagnostics();
         if (!diagnostics.passed) console.warn('[Pac-Man AI] Diagnostics failed', diagnostics.checks);
         if (animationFrame) window.cancelAnimationFrame(animationFrame);
@@ -810,13 +760,6 @@
     }
 
     window.initPacmanGame = initPacmanGame;
-    window.resetPacmanGame = resetPacmanGame;
-    window.toggleAIVisualization = toggleAIVisualization;
-    window.togglePacmanPause = function () {
-        paused = !paused;
-        const button = document.getElementById('pacman-pause');
-        if (button) button.textContent = paused ? '계속하기' : '일시정지';
-    };
     window.__pacmanDebug = Object.freeze({
         getState: getPacmanDebugState,
         runDiagnostics: runPacmanDiagnostics

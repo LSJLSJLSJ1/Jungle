@@ -44,7 +44,6 @@
     ></script>
     <script defer src="{{ url_for('static', filename='js/pacman.js') }}"></script>
     <script defer src="{{ url_for('static', filename='js/lab.js') }}"></script>
-    <script defer src="{{ url_for('static', filename='js/bug-hunt.js') }}"></script>
     <script defer src="{{ url_for('static', filename='js/interests.js') }}"></script>
     <noscript><style>@media(prefers-reduced-motion:reduce){ #rl-animation{display:none} }</style></noscript>
   </head>
@@ -144,16 +143,11 @@
       </section>
       <section id="interests" class="interests-section" aria-labelledby="interests-title">
         <div class="section-heading"><h2 id="interests-title">관심 분야</h2></div>
-        <div class="interest-feature">
+        <div class="interest-feature text-only">
           <div class="interest-copy">
             <h3>게임의 규칙과 밸런스</h3>
             <p>스카이림, 폴아웃 4, 다키스트 던전에서 모딩 툴과 JSON 편집으로 게임 데이터를 직접 고쳐 봤습니다. 공격력과 스킬 재사용 시간 같은 값이 플레이를 어떻게 바꾸는지 그때 처음 체감했습니다.</p>
             <p>플레이어의 선택을 바꾸는 규칙에 관심이 있습니다. 연막으로 원거리 캐릭터의 시야를 차단하거나 밤에 탐험과 방어로 인원을 나누게 하는 규칙이 그런 예입니다.</p>
-          </div>
-          <div id="bug-hunt" class="interest-demo">
-            <div class="demo-toolbar"><p class="demo-name">버그 소탕 미니게임</p><span>점수 <strong id="bug-hunt-score">0</strong></span></div>
-            <div class="bug-stage"><canvas id="bug-hunt-canvas" width="560" height="420" tabindex="0" aria-label="WASD로 이동하고 마우스로 사격하는 버그 소탕 미니게임" aria-describedby="bug-controls"></canvas><div id="bug-hunt-overlay" class="bug-overlay is-hidden"><strong>다시 도전</strong></div></div>
-            <div class="demo-controls"><button id="bug-hunt-restart" type="button">시작</button><button id="bug-hunt-pause" type="button" disabled>일시정지</button><p id="bug-controls">WASD 이동 / 마우스 사격</p></div>
           </div>
         </div>
         <div class="interest-feature">
@@ -177,9 +171,7 @@
           <div class="interest-demo pacman-demo">
             <p class="demo-title">팩맨 추격 규칙 시연</p>
             <canvas id="pacman-canvas" width="420" height="420" tabindex="0" aria-label="팩맨 추격 AI 시연" aria-describedby="pacman-controls"></canvas>
-            <div class="demo-controls"><button id="btn-ai-toggle" type="button" aria-pressed="false">AI 시각화 켜기</button><button id="pacman-reset" type="button">다시 시작</button><button id="pacman-pause" type="button">일시정지</button></div>
             <p id="pacman-controls" class="demo-hint">화면 선택 후 WASD / 방향키 이동</p>
-            <p id="pacman-mode-label" class="demo-hint">추격 모드</p><p id="pacman-dots-label" class="demo-hint"></p><div id="ghost-target-list" class="ghost-targets"></div>
           </div>
         </div>
         <div class="interest-feature">
@@ -235,7 +227,7 @@
             <figure class="watch-case learning-demo">
               <img id="rl-animation" src="{{ url_for('serve_image', filename='AI_RL.webp') }}" width="647" height="365" loading="lazy" alt="Embark Studios가 제작한 ARC Raiders의 로봇 이동 장면" />
               <canvas id="rl-still" width="647" height="365" role="img" aria-label="ARC Raiders 로봇 이동 장면의 정지 화면" hidden></canvas>
-              <figcaption><span>영상 출처: Embark Studios, ARC Raiders</span><button id="rl-toggle" type="button" hidden>일시정지</button></figcaption>
+              <figcaption><span>영상 출처: Embark Studios, ARC Raiders</span></figcaption>
             </figure>
           </article>
         </section>

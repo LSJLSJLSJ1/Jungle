@@ -681,15 +681,6 @@ summary::marker {
 .ghost-rules { margin-top:28px; display:grid; gap:12px; font-size:14px; }
 .ghost-rules > div { display:grid; grid-template-columns:72px 1fr; gap:16px; }
 .ghost-rules dd,.demo-hint { color:var(--muted); }
-.demo-toolbar { display:flex; gap:16px; justify-content:space-between; align-items:center; margin-bottom:12px; font-size:14px; }
-.bug-stage { position:relative; }
-.bug-overlay { position:absolute; inset:0; display:grid; place-items:center; background:#10171cd9; pointer-events:none; border-radius:8px; }
-.bug-overlay.is-hidden { display:none; }
-.demo-controls { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:16px; }
-.demo-controls button,.learning-demo button { background:var(--surface); border:1px solid var(--line); color:var(--text); border-radius:6px; min-height:44px; padding:8px 16px; font-size:14px; }
-.demo-controls p,.demo-hint { font-size:13px; margin-top:8px; }
-.demo-controls button:hover,.learning-demo button:hover { border-color:var(--accent); }
-.ghost-targets { display:none; }
 .learning-demo figcaption { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-top:16px; font-size:13px; color:var(--muted); }
 .learning-demo [hidden] { display:none !important; }
 .demo-title { margin-bottom:16px; font-size:16px; font-weight:600; }
@@ -704,7 +695,6 @@ summary::marker {
 .secondary:hover { border-color:var(--accent); }
 @media(max-width:760px) { .hero-focus { font-size:16px; } }
 /* Interests: own demonstrations first, other studios' cases in a separate panel. */
-.demo-name { font-size:16px; font-weight:600; margin:0; }
 .watch-group { margin-top:48px; padding:40px; background:var(--surface); border:1px solid var(--line); border-radius:12px; }
 .watch-topic { display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:48px; align-items:start; padding-block:32px; border-top:1px solid var(--line); }
 .watch-topic:last-child { padding-bottom:0; }
@@ -716,7 +706,6 @@ summary::marker {
 .watch-case figcaption { display:flex; flex-wrap:wrap; align-items:center; gap:4px 16px; margin-top:12px; font-size:13px; color:var(--muted); }
 .watch-case figcaption span { flex-basis:100%; }
 .watch-case figcaption a { color:var(--text); min-height:32px; display:inline-flex; align-items:center; }
-.watch-case figcaption button { margin-left:auto; }
 @media(max-width:760px) { .watch-group { margin-top:32px; padding:24px 20px; } .watch-topic { grid-template-columns:1fr; gap:20px; padding-block:28px; } }
 .interest-copy a { color:var(--text); }
 .case-steps { display:grid; gap:0; margin:0; border-top:1px solid var(--line); }
@@ -741,3 +730,5 @@ summary::marker {
 .watch-links span { flex:0 0 9em; color:var(--muted); font-size:13px; }
 .watch-topic.no-media { grid-template-columns:minmax(0,1fr); }
 @media(max-width:760px) { .watch-links span { flex-basis:100%; } }
+.interest-feature.text-only { grid-template-columns:minmax(0,1fr); }
+.demo-hint { font-size:13px; margin-top:12px; }
