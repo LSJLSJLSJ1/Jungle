@@ -111,7 +111,7 @@
             },
             ghosts: GHOSTS.map(createGhost),
             aiVisible: true,
-            message: 'AI 시각화 활성화: 점선은 각 유령의 실시간 타겟 좌표입니다.',
+            message: 'AI 시각화 켜짐: 점선은 각 유령이 노리는 타깃 칸입니다.',
             messageUntil: 5,
             flashUntil: 0
         };
@@ -452,7 +452,7 @@
                 item.path = [{ ...item.home }];
             });
             game.flashUntil = game.time + 0.35;
-            setMessage(`포위 성공! ${ghost.name}에게 붙잡혔습니다. AI 타겟 패턴을 관찰해보세요.`, 2.5);
+            setMessage(`포위 성공! ${ghost.name}에게 붙잡혔습니다. AI 타깃 패턴을 관찰해 보세요.`, 2.5);
         });
     }
 
@@ -624,7 +624,7 @@
     }
 
     function modeLabel(mode) {
-        return 'CHASE (협공 추격)';
+        return '추격';
     }
 
     function updateHud() {
@@ -643,7 +643,7 @@
                 const coordinate = projected
                     ? `${rawTarget.x}, ${rawTarget.y} → ${target.x}, ${target.y}`
                     : `${target.x}, ${target.y}`;
-                return `<div class="ghost-target-row"><span class="target-color" style="background:${ghost.color}"></span><strong>${ghost.name}</strong><span title="원시 타겟 → 이동 가능한 타겟">${coordinate}</span></div>`;
+                return `<div class="ghost-target-row"><span class="target-color" style="background:${ghost.color}"></span><strong>${ghost.name}</strong><span title="계산한 타깃 → 이동 가능한 타깃">${coordinate}</span></div>`;
             }).join('');
         }
     }
@@ -779,7 +779,7 @@
         if (!game) return;
         game.aiVisible = !game.aiVisible;
         syncAIVisualizationUI();
-        setMessage(game.aiVisible ? '점선 = 각 유령의 실시간 길목 타겟 좌표' : 'AI 시각화를 끄고 유령의 협공 패턴을 관찰합니다.', 2.5);
+        setMessage(game.aiVisible ? '점선은 각 유령이 노리는 타깃 칸입니다.' : 'AI 시각화를 끄고 유령의 협공 패턴을 관찰합니다.', 2.5);
     }
 
     function initPacmanGame(canvasId) {

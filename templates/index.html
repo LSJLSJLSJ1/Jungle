@@ -6,7 +6,7 @@
     <title>이성재 | 포트폴리오</title>
     <meta
       name="description"
-      content="이성재의 자기소개와 포트폴리오. 게임 시스템, 캐릭터 밸런싱, 레벨 디자인 프로젝트."
+      content="Game Design 지원자 이성재의 포트폴리오. 게임 시스템, 캐릭터 밸런싱, 레벨 디자인을 맡은 팀 프로젝트와 설계 노트."
     />
     <meta name="theme-color" content="#10171c" />
     <link rel="canonical" href="{{ url_for('home', _external=True) }}" />
@@ -46,7 +46,7 @@
     <script defer src="{{ url_for('static', filename='js/lab.js') }}"></script>
     <script defer src="{{ url_for('static', filename='js/bug-hunt.js') }}"></script>
     <script defer src="{{ url_for('static', filename='js/interests.js') }}"></script>
-    <noscript><style>@media(prefers-reduced-motion:reduce){#rl-animation{display:none}}</style></noscript>
+    <noscript><style>@media(prefers-reduced-motion:reduce){ #rl-animation{display:none} }</style></noscript>
   </head>
   <body>
     <div id="cutscene-overlay" hidden aria-modal="true" role="dialog" aria-label="3D 강하 인트로">
@@ -83,7 +83,7 @@
       </div>
 
       <div class="cutscene-bottom-box" id="cutscene-ui-box">
-        <h1 class="cutscene-title">3D 강하 미니게임</h1>
+        <h2 class="cutscene-title">3D 강하 미니게임</h2>
         <p class="cutscene-sub">WASD로 착지 지점을 조준하세요.</p>
         <div class="cutscene-btn-row">
           <button id="btn-drop" class="btn-drop">
@@ -116,7 +116,7 @@
         >
         <nav aria-label="주요 탐색">
           <a href="#intro">소개</a><a href="#interests">관심 분야</a
-          ><a href="#projects">만든 것</a><a href="#contact">연락처</a>
+          ><a href="#projects">참여한 작업</a><a href="#contact">연락처</a>
         </nav>
         <a
           class="header-github"
@@ -134,6 +134,7 @@
         <div class="hero-copy">
           <h1 id="intro-title" tabindex="-1">안녕하세요,<br />이성재입니다.</h1>
           <p class="hero-description">게임을 즐기다 규칙이 궁금해졌고,<br />모딩을 거쳐 직접 게임을 만들기 시작했습니다.</p>
+          <p class="hero-focus">5일 안에 만든 두 팀 프로젝트에서 기획 대부분을 맡아 게임 시스템과 캐릭터 밸런싱을 설계했습니다.</p>
         </div>
         <dl class="intro-profile">
           <div><dt>지원 직무</dt><dd lang="en">Game Development / Game Design</dd></div>
@@ -142,12 +143,12 @@
         </dl>
       </section>
       <section id="interests" class="interests-section" aria-labelledby="interests-title">
-        <div class="section-heading"><h2 id="interests-title">관심 있는 것</h2></div>
+        <div class="section-heading"><h2 id="interests-title">관심 분야</h2></div>
         <div class="interest-feature">
           <div class="interest-copy">
             <h3>게임의 규칙과 밸런스</h3>
             <p>스카이림을 모딩하며 공격력과 스킬 재사용 시간이 플레이를 어떻게 바꾸는지 살펴봤습니다.</p>
-            <p>연막으로 원거리 캐릭터의 시야를 차단하거나, 밤에 탐험과 방어를 나누게 하는 규칙처럼 플레이어의 선택을 바꾸는 설계에 관심이 있습니다.</p>
+            <p>플레이어의 선택을 바꾸는 규칙에 관심이 있습니다. 연막으로 원거리 캐릭터의 시야를 차단하거나 밤에 탐험과 방어로 인원을 나누게 하는 규칙이 그런 예입니다.</p>
           </div>
           <div id="bug-hunt" class="interest-demo">
             <div class="demo-toolbar"><h4>버그 소탕 미니게임</h4><span>점수 <strong id="bug-hunt-score">0</strong></span></div>
@@ -159,7 +160,7 @@
           <div class="interest-copy">
             <h3>게임 AI</h3>
             <p>단순한 규칙도 함께 작동하면 포위나 협동처럼 보이는 행동을 만듭니다. 팩맨 유령마다 추격 목표가 다른 점이 흥미로워 네 종류의 규칙을 구현하고 움직임을 시각화했습니다.</p>
-            <dl class="ghost-rules"><div><dt>Blinky</dt><dd>현재 위치 추격</dd></div><div><dt>Pinky</dt><dd>이동 방향 4칸 앞</dd></div><div><dt>Inky</dt><dd>Blinky와 전방 지점의 확장 벡터</dd></div><div><dt>Clyde</dt><dd>거리에 따라 추격 또는 후퇴</dd></div></dl>
+            <dl class="ghost-rules"><div><dt>Blinky</dt><dd>팩맨이 있는 칸</dd></div><div><dt>Pinky</dt><dd>팩맨이 향한 방향으로 4칸 앞</dd></div><div><dt>Inky</dt><dd>Blinky에서 팩맨 2칸 앞까지의 벡터를 두 배로 늘린 지점</dd></div><div><dt>Clyde</dt><dd>8칸 이상 떨어지면 추격, 가까워지면 왼쪽 아래 구석으로 후퇴</dd></div></dl>
           </div>
           <div class="interest-demo pacman-demo">
             <h4 class="demo-title">팩맨 추격 규칙 시연</h4>
@@ -178,11 +179,11 @@
           </figure>
         </div>
         <section class="interest-references" aria-labelledby="references-title">
-          <div class="interest-copy"><h3 id="references-title">관심 분야의 외부 사례</h3><p>언어 모델, 게임 AI, 로봇에 AI가 쓰이는 방식을 살펴보고 있습니다.</p></div>
+          <div class="interest-copy"><h3 id="references-title">관심 분야의 외부 사례</h3><p>언어 모델과 게임, 로봇에서 AI가 맡는 역할을 살펴보고 있습니다.</p></div>
           <div class="reference-gallery">
-            <figure><img src="{{ url_for('serve_image', filename='fable.png') }}" width="686" height="386" loading="lazy" alt="Anthropic Fable 5 소개 이미지" /><figcaption><a href="https://www.anthropic.com/claude/fable" target="_blank" rel="noopener noreferrer">Claude Fable 5</a><span>제작: Anthropic / 언어 모델</span><p>자연어로 요구사항을 전달해 코드 작성과 검토를 돕는 언어 모델.</p></figcaption></figure>
-            <figure><img src="{{ url_for('serve_image', filename='mimesis.png') }}" width="1920" height="1080" loading="lazy" alt="ReLU Games가 제작한 MIMESIS 게임 이미지" /><figcaption><a href="https://mimesis.relugames.com/" target="_blank" rel="noopener noreferrer">MIMESIS</a><span>제작: ReLU Games / 게임 AI</span><p>동료의 목소리와 행동을 흉내 내는 적이 등장하는 협동 공포 게임. AI의 행동이 플레이어 사이의 신뢰와 의심을 만드는 사례입니다.</p></figcaption></figure>
-            <figure><img src="{{ url_for('serve_image', filename='atlas.png') }}" width="792" height="564" loading="lazy" alt="Boston Dynamics가 제작한 Atlas 로봇" /><figcaption><a href="https://bostondynamics.com/products/atlas/" target="_blank" rel="noopener noreferrer">Atlas</a><span>제작: Boston Dynamics / 로봇</span><p>주변을 인식하고 물체를 옮기는 휴머노이드 로봇. 가상 캐릭터를 넘어 실제 환경에서 움직이는 AI의 사례입니다.</p></figcaption></figure>
+            <figure><img src="{{ url_for('serve_image', filename='fable.png') }}" width="686" height="386" loading="lazy" alt="Anthropic Fable 5 소개 이미지" /><figcaption><a href="https://www.anthropic.com/claude/fable" target="_blank" rel="noopener noreferrer">Claude Fable 5</a><span>제작: Anthropic / 언어 모델</span><p>자연어로 요구사항을 전달하면 코드 작성과 검토를 돕는 언어 모델입니다.</p></figcaption></figure>
+            <figure><img src="{{ url_for('serve_image', filename='mimesis.png') }}" width="1920" height="1080" loading="lazy" alt="ReLU Games가 제작한 MIMESIS 게임 이미지" /><figcaption><a href="https://mimesis.relugames.com/" target="_blank" rel="noopener noreferrer">MIMESIS</a><span>제작: ReLU Games / 게임 AI</span><p>동료의 목소리와 행동을 흉내 내는 적이 등장하는 협동 공포 게임입니다. AI의 행동이 플레이어 사이에 신뢰와 의심을 만듭니다.</p></figcaption></figure>
+            <figure><img src="{{ url_for('serve_image', filename='atlas.png') }}" width="792" height="564" loading="lazy" alt="Boston Dynamics가 제작한 Atlas 로봇" /><figcaption><a href="https://bostondynamics.com/products/atlas/" target="_blank" rel="noopener noreferrer">Atlas</a><span>제작: Boston Dynamics / 로봇</span><p>주변을 인식하고 물체를 옮기는 휴머노이드 로봇입니다. 게임 밖 실제 환경에서 움직이는 AI의 사례입니다.</p></figcaption></figure>
           </div>
         </section>
       </section>
@@ -218,7 +219,7 @@
               성장하며 구역을 돌파하고 마왕에게 도전하는 협동 액션 RPG.
             </p>
             <p class="contribution">
-              <strong>개인 기여</strong>낮·밤의 탐험과 방어, AI 동료 역할, 레벨 디자인과 성장 밸런스
+              <strong>개인 기여</strong>기획 대부분을 맡아 낮의 성장과 밤의 방어 규칙, AI 동료의 역할 분담, 레벨 디자인과 성장 밸런스를 설계했습니다.
             </p>
             <div class="project-actions">
               <a
@@ -226,7 +227,7 @@
                 href="{{ url_for('static', filename='games/demon-king/index.html') }}"
                 >싱글플레이</a
               ><a
-                class="text-link"
+                class="button secondary"
                 href="{{ url_for('static', filename='portfolio/design-demon-king.html') }}"
                 >설계 노트
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -256,10 +257,10 @@
           <div class="project-copy">
             <h3 translate="no">Visual Shooting Code</h3><p class="project-meta">5일 이내 개발 / 4인 팀</p>
             <p class="project-summary">
-              시야와 엄폐물을 활용하는 탑다운 슈터. AI 5명과 대전합니다.
+              시야와 엄폐물, 병과 능력을 조합하는 탑다운 슈터.
             </p>
             <p class="contribution">
-              <strong>개인 기여</strong>시야와 연막 규칙, 캐릭터 밸런싱과 스킬 기획
+              <strong>개인 기여</strong>병과 다양화를 제외한 기획 대부분을 맡아 연막 안팎의 시야 규칙, 캐릭터 밸런싱과 스킬을 설계했습니다.
             </p>
             <div class="project-actions">
               <a
@@ -267,7 +268,7 @@
                 href="{{ url_for('static', filename='games/shooter/game.html') }}"
                 >싱글플레이</a
               ><a
-                class="text-link"
+                class="button secondary"
                 href="{{ url_for('static', filename='portfolio/design-shooter.html') }}"
                 >설계 노트
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -279,7 +280,7 @@
       </section>
       <section class="more-work" aria-labelledby="more-title">
         <div class="section-heading">
-          <h2 id="more-title">자료</h2>
+          <h2 id="more-title">보고서와 논문</h2>
         </div>
         <div class="work-list">
           <a
