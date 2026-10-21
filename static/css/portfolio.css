@@ -735,3 +735,9 @@ summary::marker {
 @media(max-width:760px) { .case-steps > div { grid-template-columns:80px 1fr; gap:12px; } .team-practice { grid-template-columns:1fr; gap:24px; padding-top:40px; } .interest-closing { margin-top:40px; } .interest-closing h3 { font-size:23px; } }
 .watch-group > h3 { font-size:26px; font-weight:700; letter-spacing:-0.02em; margin-bottom:8px; }
 @media(max-width:760px) { .watch-group > h3 { font-size:23px; } }
+.watch-links { list-style:none; margin:20px 0 0; padding:0; display:grid; gap:2px; max-width:62ch; }
+.watch-links a { display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 12px; min-height:44px; padding-block:10px; border-top:1px solid var(--line); color:var(--text); font-size:15px; line-height:1.5; text-decoration:none; }
+.watch-links a:hover { text-decoration:underline; }
+.watch-links span { flex:0 0 9em; color:var(--muted); font-size:13px; }
+.watch-topic.no-media { grid-template-columns:minmax(0,1fr); }
+@media(max-width:760px) { .watch-links span { flex-basis:100%; } }
