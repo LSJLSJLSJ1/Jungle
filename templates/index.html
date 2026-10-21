@@ -1,405 +1,305 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이성재 — 클라이언트 게임 프로그래머</title>
-    <meta name="description" content="게임의 규칙과 시스템을 코드로 탐구하는 이성재의 자기소개 페이지. 3D 강하 컷씬과 팩맨 추격 시스템을 만나보세요.">
-    <meta name="theme-color" content="#000000">
-    <link rel="canonical" href="{{ url_for('home', _external=True) }}">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="이성재 — 클라이언트 게임 프로그래머">
-    <meta property="og:description" content="게임의 규칙과 시스템을 코드로 탐구하는 이성재의 자기소개 페이지.">
-    <meta property="og:url" content="{{ url_for('home', _external=True) }}">
-    <meta property="og:image" content="{{ url_for('serve_image', filename='AI_RL.webp', _external=True) }}">
-    <meta name="twitter:card" content="summary_large_image">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>이성재 | 포트폴리오</title>
+    <meta
+      name="description"
+      content="이성재의 자기소개와 포트폴리오. 게임 시스템, 캐릭터 밸런싱, 레벨 디자인 프로젝트."
+    />
+    <meta name="theme-color" content="#10171c" />
+    <link rel="canonical" href="{{ url_for('home', _external=True) }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="이성재 | 포트폴리오" />
+    <meta
+      property="og:description"
+      content="이성재의 자기소개, 관심 분야와 프로젝트."
+    />
+    <meta property="og:url" content="{{ url_for('home', _external=True) }}" />
+    <meta
+      property="og:image"
+      content="{{ url_for('static', filename='portfolio/og-portfolio.png', _external=True) }}"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='portfolio/favicon.svg') }}"
+      type="image/svg+xml"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/portfolio.css') }}"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/intro.css') }}" />
+    <script>window.SITE_CONFIG = { staticMode: true };</script>
+    <script defer src="{{ url_for('static', filename='vendor/three-r128.min.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='vendor/jquery-3.7.1.min.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script
+      defer
+      src="{{ url_for('static', filename='js/portfolio.js') }}"
+    ></script>
+  </head>
+  <body>
+    <div id="cutscene-overlay" hidden aria-modal="true" role="dialog" aria-label="3D 강하 인트로">
+      <button id="btn-skip-cutscene" class="intro-skip" type="button">자기소개로 바로 가기</button>
+      <div id="cutscene-3d-container"></div>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+      <div class="hud-top">
+        <div class="hud-stat">
+          <span class="hud-label">착지까지 남은 시간</span>
+          <span id="hud-timer" class="hud-val hud-timer">8.0 s</span>
+        </div>
+      </div>
 
-    <!-- 기존 3D 컷씬 의존성 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <noscript><style>#cutscene-overlay { display: none !important; }</style></noscript>
-    <script>
-        window.addEventListener('load', function () {
-            if (!window.jQuery) {
-                document.getElementById('cutscene-overlay')?.remove();
-            }
-        });
-    </script>
-</head>
-<body>
-
-    <!-- 3D 수송기 강하 인트로: 기존 컷씬 전체를 유지합니다. -->
-    <div id="cutscene-overlay" role="dialog" aria-label="3D 강하 인트로">
-        <div id="cutscene-3d-container"></div>
-
-        <div class="hud-top">
-            <div class="hud-stat">
-                <span class="hud-label">착지까지 남은 시간</span>
-                <span id="hud-timer" class="hud-val hud-timer">8.0 s</span>
+      <div id="minigame-hud" class="minigame-hud">
+        <div class="center-hud-group">
+          <div class="wasd-keys-box">
+            <div class="wasd-grid">
+              <div class="key-cap key-w" id="key-w">W</div>
+              <div class="key-row">
+                <div class="key-cap key-a" id="key-a">A</div>
+                <div class="key-cap key-s" id="key-s">S</div>
+                <div class="key-cap key-d" id="key-d">D</div>
+              </div>
             </div>
-        </div>
-
-        <div id="minigame-hud" class="minigame-hud">
-            <div class="center-hud-group">
-                <div class="wasd-keys-box">
-                    <div class="wasd-grid">
-                        <div class="key-cap key-w" id="key-w">W</div>
-                        <div class="key-row">
-                            <div class="key-cap key-a" id="key-a">A</div>
-                            <div class="key-cap key-s" id="key-s">S</div>
-                            <div class="key-cap key-d" id="key-d">D</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="target-radar-box">
-                    <div class="radar-circle">
-                        <div id="radar-player-dot" class="radar-dot"></div>
-                        <div class="radar-center-cross"></div>
-                    </div>
-                    <div id="radar-distance" class="radar-dist">착지 오차: 0m</div>
-                </div>
+          </div>
+          <div class="target-radar-box">
+            <div class="radar-circle">
+              <div id="radar-player-dot" class="radar-dot"></div>
+              <div class="radar-center-cross"></div>
             </div>
+            <div id="radar-distance" class="radar-dist">착지 오차: 0m</div>
+          </div>
         </div>
+      </div>
 
-        <div class="cutscene-bottom-box" id="cutscene-ui-box">
-            <h1 class="cutscene-title">LEESEONGJAE'S JUNGLE</h1>
-            <button id="btn-drop" class="btn-drop">
-                <span class="key-badge">[F] 뛰어내리기</span>
-            </button>
-            <button id="btn-skip-cutscene" class="btn-skip-cutscene" type="button">3D 인트로 건너뛰기</button>
-        </div>
+      <div class="cutscene-bottom-box" id="cutscene-ui-box">
+        <h1 class="cutscene-title">3D 강하 미니게임</h1>
+        <p class="cutscene-sub">WASD로 착지 지점을 조준하세요.</p>
+        <div class="cutscene-btn-row">
+          <button id="btn-drop" class="btn-drop">
+            <span class="key-badge">[F] 뛰어내리기</span>
+          </button>
 
-        <div id="minigame-fail-box" class="minigame-modal-box">
-            <div class="fail-icon">💥</div>
-            <h2 class="modal-title">착지 실패!</h2>
-            <p class="modal-desc">크래프톤 정글은 몰입하는 자만이 살아남을 수 있습니다.</p>
-            <button id="btn-retry" onclick="replayCutscene()" class="btn-drop btn-retry">
-                [F] 다시 시도
-            </button>
         </div>
+      </div>
+
+      <div id="minigame-fail-box" class="minigame-modal-box">
+        <h2 class="modal-title">착지 오차 범위 초과</h2>
+        <p class="modal-desc">목표 지점에서 벗어났습니다.</p>
+        <button
+          id="btn-retry"
+          onclick="replayCutscene()"
+          class="btn-drop btn-retry"
+        >
+          [F] 다시 시도
+        </button>
+      </div>
     </div>
 
-    <div id="main-portfolio">
-        <canvas id="system-background" aria-hidden="true"></canvas>
-        <header class="navbar">
-            <div class="nav-container">
-                <a class="logo" href="#intro" aria-label="이성재 자기소개 홈">
-                    <span>이성재</span>
-                    <span class="logo-tag">Game Client Programmer · Game AI</span>
-                </a>
-                <nav aria-label="페이지 탐색">
-                    <ul class="nav-links">
-                        <li><a href="#intro">소개</a></li>
-                        <li><a href="#learned">키워드</a></li>
-                        <li><a href="#journey">개발 여정</a></li>
-                        <li><a href="#ghost-ai">게임 AI</a></li>
-                        <li><a href="#portfolio">포트폴리오</a></li>
-                        <li><a href="#guestbook">방명록</a></li>
-                    </ul>
-                </nav>
+    <div id="portfolio-content">
+    <a class="skip-link" href="#intro">본문으로 이동</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="identity" href="#intro" aria-label="이성재 포트폴리오 홈"
+          ><strong>이성재</strong
+          ><span lang="en" translate="no">Seongjae Lee</span></a
+        >
+        <nav aria-label="주요 탐색">
+          <a href="#intro">소개</a><a href="#interests">관심 분야</a
+          ><a href="#projects">만든 것</a><a href="#contact">연락처</a>
+        </nav>
+        <a
+          class="header-github"
+          href="https://github.com/LSJLSJLSJ1"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 17 17 7M7 7h10v10" /></svg
+        ></a>
+      </div>
+    </header>
+    <main id="main" class="container">
+      <section id="intro" class="hero intro-section" aria-labelledby="intro-title">
+        <div class="hero-copy">
+          <h1 id="intro-title" tabindex="-1">안녕하세요,<br />이성재입니다.</h1>
+          <p class="hero-description">게임을 즐기다 규칙이 궁금해졌고,<br />모딩을 거쳐 직접 게임을 만들기 시작했습니다.</p>
+          <a class="text-link intro-next" href="#interests">관심 분야 보기 <span aria-hidden="true">↓</span></a>
+        </div>
+        <dl class="intro-profile">
+          <div><dt>지원 직무</dt><dd lang="en">Game Development / Game Design</dd></div>
+          <div><dt>교육</dt><dd>크래프톤 정글 웹개발 집중캠프</dd></div>
+          <div><dt>사용 도구</dt><dd>TypeScript, JavaScript, Phaser 3, Three.js</dd></div>
+          <div><dt>연락처</dt><dd><a href="mailto:leesungjae2002@gmail.com">leesungjae2002@gmail.com</a></dd></div>
+        </dl>
+      </section>
+      <section id="interests" class="interests-section" aria-labelledby="interests-title">
+        <div class="section-heading"><h2 id="interests-title">관심 있는 것</h2></div>
+        <div class="interest-row">
+          <h3>게임의 규칙과 밸런스</h3>
+          <p>스카이림을 모딩하며 공격력과 스킬 재사용 시간이 플레이를 어떻게 바꾸는지 살펴봤습니다. 지금은 캐릭터의 역할과 전투 규칙을 직접 만들고 있습니다.</p>
+        </div>
+        <div class="interest-row">
+          <h3>게임 AI</h3>
+          <div><p>팩맨 유령 네 종류의 추격 규칙을 구현하고 움직임을 시각화했습니다.</p><a class="text-link" href="{{ url_for('demos', filename='pacman.html') }}">팩맨 AI 보기</a></div>
+        </div>
+        <div class="interest-row">
+          <h3>AI를 활용한 제작</h3>
+          <p>생성형 AI로 게임 캐릭터 이미지를 제작하고 객체 검출과 OCR로 영양제 라벨 정보를 추출하는 프로젝트에 참여했습니다.</p>
+        </div>
+      </section>
+      <section
+        id="projects"
+        class="projects-section"
+        aria-labelledby="projects-title"
+      >
+        <div class="section-heading">
+          <h2 id="projects-title">만든 것</h2>
+        </div>
+        <article class="project" id="demon-king">
+          <div class="project-media">
+            <a
+              href="{{ url_for('static', filename='games/demon-king/index.html') }}"
+              class="screenshot-link"
+              aria-label="5일 뒤 마왕 싱글플레이 열기"
+              ><img
+                src="{{ url_for('static', filename='portfolio/project3-gameplay.webp') }}"
+                width="1280"
+                height="720"
+                loading="lazy"
+                alt="5일 뒤 마왕의 파티, 미니맵, 체력과 전투 HUD"
+            /></a>
+            <div class="image-caption">
+              <span>온라인 버전 화면</span
+              ><span>TypeScript / Phaser / Colyseus</span>
             </div>
-        </header>
-
-        <main class="container">
-            <section id="intro" class="hero-section">
-                <div class="hero-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
-                <p class="hero-eyebrow"><span class="status-dot"></span> Krafton Jungle · Web Development Intensive Camp</p>
-                <h1 class="hero-headline"><span>이성재입니다.</span></h1>
-                <p class="hero-slogan">복잡하면서도 흥미로운 시스템을 설계하는 게임 개발자</p>
-                <p class="hero-subheadline">
-                    게임을 즐기는 데서 출발해 모딩으로 게임 규칙을 바꾸어 보고,<br>이제는 게임 로직을 구현하는 클라이언트 개발자의 길을 걷고 있습니다.
-                </p>
-                <div class="contact-row">
-                    <a class="contact-chip" href="mailto:leesungjae2002@gmail.com"><span>✉</span> leesungjae2002@gmail.com</a>
-                    <a class="contact-chip" href="https://github.com/LSJLSJLSJ1" target="_blank" rel="noreferrer"><span>⌘</span> github.com/LSJLSJLSJ1</a>
-                </div>
-            </section>
-
-            <section id="learned" class="content-section">
-                <div class="section-title-wrap">
-                    <p class="section-eyebrow">01 / About Me</p>
-                    <h2 class="section-title intro-section-title"><span class="section-title-line">게임을 파고드는 집요함이,</span><span class="section-title-line">개발자의 길로 저를 이끌었습니다.</span></h2>
-                    <p class="section-lead">복잡한 시스템을 이해하려는 탐구심, 새로운 기술을 목적에 맞게 활용하는 태도, <br>불편함을 지나치지 않는 습관을 바탕으로 저만의 경험과 노하우가 담긴 게임을 만드는 것이 목표입니다.</p>
-                </div>
-
-                <div class="bento-grid learning-grid">
-                    <article class="bento-card learning-card learning-card-wide">
-                        <div class="card-icon">◆</div>
-                        <div class="bento-num">01 / GAME</div>
-                        <h3 class="bento-title">복잡한 시스템을 가진 게임에서 최선의 선택을 찾습니다.</h3>
-                        <p class="bento-desc">게임을 플레이하는 데서 그치지 않고, <br>게임 내 복잡한 수치가 결과에 어떻게 영향을 주는지 파고들어 왔습니다. <br>가끔은 알려져 있지 않은 비공개 정보를 찾아가며 효율적인 솔루션을 세우기도 합니다.</p>
-                        <div class="tech-tags"><span class="tech-tag">Systems Thinking</span><span class="tech-tag">Analysis</span><span class="tech-tag">Optimization</span></div>
-                    </article>
-                    <article class="bento-card learning-card">
-                        <div class="card-icon card-icon-blue">✦</div>
-                        <div class="bento-num">02 / AI</div>
-                        <h3 class="bento-title">주어진 기술의 가능성을 끝까지 탐색합니다.</h3>
-                        <p class="bento-desc">인공지능의 콘텐츠 활용 가능성에 <br>끊임없이 관심을 가져왔습니다. <br>기술을 단순히 사용하는 데 그치지 않고, <br>특성과 한계를 파악해 <br>목적에 맞는 활용 방법을 고민합니다.</p>
-                        <div class="tech-tags"><span class="tech-tag">Generative AI</span><span class="tech-tag">Experiment</span><span class="tech-tag">Adaptation</span></div>
-                    </article>
-                    <article class="bento-card learning-card">
-                        <div class="card-icon card-icon-green">⌬</div>
-                        <div class="bento-num">03 / PROBLEM SOLVING</div>
-                        <h3 class="bento-title">고칠 수 있는 불편함은 지나치지 않습니다.</h3>
-                        <p class="bento-desc">게임을 즐기며 발견한 문제를 <br>그대로 받아들이기보다, <br>원인을 분석해 개선해 왔습니다. <br>원하는 플레이 경험에 도달하기 전까지 <br>게임을 잠시 접어뒀습니다.</p>
-                        <div class="tech-tags"><span class="tech-tag">Debugging</span><span class="tech-tag">Compatibility</span><span class="tech-tag">QA</span></div>
-                    </article>
-                    <article class="bento-card learning-card learning-card-wide">
-                        <div class="card-icon card-icon-orange">◈</div>
-                        <div class="bento-num">04 / IMPLEMENTATION</div>
-                        <h3 class="bento-title">쌓아 온 노하우를 저만의 게임에 담으려 합니다.</h3>
-                        <p class="bento-desc">분석하고 고치는 경험을 넘어, <br>게임 AI를 설계하고 구현하는 개발자로 나아가고자 합니다.</p>
-                        <div class="tech-tags"><span class="tech-tag">Game AI</span><span class="tech-tag">Combat Design</span><span class="tech-tag">Iteration</span></div>
-                    </article>
-                </div>
-            </section>
-
-            <section id="journey" class="content-section journey-section">
-                <div class="section-title-wrap">
-                    <p class="section-eyebrow">02 / Gamer to Modder to Developer</p>
-                    <h2 class="section-title">게임을 직접 바꾸기 시작했습니다.</h2>
-                </div>
-                <div class="journey-layout">
-                    <div class="journey-copy">
-                        <p class="journey-kicker">즐기는 사람에서, 고치는 사람을 지나, 만드는 사람으로</p>
-                        <h3><span class="journey-nowrap">게이머에서 모더로,</span><br><span>모더에서 개발자로.</span></h3>
-                        <p>게임을 오랜 시간동안 즐겨오면서, 인게임 수치 하나만으로도 플레이 경험을 크게 바꿀 수 있다는 사실을 깨달았습니다..</p>
-                        <p>기존 시스템을 분석해서 요소를 변경하거나 추가하는 모딩은 그 호기심을 행동으로 옮긴 첫 단계였고. 이제는 주어진 요소를 바꾸는 것을 넘어 제가 설계한 로직을 코드로 구현하는 개발자의 길을 걷고 있습니다.</p>
-                    </div>
-                    <div class="bug-hunt" id="bug-hunt">
-                        <div class="bug-hunt-header">
-                                <div><span class="bug-hunt-live"><span class="live-dot"></span> UNCOMFORTABLENESS IS ENDLESS</span></div>
-                            <button type="button" id="bug-hunt-restart" class="bug-hunt-restart">리셋</button>
-                        </div>
-                        <div class="bug-hunt-hud" aria-live="polite">
-                            <span>FIXED <strong id="bug-hunt-score">0</strong></span>
-                        </div>
-                        <div class="bug-hunt-stage">
-                            <canvas id="bug-hunt-canvas" width="560" height="420" aria-label="WASD로 이동하고 마우스로 조준해 버그를 소탕하는 미니게임" tabindex="0"></canvas>
-                            <div class="bug-hunt-overlay is-hidden" id="bug-hunt-overlay"><strong>버그는 끝이 없다</strong></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="ghost-ai" class="content-section ghost-section">
-                <div class="section-title-wrap section-title-left">
-                    <p class="section-eyebrow">03 / Small Rules, Complex Play</p>
-                    <h2 class="section-title">사소한 규칙의 조합이,<br><span>흥미로운 경험을 제공합니다.</span></h2>
-                    <p class="section-lead">팩맨의 네 유령은 단순한 타깃 계산 방식만으로도 서로 다른 성격과 협공처럼 보이는 움직임을 만듭니다. 최소한의 행동 원리가 서로 얽혀 예측하기 어려운 재미로 이어지는 모습에 매력을 느낍니다.</p>
-                </div>
-
-                <div class="ghost-rule-grid">
-                    <article class="ghost-rule ghost-rule-red"><span class="ghost-rule-dot">●</span><div><strong>Blinky</strong><small>현재 위치를 직접 추격</small></div></article>
-                    <article class="ghost-rule ghost-rule-pink"><span class="ghost-rule-dot">●</span><div><strong>Pinky</strong><small>이동 방향 4칸 앞을 선점</small></div></article>
-                    <article class="ghost-rule ghost-rule-cyan"><span class="ghost-rule-dot">●</span><div><strong>Inky</strong><small>두 좌표를 조합해 포위</small></div></article>
-                    <article class="ghost-rule ghost-rule-orange"><span class="ghost-rule-dot">●</span><div><strong>Clyde</strong><small>거리에 따라 추격과 후퇴 전환</small></div></article>
-                </div>
-
-                <div class="pacman-game-wrapper">
-                    <div class="pacman-game-header">
-                        <div>
-                            <p class="game-overline"><span class="live-dot"></span> RULE COMBINATION</p>
-                            <h3>네 가지 단순한 행동이 만드는 복잡한 추격</h3>
-                        </div>
-                    </div>
-                    <div class="pacman-controls">
-                        <button id="btn-ai-toggle" onclick="toggleAIVisualization()" class="btn-apple btn-apple-primary" aria-pressed="true">🧠 AI 시각화 끄기</button>
-                        <button onclick="resetPacmanGame()" class="btn-apple btn-apple-secondary">리셋</button>
-                        <span class="pacman-hint">방향키 또는 WASD로 팩맨을 움직이세요.</span>
-                    </div>
-                    <div class="pacman-stage">
-                        <canvas id="pacman-canvas" width="420" height="420" aria-label="팩맨 유령 AI 미니게임"></canvas>
-                        <aside class="pacman-insights" aria-live="polite">
-                            <div class="insight-block">
-                                <span class="insight-label">About Game</span>
-                                <strong id="pacman-mode-detail">유령들은 서로 다른 추적 알고리즘을 사용합니다.</strong>
-                                <p id="pacman-mode-description">유령들의 추적 패턴을 분석하여 유령을 따돌리고 쿠키를 최대한 많이 먹으세요.</p>
-                            </div>
-                            <div class="insight-block">
-                                <span class="insight-label">TARGET VECTORS</span>
-                                <div id="ghost-target-list" class="ghost-target-list"></div>
-                            </div>
-                            <div class="insight-callout"><span>TIP</span><p>점선은 벽을 피해 계산된 실제 이동 경로입니다. 좌표의 화살표는 원시 타겟이 이동 가능한 칸으로 보정되었음을 뜻합니다.</p></div>
-                        </aside>
-                    </div>
-                </div>
-            </section>
-
-            <section id="philosophy" class="content-section philosophy-section">
-                <div class="section-title-wrap section-title-left">
-                    <p class="section-eyebrow">04 / New Ways to Design Rules</p>
-                    <h2 class="section-title">이제는 규칙이 스스로 진화합니다.</h2>
-                    <p class="section-lead">머신러닝과 강화학습의 발전은 개발자가 모든 행동을 조건문으로 정의하는 방식에서 나아가, 목표와 보상, 환경을 설계하고 에이전트가 시행착오를 통해 해법을 찾게 하는 새로운 선택지를 만들고 있습니다.</p>
-                </div>
-                <div class="rules-evolve-layout">
-                    <div class="rules-evolve-copy">
-                        <article class="rules-evolve-step" data-rule-reveal>
-                            <span class="rules-evolve-index">01 / HAND-WRITTEN RULES</span>
-                            <h3>개발자가 정의하는 행동</h3>
-                            <p>전통적인 게임 로직은 개발자가 상태와 조건, 행동의 우선순위를 명시합니다. 결과를 예측하고 디버깅하기 쉽다는 점에서 여전히 중요한 설계 방식입니다.</p>
-                        </article>
-                        <article class="rules-evolve-step" data-rule-reveal>
-                            <span class="rules-evolve-index">02 / LEARNING FROM EXPERIENCE</span>
-                            <h3>경험을 통해 찾는 행동</h3>
-                            <p>강화학습에서는 개발자가 모든 움직임을 일일이 작성하는 대신 목표와 보상을 설계합니다. 에이전트는 환경과 반복해서 상호작용하며 더 나은 행동 전략을 찾아갑니다.</p>
-                        </article>
-                        <article class="rules-evolve-step rules-evolve-step-final" data-rule-reveal>
-                            <span class="rules-evolve-index">03 / DEVELOPER'S ROLE</span>
-                            <h3>학습의 주도권은 개발자에게</h3>
-                            <p>학습 기반 시스템에서도 목표, 제약, 보상과 검증 기준은 개발자의 설계에서 시작됩니다. 저는 명시적으로 정의한 로직과 학습 기반 접근을 목적에 맞게 선택해 플레이 경험으로 연결하는 개발자가 되고 싶습니다.</p>
-                        </article>
-                    </div>
-                    <figure class="rules-evolve-visual" data-rule-reveal>
-                        <div class="rules-evolve-gif-frame">
-                            <img src="/image/AI_RL.webp" alt="ARC Raiders의 물리 기반 로봇 에이전트가 강화학습으로 이동을 학습한 결과" loading="lazy">
-                            <span class="rules-evolve-live"><span class="live-dot"></span> ARC RAIDERS / ML-TRAINED MOVEMENT</span>
-                        </div>
-                        <figcaption class="rules-evolve-caption">
-                            <span class="rules-evolve-caption-label">REINFORCEMENT LEARNING</span>
-                            <strong>행동 → 보상 → 학습 → 더 나은 선택</strong>
-                            <small class="rules-evolve-source-note"><a href="https://medium.com/embarkstudios/transforming-animation-with-machine-learning-27ac694590c" target="_blank" rel="noreferrer">Embark Studios · Transforming animation with machine learning</a></small>
-                            <small class="rules-evolve-disclaimer">개발 과정에서 절지 기반 에이전트의 이동을 강화학습으로 훈련시킨 사례.</small>
-                        </figcaption>
-                    </figure>
-                </div>
-            </section>
-
-            <section id="portfolio" class="content-section portfolio-section">
-                <div class="section-title-wrap section-title-left portfolio-heading">
-                    <p class="section-eyebrow">05 / Selected Work</p>
-                    <h2 class="section-title">구현으로 증명한<br><span>네 가지 경험.</span></h2>
-                    <p class="section-lead">게임 시스템과 실시간 웹 기술, 컴퓨터 비전 연구까지. 문제를 구조화하고 실제로 동작하는 결과물로 연결한 프로젝트를 모았습니다.</p>
-                </div>
-
-                <div class="portfolio-grid">
-                    <article class="project-card project-card-cyan">
-                        <div class="project-gallery project-gallery-three" aria-label="Visual Shooting Code 프로젝트 화면">
-                            <img src="{{ url_for('static', filename='portfolio/sprint1-visual-code.png') }}" alt="Visual Shooting Code 타이틀 화면" loading="lazy">
-                            <img src="{{ url_for('static', filename='portfolio/sprint1-operators.png') }}" alt="열 가지 병과 캐릭터 선택 화면" loading="lazy">
-                            <img src="{{ url_for('static', filename='portfolio/sprint1-gameplay.png') }}" alt="개구리 병과의 실시간 전투 화면" loading="lazy">
-                        </div>
-                        <div class="project-body">
-                            <div class="project-meta"><span>01 / WEB GAME PROTOTYPE</span><span>2026</span></div>
-                            <h3>Visual Shooting Code</h3>
-                            <p>브라우저에서 동작하는 탑다운 슈팅 프로토타입입니다. 서로 다른 공격·방어·기동 규칙을 가진 10개 병과와 로비, 룸, 실시간 전투 흐름을 하나의 플레이 경험으로 구성했습니다.</p>
-                            <ul class="project-highlights">
-                                <li>데이터 기반 병과·스킬 시스템과 전투 HUD</li>
-                                <li>시야, 투사체, 충돌 판정과 WebSocket 멀티플레이 구조</li>
-                            </ul>
-                            <div class="project-footer">
-                                <div class="project-tags"><span>JavaScript</span><span>Canvas</span><span>WebSocket</span></div>
-                                <a class="project-link" href="https://github.com/Frogyyh/jungle4sprint1" target="_blank" rel="noreferrer" aria-label="Visual Shooting Code GitHub 저장소 열기">GitHub <span>↗</span></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card project-card-gold">
-                        <div class="project-gallery project-gallery-two" aria-label="5일 뒤 마왕 프로젝트 화면">
-                            <img src="{{ url_for('static', filename='portfolio/project3-lobby.png') }}" alt="5일 뒤 마왕 로그인과 원정대 합류 화면" loading="lazy">
-                            <img src="{{ url_for('static', filename='portfolio/project3-gameplay.png') }}" alt="5일 뒤 마왕 협동 전투와 증강 선택 화면" loading="lazy">
-                        </div>
-                        <div class="project-body">
-                            <div class="project-meta"><span>02 / CO-OP ACTION RPG</span><span>2026</span></div>
-                            <h3>5일 뒤 마왕</h3>
-                            <p>최대 3명이 함께 탐색하고 성장해 마왕을 처치하는 서버 권위형 협동 로그라이트 액션 RPG입니다. 브라우저 렌더링과 실시간 게임 서버, 인증·데이터 계층을 분리해 운영 가능한 구조로 설계했습니다.</p>
-                            <ul class="project-highlights">
-                                <li>60Hz 게임 코어와 Colyseus 기반 권위 서버</li>
-                                <li>48개 방 월드, 동료 AI, 재접속·이탈 인계와 개인 성장</li>
-                            </ul>
-                            <div class="project-footer">
-                                <div class="project-tags"><span>Next.js</span><span>Phaser</span><span>Colyseus</span></div>
-                                <a class="project-link" href="https://github.com/LH99Tw/Krafton-jungle-project3" target="_blank" rel="noreferrer" aria-label="5일 뒤 마왕 GitHub 저장소 열기">GitHub <span>↗</span></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card project-card-blue">
-                        <div class="project-gallery project-gallery-one">
-                            <img src="{{ url_for('static', filename='portfolio/supplement-paper.png') }}" alt="OCR LLM DB 연동 기반 영양제 라벨 자동 등록 시스템 논문 제목과 저자" loading="lazy">
-                        </div>
-                        <div class="project-body">
-                            <div class="project-meta"><span>03 / COMPUTER VISION RESEARCH</span><span>2026</span></div>
-                            <h3>영양제 라벨 자동 등록 시스템</h3>
-                            <p>스마트폰으로 촬영한 영양제 라벨에서 필요한 정보를 자동으로 등록하는 파이프라인을 설계·구현했습니다. YOLO로 라벨 영역을 검출하고, CLOVA OCR과 LLM으로 정보를 구조화한 뒤 PostgreSQL 데이터와 매칭합니다.</p>
-                            <ul class="project-highlights">
-                                <li>61장 데이터셋 전이학습으로 mAP50 0.995 검증</li>
-                                <li>OCR 결과를 제품명·성분·함량·섭취량 JSON으로 구조화</li>
-                            </ul>
-                            <div class="project-footer">
-                                <div class="project-tags"><span>YOLO</span><span>OCR · LLM</span><span>PostgreSQL</span></div>
-                                <a class="project-link" href="{{ url_for('static', filename='portfolio/supplement-label-paper.pdf') }}" target="_blank" rel="noreferrer" aria-label="영양제 라벨 자동 등록 시스템 논문 PDF 열기">논문 보기 <span>↗</span></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card project-card-green">
-                        <div class="project-gallery project-gallery-one">
-                            <img src="{{ url_for('static', filename='portfolio/auto-battle-tactics.png') }}" alt="Auto Battle Tactics 게임 전투 화면" loading="lazy">
-                        </div>
-                        <div class="project-body">
-                            <div class="project-meta"><span>04 / SUMMER GAME PROJECT</span><span>2025 · 8 WEEKS</span></div>
-                            <h3>Auto Battle Tactics</h3>
-                            <p>유닛 배치와 조합에 집중하는 싱글 플레이 자동 전투 전략 게임입니다. 프로젝트에서 AI 데이터 수집·모델링과 생성형 AI 아트워크를 담당해 게임에 필요한 일관된 캐릭터 이미지를 제작했습니다.</p>
-                            <ul class="project-highlights">
-                                <li>Diffusion·LoRA 기반 캐릭터 이미지 생성 워크플로우</li>
-                                <li>Unity 자동화 수집과 데이터 라벨링, IP-Adapter 활용</li>
-                            </ul>
-                            <div class="project-footer">
-                                <div class="project-tags"><span>Unity</span><span>LoRA</span><span>AI Artwork</span></div>
-                                <div class="project-links">
-                                    <a class="project-link" href="https://app.notion.com/p/IDLE-B-264703b78d94800b826dd22abdcc3bbd?source=copy_link" target="_blank" rel="noreferrer" aria-label="Auto Battle Tactics 프로젝트 Notion 열기">Notion <span>↗</span></a>
-                                    <a class="project-link project-link-secondary" href="{{ url_for('static', filename='portfolio/auto-battle-tactics-report.pdf') }}" target="_blank" rel="noreferrer" aria-label="Auto Battle Tactics 프로젝트 보고서 PDF 열기">보고서 <span>↗</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <section id="guestbook" class="guestbook-wrapper content-section">
-                <div class="section-title-wrap section-title-left">
-                    <p class="section-eyebrow">06 / Guestbook</p>
-                    <h2 class="section-title">응원의 메시지를 남겨주세요.</h2>
-                    <p class="section-lead">따뜻한 한마디가 제게는 큰 힘이 됩니다.</p>
-                </div>
-                <form id="guestbook-form" class="form-apple">
-                    <div class="input-row">
-                        <input type="text" id="input-name" class="apple-input" placeholder="작성자 이름" aria-label="작성자 이름" autocomplete="name" required maxlength="20">
-                        <input type="text" id="input-message" class="apple-textarea" placeholder="응원의 메시지를 남겨주세요..." aria-label="방명록 메시지" required maxlength="200">
-                    </div>
-                    <div class="form-submit-row"><span>남겨주신 메시지는 서버에 기록됩니다.</span><button type="submit" class="btn-apple btn-apple-primary">메시지 남기기 <span>→</span></button></div>
-                </form>
-                <div id="guestbook-list" class="guestbook-list">
-                    <div class="guestbook-loading">방명록 데이터를 불러오는 중입니다...</div>
-                </div>
-                <p class="section-closing">웹페이지 개발자가 취뽀에 성공할 경우 추첨을 통해 이메일 주소를 남겨주신 한 분에게 싸이버거를 드립니다. 햄부기</p>
-            </section>
-        </main>
-
-        <footer class="footer">
-            <div class="footer-inner">
-                <div><strong>이성재</strong><span>게임 클라이언트 개발자 희망함 청년</span></div>
-                <div><span>Krafton Jungle Web Dev Intensive Camp</span></div>
+          </div>
+          <div class="project-copy">
+            <h3>5일 뒤 마왕</h3>
+            <p class="project-summary">
+              탐험과 베이스 방어를 반복하며 마왕에게 도전하는 협동 액션 RPG.
+            </p>
+            <p class="contribution">
+              <strong>개인 기여</strong>게임 시스템, 레벨 디자인, 캐릭터 밸런싱
+            </p>
+            <div class="project-actions">
+              <a
+                class="button primary"
+                href="{{ url_for('static', filename='games/demon-king/index.html') }}"
+                >싱글플레이</a
+              ><a
+                class="text-link"
+                href="{{ url_for('static', filename='portfolio/design-demon-king.html') }}"
+                >설계 노트
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m9 5 7 7-7 7" /></svg
+              ></a>
             </div>
-            <p class="footer-copy">Powered By Gemini/ChatGPT</p>
-        </footer>
+          </div>
+        </article>
+        <article class="project" id="visual-shooting-code">
+          <div class="project-media">
+            <a
+              href="{{ url_for('static', filename='games/shooter/game.html') }}"
+              class="screenshot-link"
+              aria-label="Visual Shooting Code 싱글플레이 열기"
+              ><img
+                src="{{ url_for('static', filename='portfolio/sprint1-gameplay.webp') }}"
+                width="1280"
+                height="720"
+                loading="lazy"
+                alt="Visual Shooting Code의 탑다운 전장과 캐릭터 시야"
+            /></a>
+            <div class="image-caption">
+              <span>탑다운 전술 슈터</span
+              ><span>JavaScript / Three.js / WebSocket</span>
+            </div>
+          </div>
+          <div class="project-copy">
+            <h3 translate="no">Visual Shooting Code</h3>
+            <p class="project-summary">
+              시야와 엄폐물을 활용하는 탑다운 슈터. AI 5명과 대전합니다.
+            </p>
+            <p class="contribution">
+              <strong>개인 기여</strong>게임 시스템, 캐릭터 밸런싱, 캐릭터 스킬
+            </p>
+            <div class="project-actions">
+              <a
+                class="button primary"
+                href="{{ url_for('static', filename='games/shooter/game.html') }}"
+                >싱글플레이</a
+              ><a
+                class="text-link"
+                href="{{ url_for('static', filename='portfolio/design-shooter.html') }}"
+                >설계 노트
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m9 5 7 7-7 7" /></svg
+              ></a>
+            </div>
+          </div>
+        </article>
+      </section>
+      <section class="more-work" aria-labelledby="more-title">
+        <div class="section-heading">
+          <h2 id="more-title">자료</h2>
+        </div>
+        <div class="work-list">
+          <a
+            href="{{ url_for('static', filename='portfolio/auto-battle-tactics-report.pdf') }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><div>
+              <h3 translate="no">Auto Battle Tactics</h3>
+              <p>오토배틀러 기획과 게임 에셋 제작 파이프라인</p>
+            </div>
+            <span
+              >보고서 PDF
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 17 17 7M7 7h10v10" /></svg></span
+          ></a>
+          <a
+            href="{{ url_for('static', filename='portfolio/supplement-label-paper.pdf') }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><div>
+              <h3>영양제 라벨 인식</h3>
+              <p>객체 검출과 OCR을 이용한 정보 추출 연구</p>
+            </div>
+            <span
+              >논문 PDF
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 17 17 7M7 7h10v10" /></svg></span
+          ></a>
+        </div>
+      </section>
+      <section
+        id="contact"
+        class="contact-section"
+        aria-labelledby="contact-title"
+      >
+        <h2 id="contact-title">연락처</h2>
+        <a class="email-link" href="mailto:leesungjae2002@gmail.com"
+          >leesungjae2002@gmail.com</a
+        ><a
+          class="text-link"
+          href="https://github.com/LSJLSJLSJ1"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub / LSJLSJLSJ1</a
+        ><button type="button" class="text-link copy-link" id="copy-link">
+          포트폴리오 링크 복사
+        </button>
+        <p id="copy-status" role="status"></p>
+      </section>
+    </main>
+    <footer class="site-footer container">
+      <span>© 2026 이성재</span><a href="#intro">맨 위로</a>
+    </footer>
     </div>
-
-    <script src="{{ url_for('static', filename='js/system-background.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/guestbook-config.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bug-hunt.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/pacman.js') }}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            if (typeof initPacmanGame === 'function') initPacmanGame('pacman-canvas');
-        });
-    </script>
-</body>
+  </body>
 </html>

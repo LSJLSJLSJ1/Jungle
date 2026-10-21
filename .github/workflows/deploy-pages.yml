@@ -30,8 +30,28 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: '11.25.0'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: pnpm
+
+      - name: Build playable demos
+        run: |
+          pnpm install --frozen-lockfile --ignore-scripts
+          pnpm typecheck:demos
+          pnpm test:demos
+          pnpm build:demos
+
       - name: Build static site
-        run: python scripts/build_github_pages.py
+        run: |
+          python scripts/build_github_pages.py
+          python scripts/verify_static.py
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4

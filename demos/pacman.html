@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>팩맨 유령 AI | 이성재</title>
+    <link rel="stylesheet" href="../static/css/portfolio.css" />
+    <style>
+      .lab {
+        max-width: 1040px;
+        margin: 48px auto;
+        padding: 24px;
+      }
+      .lab h1 {
+        font-size: 32px;
+        margin: 32px 0 16px;
+      }
+      .lab p {
+        color: var(--muted);
+        max-width: 65ch;
+      }
+      .lab-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 520px) 1fr;
+        gap: 40px;
+        margin-top: 32px;
+      }
+      canvas {
+        width: 100%;
+        height: auto;
+        max-width: 520px;
+        border-radius: 8px;
+        background: #10171c;
+        display: block;
+      }
+      .lab-buttons {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      .ghost-target-row {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-block: 12px;
+        font-size: 14px;
+      }
+      .target-color {
+        height: 8px;
+        width: 8px;
+        border-radius: 50%;
+      }
+      .lab aside h2 {
+        font-size: 20px;
+        margin: 24px 0 16px;
+      }
+      .rules {
+        line-height: 1.9;
+        color: var(--muted);
+        padding-left: 20px;
+      }
+      .lab-buttons button {
+        padding: 10px 16px;
+        background: var(--surface);
+        color: var(--text);
+        border: 1px solid var(--line);
+        border-radius: 4px;
+      }
+      @media (max-width: 760px) {
+        .lab-layout {
+          grid-template-columns: 1fr;
+        }
+        .lab {
+          margin-top: 16px;
+        }
+        .lab h1 {
+          font-size: 28px;
+        }
+      }
+    </style>
+    <script defer src="../static/js/pacman.js"></script>
+    <script defer src="../static/js/lab.js"></script>
+  </head>
+  <body>
+    <main class="lab">
+      <a href="../index.html#more-title">포트폴리오로 돌아가기</a>
+      <h1>팩맨 유령 AI</h1>
+      <p>
+        네 유령이 서로 다른 타깃을 계산합니다. 캔버스를 선택한 뒤 WASD·방향키로
+        이동하고, 시각화를 켜서 추격 경로를 확인하세요.
+      </p>
+      <div class="lab-layout">
+        <div>
+          <canvas
+            id="pacman-canvas"
+            width="420"
+            height="420"
+            tabindex="0"
+            aria-label="팩맨 추격 AI 시연"
+          ></canvas>
+          <div class="lab-buttons">
+            <button id="btn-ai-toggle" type="button" aria-pressed="false">
+              AI 시각화 켜기</button
+            ><button id="pacman-reset" type="button">다시 시작</button>
+            <button id="pacman-pause" type="button">일시정지</button>
+          </div>
+        </div>
+        <aside>
+          <p id="pacman-mode-label">추격 모드</p>
+          <p id="pacman-dots-label"></p>
+          <h2>각 유령의 타깃</h2>
+          <ul class="rules">
+            <li>Blinky: 현재 위치</li>
+            <li>Pinky: 이동 방향 4칸 앞</li>
+            <li>Inky: Blinky와 전방 지점의 확장 벡터</li>
+            <li>Clyde: 거리에 따라 추격 또는 후퇴</li>
+          </ul>
+          <div id="ghost-target-list"></div>
+          <p>
+            21×21 간소화 미로의 추격 규칙 시연입니다. 원작의 전체 모드는
+            포함하지 않습니다.
+          </p>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>

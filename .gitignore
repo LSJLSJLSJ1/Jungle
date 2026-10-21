@@ -10,3 +10,6 @@ __pycache__/
 docs/
 .pytest_cache/
 .vscode/
+node_modules/
+.local-backup/
+artifacts/

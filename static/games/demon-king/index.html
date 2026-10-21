@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#10171c" />
+    <title>5일 뒤 마왕 | 싱글플레이</title>
+    <link rel="icon" href="../../portfolio/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../../css/portfolio.css" />
+    <link rel="stylesheet" href="./solo.css" />
+    <script type="module" src="./game.js"></script>
+  </head>
+  <body>
+    <header class="solo-header">
+      <a href="../../../index.html#demon-king">포트폴리오로 돌아가기</a>
+      <h1>5일 뒤 마왕 <span>싱글플레이</span></h1>
+      <button id="pause" type="button" disabled>일시정지</button>
+    </header>
+    <main class="solo-layout">
+      <div class="play-area">
+        <canvas
+          id="world"
+          width="1280"
+          height="720"
+          tabindex="0"
+          aria-label="5일 뒤 마왕 게임 화면"
+          aria-describedby="controls"
+        ></canvas>
+        <div class="start-panel" id="start-panel">
+          <h2>마왕을 향한 원정</h2>
+          <p>
+            낮에는 탐험하고 밤에는 베이스를 지키세요.<br />AI 동료 2명과 함께
+            출발합니다.
+          </p>
+          <form id="start-form">
+            <label for="hero-class">직업 선택</label
+            ><select id="hero-class" name="hero-class">
+              <option value="swordsman">검사 (근접 전투)</option>
+              <option value="archer">궁수 (원거리 전투)</option>
+              <option value="mage">마법사 (범위 전투)</option></select
+            ><button class="button primary" id="start" type="submit">
+              원정 시작
+            </button>
+          </form>
+        </div>
+        <div id="pause-panel" class="pause-panel" hidden>
+          <h2>일시정지</h2>
+          <p>계속하려면 Esc 또는 계속하기를 누르세요.</p>
+          <button class="button primary" id="resume" type="button">
+            계속하기
+          </button>
+        </div>
+        <div id="result-panel" class="pause-panel" hidden>
+          <h2 id="result-title">원정 종료</h2>
+          <p id="result-text"></p>
+          <button class="button primary" id="restart" type="button">
+            다시 플레이</button
+          ><a href="../../../index.html#demon-king">포트폴리오로 돌아가기</a>
+        </div>
+        <p id="game-error" role="alert" hidden>
+          게임을 불러오지 못했습니다. 페이지를 새로고침하거나 PC의 최신
+          Chrome·Edge에서 다시 실행해 주세요.
+        </p>
+      </div>
+      <aside class="game-sidebar" aria-label="원정 상태와 조작법">
+        <div class="run-status">
+          <strong id="phase-label">출발 준비</strong
+          ><span id="clock">00:00</span>
+        </div>
+        <dl class="stats">
+          <div>
+            <dt>내 체력</dt>
+            <dd id="hp">—</dd>
+          </div>
+          <div>
+            <dt>베이스</dt>
+            <dd id="base-hp">—</dd>
+          </div>
+          <div>
+            <dt>파티 레벨</dt>
+            <dd id="level">1</dd>
+          </div>
+          <div>
+            <dt>처치</dt>
+            <dd id="kills">0</dd>
+          </div>
+          <div>
+            <dt>발견한 방</dt>
+            <dd id="rooms">1 / 48</dd>
+          </div>
+        </dl>
+        <canvas
+          id="minimap"
+          width="280"
+          height="180"
+          aria-label="공식 맵과 파티 위치"
+        ></canvas>
+        <p class="map-legend">밝은 방은 발견한 지역, 붉은 점은 게이트입니다.</p>
+        <p id="objective">게이트를 찾아 파괴하고 탐험 경로를 넓히세요.</p>
+        <div id="upgrade-area" hidden>
+          <h2>증강 선택</h2>
+          <div id="upgrade-choices"></div>
+        </div>
+        <div id="travel-area" hidden>
+          <label for="destination">웨이포인트 이동</label
+          ><select id="destination"></select
+          ><button id="travel" type="button">이동하기</button>
+        </div>
+        <div id="inventory-area">
+          <h2>장비</h2>
+          <p id="equipment">아직 획득한 장비가 없습니다.</p>
+          <div id="inventory"></div>
+        </div>
+        <div class="controls" id="controls">
+          <h2>조작법</h2>
+          <dl>
+            <div>
+              <dt>WASD / 방향키</dt>
+              <dd>이동</dd>
+            </div>
+            <div>
+              <dt>마우스</dt>
+              <dd>스킬 방향</dd>
+            </div>
+            <div>
+              <dt>Q / E</dt>
+              <dd>직업 스킬</dd>
+            </div>
+            <div>
+              <dt>Space</dt>
+              <dd>대시</dd>
+            </div>
+            <div>
+              <dt>F</dt>
+              <dd>장비·신전·웨이포인트</dd>
+            </div>
+            <div>
+              <dt>B</dt>
+              <dd>웨이포인트에서 귀환</dd>
+            </div>
+            <div>
+              <dt>Esc</dt>
+              <dd>일시정지</dd>
+            </div>
+          </dl>
+          <p>
+            일반 공격은 자동입니다. 웨이포인트 이동은 3초 동안 제자리에 머물러야
+            합니다.
+          </p>
+        </div>
+        <p class="small">PC 키보드·마우스 플레이를 권장합니다.</p>
+        <p id="notice" role="status"></p>
+      </aside>
+    </main>
+    <noscript><p>게임 실행에는 JavaScript가 필요합니다.</p></noscript>
+  </body>
+</html>

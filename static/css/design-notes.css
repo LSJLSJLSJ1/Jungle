@@ -1,0 +1,122 @@
+.design-note {
+  max-width: 1040px;
+  padding-block: 48px 80px;
+}
+.design-note > a {
+  font-size: 14px;
+}
+.design-note h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  margin-top: 48px;
+  letter-spacing: -0.025em;
+}
+.note-lead {
+  font-size: 20px;
+  color: var(--muted);
+  margin-top: 20px;
+}
+.design-note section {
+  padding-block: 40px;
+  border-bottom: 1px solid var(--line);
+}
+.design-note h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.design-note p {
+  max-width: 72ch;
+  line-height: 1.9;
+}
+.design-note p + p {
+  margin-top: 20px;
+}
+.design-note li {
+  color: var(--muted);
+  margin-block: 8px;
+}
+.game-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 40px;
+  margin-top: 24px;
+  padding-left: 20px;
+}
+.table-scroll {
+  overflow: auto;
+  margin-block: 24px;
+}
+.table-scroll:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+  min-width: 560px;
+}
+th,
+td {
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+thead {
+  background: var(--surface);
+}
+tbody td {
+  color: var(--muted);
+}
+.note-map {
+  margin-top: 24px;
+  padding: 16px;
+  background: var(--surface);
+  border-radius: 8px;
+}
+.note-map svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  stroke: none;
+}
+.note-map figcaption {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 16px;
+}
+.note-end {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+code {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 760px) {
+  .design-note {
+    padding-block: 32px 48px;
+  }
+  .design-note h1 {
+    margin-top: 32px;
+  }
+  .design-note section {
+    padding-block: 32px;
+  }
+  .note-lead {
+    font-size: 18px;
+  }
+  .note-map {
+    padding: 8px;
+  }
+  .game-flow {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .table-scroll {
+    margin-inline: -8px;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "seongjae-portfolio",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "build:demos": "node scripts/build_playable.mjs && node scripts/build_design_notes.mjs",
+    "test:demos": "node --test tests/solo-core.test.mjs",
+    "typecheck:demos": "tsc --project tsconfig.demos.json"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "zod": "4.4.3",
+    "typescript": "5.9.3",
+    "@types/node": "22.19.19"
+  }
+}

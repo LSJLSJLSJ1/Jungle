@@ -1,0 +1,42 @@
+.portfolio-return {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  padding: 10px 16px;
+  color: #f1f4f5;
+  background: #10171c;
+  border: 1px solid #59707d;
+  border-radius: 4px;
+  font:
+    14px/1.5 "Malgun Gothic",
+    sans-serif;
+  text-decoration: none;
+}
+.portfolio-return:hover {
+  background: #263943;
+}
+.portfolio-return:focus-visible {
+  outline: 3px solid #b9d3de;
+  outline-offset: 4px;
+}
+.screen-card {
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.weapon-card:focus-visible,
+.operator-card:focus-visible,
+button:focus-visible {
+  outline: 3px solid #b9d3de;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

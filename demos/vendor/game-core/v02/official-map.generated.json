@@ -1,0 +1,4269 @@
+{
+  "schemaVersion": 1,
+  "compilerVersion": 2,
+  "mapRevision": "618d637b67143efe4fa1cabd2676de55a1c3788f595544b8e2c50dd36649c49b",
+  "map": {
+    "version": 1,
+    "title": "현재 기본맵 · 2/3/3 게이트",
+    "rooms": [
+      {
+        "id": "room-base",
+        "name": "원정대 야영지",
+        "type": "start",
+        "asset": "forest",
+        "x": 1,
+        "y": 7,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-forest",
+        "name": "녹음의 사냥터",
+        "type": "static-monster",
+        "asset": "forest",
+        "x": 5,
+        "y": 7,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-3",
+        "name": "일반 방",
+        "type": "empty",
+        "asset": "forest",
+        "x": 1,
+        "y": 4,
+        "width": 2,
+        "height": 2
+      },
+      {
+        "id": "room-local-4",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "forest",
+        "x": -3,
+        "y": 3,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-5",
+        "name": "일반 방",
+        "type": "empty",
+        "asset": "forest",
+        "x": 9,
+        "y": 7,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-6",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "forest",
+        "x": 2,
+        "y": 0,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-7",
+        "name": "숨겨진 몬스터 방",
+        "type": "hidden-monster",
+        "asset": "forest",
+        "x": -2,
+        "y": -1,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-8",
+        "name": "몬스터 게이트",
+        "type": "gate",
+        "asset": "forest",
+        "x": -2,
+        "y": -5,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-11",
+        "name": "숨겨진 몬스터 방",
+        "type": "hidden-monster",
+        "asset": "forest",
+        "x": 9,
+        "y": 3,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-12",
+        "name": "몬스터 게이트",
+        "type": "gate",
+        "asset": "forest",
+        "x": 13,
+        "y": 3,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-13",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "forest",
+        "x": 13,
+        "y": -1,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-14",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "forest",
+        "x": 6,
+        "y": -5,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-15",
+        "name": "일반 방",
+        "type": "empty",
+        "asset": "forest",
+        "x": 10,
+        "y": -5,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-18",
+        "name": "일반 방",
+        "type": "empty",
+        "asset": "marsh",
+        "x": 15,
+        "y": -8,
+        "width": 2,
+        "height": 2
+      },
+      {
+        "id": "room-local-19",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "marsh",
+        "x": 15,
+        "y": -12,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-20",
+        "name": "숨겨진 몬스터 방",
+        "type": "hidden-monster",
+        "asset": "marsh",
+        "x": 11,
+        "y": -11,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-22",
+        "name": "일반 방",
+        "type": "empty",
+        "asset": "marsh",
+        "x": 18,
+        "y": -8,
+        "width": 2,
+        "height": 2
+      },
+      {
+        "id": "room-local-23",
+        "name": "숨겨진 몬스터 방",
+        "type": "hidden-monster",
+        "asset": "marsh",
+        "x": 18,
+        "y": -5,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-24",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "marsh",
+        "x": 18,
+        "y": -1,
+        "width": 2,
+        "height": 2
+      },
+      {
+        "id": "room-local-25",
+        "name": "몬스터 게이트",
+        "type": "gate",
+        "asset": "marsh",
+        "x": 21,
+        "y": -1,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-26",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "marsh",
+        "x": 21,
+        "y": 3,
+        "width": 2,
+        "height": 2
+      },
+      {
+        "id": "room-local-27",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "marsh",
+        "x": 25,
+        "y": 0,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-29",
+        "name": "숨겨진 몬스터 방",
+        "type": "hidden-monster",
+        "asset": "marsh",
+        "x": 25,
+        "y": -4,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-30",
+        "name": "일반 방",
+        "type": "empty",
+        "asset": "marsh",
+        "x": 24,
+        "y": -8,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-31",
+        "name": "몬스터 게이트",
+        "type": "gate",
+        "asset": "marsh",
+        "x": 28,
+        "y": -8,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-32",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "marsh",
+        "x": 29,
+        "y": -4,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-34",
+        "name": "일반 방",
+        "type": "empty",
+        "asset": "marsh",
+        "x": 24,
+        "y": -11,
+        "width": 2,
+        "height": 2
+      },
+      {
+        "id": "room-local-35",
+        "name": "숨겨진 몬스터 방",
+        "type": "hidden-monster",
+        "asset": "marsh",
+        "x": 24,
+        "y": -14,
+        "width": 2,
+        "height": 2
+      },
+      {
+        "id": "room-local-36",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "marsh",
+        "x": 20,
+        "y": -16,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-37",
+        "name": "몬스터 게이트",
+        "type": "gate",
+        "asset": "marsh",
+        "x": 16,
+        "y": -16,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-40",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "wastes",
+        "x": 30,
+        "y": -14,
+        "width": 2,
+        "height": 2
+      },
+      {
+        "id": "room-local-41",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "wastes",
+        "x": 31,
+        "y": -12,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-42",
+        "name": "숨겨진 몬스터 방",
+        "type": "hidden-monster",
+        "asset": "wastes",
+        "x": 32,
+        "y": -8,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-43",
+        "name": "일반 방",
+        "type": "empty",
+        "asset": "wastes",
+        "x": 33,
+        "y": -15,
+        "width": 2,
+        "height": 2
+      },
+      {
+        "id": "room-local-44",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "wastes",
+        "x": 32,
+        "y": -19,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-45",
+        "name": "숨겨진 몬스터 방",
+        "type": "hidden-monster",
+        "asset": "wastes",
+        "x": 28,
+        "y": -19,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-46",
+        "name": "몬스터 게이트",
+        "type": "gate",
+        "asset": "wastes",
+        "x": 24,
+        "y": -19,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-47",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "wastes",
+        "x": 36,
+        "y": -14,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-48",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "wastes",
+        "x": 36,
+        "y": -10,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-49",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "wastes",
+        "x": 36,
+        "y": -6,
+        "width": 5,
+        "height": 4
+      },
+      {
+        "id": "room-local-50",
+        "name": "몬스터 게이트",
+        "type": "gate",
+        "asset": "wastes",
+        "x": 34,
+        "y": -1,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-51",
+        "name": "몬스터 게이트",
+        "type": "gate",
+        "asset": "wastes",
+        "x": 38,
+        "y": -1,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-52",
+        "name": "숨겨진 몬스터 방",
+        "type": "hidden-monster",
+        "asset": "wastes",
+        "x": 36,
+        "y": 2,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-53",
+        "name": "보스룸",
+        "type": "boss",
+        "asset": "wastes",
+        "x": 42,
+        "y": -4,
+        "width": 5,
+        "height": 5
+      },
+      {
+        "id": "room-local-54",
+        "name": "체크포인트",
+        "type": "checkpoint",
+        "asset": "marsh",
+        "x": 14,
+        "y": -5,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-55",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "marsh",
+        "x": 19,
+        "y": -12,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-56",
+        "name": "체크포인트",
+        "type": "checkpoint",
+        "asset": "wastes",
+        "x": 27,
+        "y": -12,
+        "width": 3,
+        "height": 3
+      },
+      {
+        "id": "room-local-57",
+        "name": "몬스터 방",
+        "type": "static-monster",
+        "asset": "forest",
+        "x": 2,
+        "y": -5,
+        "width": 3,
+        "height": 3
+      }
+    ],
+    "connections": [
+      {
+        "id": "path-local-1",
+        "from": "room-base",
+        "to": "room-forest",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 1
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-4",
+        "from": "room-forest",
+        "to": "room-local-5",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 1
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-5",
+        "from": "room-local-4",
+        "to": "room-local-3",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 0
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-6",
+        "from": "room-local-6",
+        "to": "room-local-3",
+        "fromPort": {
+          "side": "south",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 1
+        }
+      },
+      {
+        "id": "path-local-7",
+        "from": "room-local-7",
+        "to": "room-local-6",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 0
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-8",
+        "from": "room-local-8",
+        "to": "room-local-7",
+        "fromPort": {
+          "side": "south",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 1
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-11",
+        "from": "room-local-11",
+        "to": "room-local-5",
+        "fromPort": {
+          "side": "south",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 0
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-12",
+        "from": "room-local-11",
+        "to": "room-local-12",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 1
+        }
+      },
+      {
+        "id": "path-local-13",
+        "from": "room-local-13",
+        "to": "room-local-12",
+        "fromPort": {
+          "side": "south",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 1
+        }
+      },
+      {
+        "id": "path-local-15",
+        "from": "room-local-14",
+        "to": "room-local-15",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 1
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-16",
+        "from": "room-local-15",
+        "to": "room-local-13",
+        "fromPort": {
+          "side": "south",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 0
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-20",
+        "from": "room-local-19",
+        "to": "room-local-18",
+        "fromPort": {
+          "side": "south",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 0
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-21",
+        "from": "room-local-20",
+        "to": "room-local-19",
+        "fromPort": {
+          "side": "east",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 1
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-24",
+        "from": "room-local-22",
+        "to": "room-local-23",
+        "fromPort": {
+          "side": "south",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 0
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-25",
+        "from": "room-local-23",
+        "to": "room-local-24",
+        "fromPort": {
+          "side": "south",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 0
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-26",
+        "from": "room-local-24",
+        "to": "room-local-25",
+        "fromPort": {
+          "side": "east",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 0
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-27",
+        "from": "room-local-25",
+        "to": "room-local-26",
+        "fromPort": {
+          "side": "south",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 0
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-28",
+        "from": "room-local-25",
+        "to": "room-local-27",
+        "fromPort": {
+          "side": "east",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 0
+        }
+      },
+      {
+        "id": "path-local-32",
+        "from": "room-local-30",
+        "to": "room-local-31",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 1
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-33",
+        "from": "room-local-31",
+        "to": "room-local-32",
+        "fromPort": {
+          "side": "south",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 0
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-35",
+        "from": "room-local-30",
+        "to": "room-local-34",
+        "fromPort": {
+          "side": "north",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "south",
+          "offset": 0
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-36",
+        "from": "room-local-35",
+        "to": "room-local-34",
+        "fromPort": {
+          "side": "south",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 0
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-37",
+        "from": "room-local-36",
+        "to": "room-local-35",
+        "fromPort": {
+          "side": "east",
+          "offset": 2
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 0
+        }
+      },
+      {
+        "id": "path-local-38",
+        "from": "room-local-37",
+        "to": "room-local-36",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 1
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-43",
+        "from": "room-local-41",
+        "to": "room-local-42",
+        "fromPort": {
+          "side": "south",
+          "offset": 2
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 1
+        }
+      },
+      {
+        "id": "path-local-44",
+        "from": "room-local-40",
+        "to": "room-local-41",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 1
+        }
+      },
+      {
+        "id": "path-local-45",
+        "from": "room-local-43",
+        "to": "room-local-41",
+        "fromPort": {
+          "side": "south",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 2
+        }
+      },
+      {
+        "id": "path-local-46",
+        "from": "room-local-44",
+        "to": "room-local-43",
+        "fromPort": {
+          "side": "south",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 0
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-47",
+        "from": "room-local-46",
+        "to": "room-local-45",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 1
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-48",
+        "from": "room-local-45",
+        "to": "room-local-44",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 1
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-49",
+        "from": "room-local-43",
+        "to": "room-local-47",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 0
+        }
+      },
+      {
+        "id": "path-local-50",
+        "from": "room-local-48",
+        "to": "room-local-47",
+        "fromPort": {
+          "side": "north",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "south",
+          "offset": 1
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-51",
+        "from": "room-local-48",
+        "to": "room-local-49",
+        "fromPort": {
+          "side": "south",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 1
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-52",
+        "from": "room-local-49",
+        "to": "room-local-50",
+        "fromPort": {
+          "side": "south",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 2
+        }
+      },
+      {
+        "id": "path-local-53",
+        "from": "room-local-49",
+        "to": "room-local-51",
+        "fromPort": {
+          "side": "south",
+          "offset": 2
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 0
+        }
+      },
+      {
+        "id": "path-local-54",
+        "from": "room-local-50",
+        "to": "room-local-52",
+        "fromPort": {
+          "side": "south",
+          "offset": 2
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 0
+        }
+      },
+      {
+        "id": "path-local-55",
+        "from": "room-local-51",
+        "to": "room-local-52",
+        "fromPort": {
+          "side": "south",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 2
+        }
+      },
+      {
+        "id": "path-local-56",
+        "from": "room-local-53",
+        "to": "room-local-52",
+        "fromPort": {
+          "side": "south",
+          "offset": 2
+        },
+        "toPort": {
+          "side": "east",
+          "offset": 1
+        }
+      },
+      {
+        "id": "path-local-57",
+        "from": "room-local-3",
+        "to": "room-base",
+        "fromPort": {
+          "side": "south",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 0
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-58",
+        "from": "room-local-15",
+        "to": "room-local-54",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 1
+        }
+      },
+      {
+        "id": "path-local-59",
+        "from": "room-local-18",
+        "to": "room-local-54",
+        "fromPort": {
+          "side": "south",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 1
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-60",
+        "from": "room-local-19",
+        "to": "room-local-55",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 1
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-61",
+        "from": "room-local-55",
+        "to": "room-local-22",
+        "fromPort": {
+          "side": "south",
+          "offset": 0
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 1
+        }
+      },
+      {
+        "id": "path-local-62",
+        "from": "room-local-30",
+        "to": "room-local-29",
+        "fromPort": {
+          "side": "south",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 0
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-63",
+        "from": "room-local-29",
+        "to": "room-local-27",
+        "fromPort": {
+          "side": "south",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 1
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-64",
+        "from": "room-local-56",
+        "to": "room-local-31",
+        "fromPort": {
+          "side": "south",
+          "offset": 2
+        },
+        "toPort": {
+          "side": "north",
+          "offset": 1
+        }
+      },
+      {
+        "id": "path-local-65",
+        "from": "room-local-56",
+        "to": "room-local-41",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 1
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-66",
+        "from": "room-local-8",
+        "to": "room-local-57",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 1
+        },
+        "width": 2
+      },
+      {
+        "id": "path-local-67",
+        "from": "room-local-57",
+        "to": "room-local-14",
+        "fromPort": {
+          "side": "east",
+          "offset": 1
+        },
+        "toPort": {
+          "side": "west",
+          "offset": 1
+        },
+        "width": 2
+      }
+    ]
+  },
+  "world": {
+    "kind": "authored",
+    "id": "official-map",
+    "rooms": [
+      {
+        "id": "editor:room-base",
+        "zone": 1,
+        "kind": "start",
+        "rect": {
+          "x": 1600,
+          "y": 5940,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 1,
+        "mapY": 7,
+        "connections": [
+          "editor:room-forest",
+          "editor:room-local-3"
+        ],
+        "depth": 0
+      },
+      {
+        "id": "editor:room-forest",
+        "zone": 1,
+        "kind": "static-monster",
+        "rect": {
+          "x": 2880,
+          "y": 5940,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 5,
+        "mapY": 7,
+        "connections": [
+          "editor:room-base",
+          "editor:room-local-5"
+        ],
+        "depth": 1
+      },
+      {
+        "id": "editor:room-local-3",
+        "zone": 1,
+        "kind": "empty",
+        "rect": {
+          "x": 1600,
+          "y": 5280,
+          "width": 640,
+          "height": 440
+        },
+        "mapX": 1,
+        "mapY": 4,
+        "connections": [
+          "editor:room-local-4",
+          "editor:room-local-6",
+          "editor:room-base"
+        ],
+        "depth": 1
+      },
+      {
+        "id": "editor:room-local-4",
+        "zone": 1,
+        "kind": "static-monster",
+        "rect": {
+          "x": 320,
+          "y": 5060,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": -3,
+        "mapY": 3,
+        "connections": [
+          "editor:room-local-3"
+        ],
+        "depth": 2
+      },
+      {
+        "id": "editor:room-local-5",
+        "zone": 1,
+        "kind": "empty",
+        "rect": {
+          "x": 4160,
+          "y": 5940,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 9,
+        "mapY": 7,
+        "connections": [
+          "editor:room-forest",
+          "editor:room-local-11"
+        ],
+        "depth": 2
+      },
+      {
+        "id": "editor:room-local-6",
+        "zone": 1,
+        "kind": "static-monster",
+        "rect": {
+          "x": 1920,
+          "y": 4400,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 2,
+        "mapY": 0,
+        "connections": [
+          "editor:room-local-3",
+          "editor:room-local-7"
+        ],
+        "depth": 2
+      },
+      {
+        "id": "editor:room-local-7",
+        "zone": 1,
+        "kind": "hidden-monster",
+        "rect": {
+          "x": 640,
+          "y": 4180,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": -2,
+        "mapY": -1,
+        "connections": [
+          "editor:room-local-6",
+          "editor:room-local-8"
+        ],
+        "depth": 3
+      },
+      {
+        "id": "editor:room-local-8",
+        "zone": 1,
+        "kind": "gate",
+        "rect": {
+          "x": 640,
+          "y": 3300,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": -2,
+        "mapY": -5,
+        "connections": [
+          "editor:room-local-7",
+          "editor:room-local-57"
+        ],
+        "depth": 4
+      },
+      {
+        "id": "editor:room-local-11",
+        "zone": 1,
+        "kind": "hidden-monster",
+        "rect": {
+          "x": 4160,
+          "y": 5060,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 9,
+        "mapY": 3,
+        "connections": [
+          "editor:room-local-5",
+          "editor:room-local-12"
+        ],
+        "depth": 3
+      },
+      {
+        "id": "editor:room-local-12",
+        "zone": 1,
+        "kind": "gate",
+        "rect": {
+          "x": 5440,
+          "y": 5060,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 13,
+        "mapY": 3,
+        "connections": [
+          "editor:room-local-11",
+          "editor:room-local-13"
+        ],
+        "depth": 4
+      },
+      {
+        "id": "editor:room-local-13",
+        "zone": 1,
+        "kind": "static-monster",
+        "rect": {
+          "x": 5440,
+          "y": 4180,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 13,
+        "mapY": -1,
+        "connections": [
+          "editor:room-local-12",
+          "editor:room-local-15"
+        ],
+        "depth": 5
+      },
+      {
+        "id": "editor:room-local-14",
+        "zone": 1,
+        "kind": "static-monster",
+        "rect": {
+          "x": 3200,
+          "y": 3300,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 6,
+        "mapY": -5,
+        "connections": [
+          "editor:room-local-15",
+          "editor:room-local-57"
+        ],
+        "depth": 6
+      },
+      {
+        "id": "editor:room-local-15",
+        "zone": 1,
+        "kind": "empty",
+        "rect": {
+          "x": 4480,
+          "y": 3300,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 10,
+        "mapY": -5,
+        "connections": [
+          "editor:room-local-14",
+          "editor:room-local-13",
+          "editor:room-local-54"
+        ],
+        "depth": 6
+      },
+      {
+        "id": "editor:room-local-18",
+        "zone": 2,
+        "kind": "empty",
+        "rect": {
+          "x": 6080,
+          "y": 2640,
+          "width": 640,
+          "height": 440
+        },
+        "mapX": 15,
+        "mapY": -8,
+        "connections": [
+          "editor:room-local-19",
+          "editor:room-local-54"
+        ],
+        "depth": 8
+      },
+      {
+        "id": "editor:room-local-19",
+        "zone": 2,
+        "kind": "static-monster",
+        "rect": {
+          "x": 6080,
+          "y": 1760,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 15,
+        "mapY": -12,
+        "connections": [
+          "editor:room-local-18",
+          "editor:room-local-20",
+          "editor:room-local-55"
+        ],
+        "depth": 9
+      },
+      {
+        "id": "editor:room-local-20",
+        "zone": 2,
+        "kind": "hidden-monster",
+        "rect": {
+          "x": 4800,
+          "y": 1980,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 11,
+        "mapY": -11,
+        "connections": [
+          "editor:room-local-19"
+        ],
+        "depth": 10
+      },
+      {
+        "id": "editor:room-local-22",
+        "zone": 2,
+        "kind": "empty",
+        "rect": {
+          "x": 7040,
+          "y": 2640,
+          "width": 640,
+          "height": 440
+        },
+        "mapX": 18,
+        "mapY": -8,
+        "connections": [
+          "editor:room-local-23",
+          "editor:room-local-55"
+        ],
+        "depth": 11
+      },
+      {
+        "id": "editor:room-local-23",
+        "zone": 2,
+        "kind": "hidden-monster",
+        "rect": {
+          "x": 7040,
+          "y": 3300,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 18,
+        "mapY": -5,
+        "connections": [
+          "editor:room-local-22",
+          "editor:room-local-24"
+        ],
+        "depth": 12
+      },
+      {
+        "id": "editor:room-local-24",
+        "zone": 2,
+        "kind": "static-monster",
+        "rect": {
+          "x": 7040,
+          "y": 4180,
+          "width": 640,
+          "height": 440
+        },
+        "mapX": 18,
+        "mapY": -1,
+        "connections": [
+          "editor:room-local-23",
+          "editor:room-local-25"
+        ],
+        "depth": 13
+      },
+      {
+        "id": "editor:room-local-25",
+        "zone": 2,
+        "kind": "gate",
+        "rect": {
+          "x": 8000,
+          "y": 4180,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 21,
+        "mapY": -1,
+        "connections": [
+          "editor:room-local-24",
+          "editor:room-local-26",
+          "editor:room-local-27"
+        ],
+        "depth": 14
+      },
+      {
+        "id": "editor:room-local-26",
+        "zone": 2,
+        "kind": "static-monster",
+        "rect": {
+          "x": 8000,
+          "y": 5060,
+          "width": 640,
+          "height": 440
+        },
+        "mapX": 21,
+        "mapY": 3,
+        "connections": [
+          "editor:room-local-25"
+        ],
+        "depth": 15
+      },
+      {
+        "id": "editor:room-local-27",
+        "zone": 2,
+        "kind": "static-monster",
+        "rect": {
+          "x": 9280,
+          "y": 4400,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 25,
+        "mapY": 0,
+        "connections": [
+          "editor:room-local-25",
+          "editor:room-local-29"
+        ],
+        "depth": 15
+      },
+      {
+        "id": "editor:room-local-29",
+        "zone": 2,
+        "kind": "hidden-monster",
+        "rect": {
+          "x": 9280,
+          "y": 3520,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 25,
+        "mapY": -4,
+        "connections": [
+          "editor:room-local-30",
+          "editor:room-local-27"
+        ],
+        "depth": 16
+      },
+      {
+        "id": "editor:room-local-30",
+        "zone": 2,
+        "kind": "empty",
+        "rect": {
+          "x": 8960,
+          "y": 2640,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 24,
+        "mapY": -8,
+        "connections": [
+          "editor:room-local-31",
+          "editor:room-local-34",
+          "editor:room-local-29"
+        ],
+        "depth": 17
+      },
+      {
+        "id": "editor:room-local-31",
+        "zone": 2,
+        "kind": "gate",
+        "rect": {
+          "x": 10240,
+          "y": 2640,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 28,
+        "mapY": -8,
+        "connections": [
+          "editor:room-local-30",
+          "editor:room-local-32",
+          "editor:room-local-56"
+        ],
+        "depth": 18
+      },
+      {
+        "id": "editor:room-local-32",
+        "zone": 2,
+        "kind": "static-monster",
+        "rect": {
+          "x": 10560,
+          "y": 3520,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 29,
+        "mapY": -4,
+        "connections": [
+          "editor:room-local-31"
+        ],
+        "depth": 19
+      },
+      {
+        "id": "editor:room-local-34",
+        "zone": 2,
+        "kind": "empty",
+        "rect": {
+          "x": 8960,
+          "y": 1980,
+          "width": 640,
+          "height": 440
+        },
+        "mapX": 24,
+        "mapY": -11,
+        "connections": [
+          "editor:room-local-30",
+          "editor:room-local-35"
+        ],
+        "depth": 18
+      },
+      {
+        "id": "editor:room-local-35",
+        "zone": 2,
+        "kind": "hidden-monster",
+        "rect": {
+          "x": 8960,
+          "y": 1320,
+          "width": 640,
+          "height": 440
+        },
+        "mapX": 24,
+        "mapY": -14,
+        "connections": [
+          "editor:room-local-34",
+          "editor:room-local-36"
+        ],
+        "depth": 19
+      },
+      {
+        "id": "editor:room-local-36",
+        "zone": 2,
+        "kind": "static-monster",
+        "rect": {
+          "x": 7680,
+          "y": 880,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 20,
+        "mapY": -16,
+        "connections": [
+          "editor:room-local-35",
+          "editor:room-local-37"
+        ],
+        "depth": 20
+      },
+      {
+        "id": "editor:room-local-37",
+        "zone": 2,
+        "kind": "gate",
+        "rect": {
+          "x": 6400,
+          "y": 880,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 16,
+        "mapY": -16,
+        "connections": [
+          "editor:room-local-36"
+        ],
+        "depth": 21
+      },
+      {
+        "id": "editor:room-local-40",
+        "zone": 3,
+        "kind": "static-monster",
+        "rect": {
+          "x": 10880,
+          "y": 1320,
+          "width": 640,
+          "height": 440
+        },
+        "mapX": 30,
+        "mapY": -14,
+        "connections": [
+          "editor:room-local-41"
+        ],
+        "depth": 21
+      },
+      {
+        "id": "editor:room-local-41",
+        "zone": 3,
+        "kind": "static-monster",
+        "rect": {
+          "x": 11200,
+          "y": 1760,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 31,
+        "mapY": -12,
+        "connections": [
+          "editor:room-local-42",
+          "editor:room-local-40",
+          "editor:room-local-43",
+          "editor:room-local-56"
+        ],
+        "depth": 20
+      },
+      {
+        "id": "editor:room-local-42",
+        "zone": 3,
+        "kind": "hidden-monster",
+        "rect": {
+          "x": 11520,
+          "y": 2640,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 32,
+        "mapY": -8,
+        "connections": [
+          "editor:room-local-41"
+        ],
+        "depth": 21
+      },
+      {
+        "id": "editor:room-local-43",
+        "zone": 3,
+        "kind": "empty",
+        "rect": {
+          "x": 11840,
+          "y": 1100,
+          "width": 640,
+          "height": 440
+        },
+        "mapX": 33,
+        "mapY": -15,
+        "connections": [
+          "editor:room-local-41",
+          "editor:room-local-44",
+          "editor:room-local-47"
+        ],
+        "depth": 21
+      },
+      {
+        "id": "editor:room-local-44",
+        "zone": 3,
+        "kind": "static-monster",
+        "rect": {
+          "x": 11520,
+          "y": 220,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 32,
+        "mapY": -19,
+        "connections": [
+          "editor:room-local-43",
+          "editor:room-local-45"
+        ],
+        "depth": 22
+      },
+      {
+        "id": "editor:room-local-45",
+        "zone": 3,
+        "kind": "hidden-monster",
+        "rect": {
+          "x": 10240,
+          "y": 220,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 28,
+        "mapY": -19,
+        "connections": [
+          "editor:room-local-46",
+          "editor:room-local-44"
+        ],
+        "depth": 23
+      },
+      {
+        "id": "editor:room-local-46",
+        "zone": 3,
+        "kind": "gate",
+        "rect": {
+          "x": 8960,
+          "y": 220,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 24,
+        "mapY": -19,
+        "connections": [
+          "editor:room-local-45"
+        ],
+        "depth": 24
+      },
+      {
+        "id": "editor:room-local-47",
+        "zone": 3,
+        "kind": "static-monster",
+        "rect": {
+          "x": 12800,
+          "y": 1320,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 36,
+        "mapY": -14,
+        "connections": [
+          "editor:room-local-43",
+          "editor:room-local-48"
+        ],
+        "depth": 22
+      },
+      {
+        "id": "editor:room-local-48",
+        "zone": 3,
+        "kind": "static-monster",
+        "rect": {
+          "x": 12800,
+          "y": 2200,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 36,
+        "mapY": -10,
+        "connections": [
+          "editor:room-local-47",
+          "editor:room-local-49"
+        ],
+        "depth": 23
+      },
+      {
+        "id": "editor:room-local-49",
+        "zone": 3,
+        "kind": "static-monster",
+        "rect": {
+          "x": 12800,
+          "y": 3080,
+          "width": 1600,
+          "height": 880
+        },
+        "mapX": 36,
+        "mapY": -6,
+        "connections": [
+          "editor:room-local-48",
+          "editor:room-local-50",
+          "editor:room-local-51"
+        ],
+        "depth": 24
+      },
+      {
+        "id": "editor:room-local-50",
+        "zone": 3,
+        "kind": "gate",
+        "rect": {
+          "x": 12160,
+          "y": 4180,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 34,
+        "mapY": -1,
+        "connections": [
+          "editor:room-local-49",
+          "editor:room-local-52"
+        ],
+        "depth": 25
+      },
+      {
+        "id": "editor:room-local-51",
+        "zone": 3,
+        "kind": "gate",
+        "rect": {
+          "x": 13440,
+          "y": 4180,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 38,
+        "mapY": -1,
+        "connections": [
+          "editor:room-local-49",
+          "editor:room-local-52"
+        ],
+        "depth": 25
+      },
+      {
+        "id": "editor:room-local-52",
+        "zone": 3,
+        "kind": "hidden-monster",
+        "rect": {
+          "x": 12800,
+          "y": 4840,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 36,
+        "mapY": 2,
+        "connections": [
+          "editor:room-local-50",
+          "editor:room-local-51",
+          "editor:room-local-53"
+        ],
+        "depth": 26
+      },
+      {
+        "id": "editor:room-local-53",
+        "zone": 3,
+        "kind": "boss",
+        "rect": {
+          "x": 14720,
+          "y": 3520,
+          "width": 1600,
+          "height": 1100
+        },
+        "mapX": 42,
+        "mapY": -4,
+        "connections": [
+          "editor:room-local-52"
+        ],
+        "depth": 27
+      },
+      {
+        "id": "editor:room-local-54",
+        "zone": 2,
+        "kind": "checkpoint",
+        "rect": {
+          "x": 5760,
+          "y": 3300,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 14,
+        "mapY": -5,
+        "connections": [
+          "editor:room-local-15",
+          "editor:room-local-18"
+        ],
+        "depth": 7
+      },
+      {
+        "id": "editor:room-local-55",
+        "zone": 2,
+        "kind": "static-monster",
+        "rect": {
+          "x": 7360,
+          "y": 1760,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 19,
+        "mapY": -12,
+        "connections": [
+          "editor:room-local-19",
+          "editor:room-local-22"
+        ],
+        "depth": 10
+      },
+      {
+        "id": "editor:room-local-56",
+        "zone": 3,
+        "kind": "checkpoint",
+        "rect": {
+          "x": 9920,
+          "y": 1760,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 27,
+        "mapY": -12,
+        "connections": [
+          "editor:room-local-31",
+          "editor:room-local-41"
+        ],
+        "depth": 19
+      },
+      {
+        "id": "editor:room-local-57",
+        "zone": 1,
+        "kind": "static-monster",
+        "rect": {
+          "x": 1920,
+          "y": 3300,
+          "width": 960,
+          "height": 660
+        },
+        "mapX": 2,
+        "mapY": -5,
+        "connections": [
+          "editor:room-local-8",
+          "editor:room-local-14"
+        ],
+        "depth": 5
+      }
+    ],
+    "connections": [
+      {
+        "id": "path-local-1",
+        "from": "editor:room-base",
+        "to": "editor:room-forest",
+        "floorRects": [
+          {
+            "x": 2470,
+            "y": 6180,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 2560,
+            "y": 6380
+          },
+          {
+            "x": 2880,
+            "y": 6380
+          }
+        ],
+        "portal": {
+          "x": 2880,
+          "y": 6380
+        },
+        "lockBarrier": {
+          "x": 2711,
+          "y": 6180,
+          "width": 18,
+          "height": 400
+        }
+      },
+      {
+        "id": "path-local-4",
+        "from": "editor:room-forest",
+        "to": "editor:room-local-5",
+        "floorRects": [
+          {
+            "x": 3750,
+            "y": 6180,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 3840,
+            "y": 6380
+          },
+          {
+            "x": 4160,
+            "y": 6380
+          }
+        ],
+        "portal": {
+          "x": 4160,
+          "y": 6380
+        },
+        "lockBarrier": {
+          "x": 3991,
+          "y": 6180,
+          "width": 18,
+          "height": 400
+        }
+      },
+      {
+        "id": "path-local-5",
+        "from": "editor:room-local-4",
+        "to": "editor:room-local-3",
+        "floorRects": [
+          {
+            "x": 1190,
+            "y": 5300,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 1280,
+            "y": 5500
+          },
+          {
+            "x": 1600,
+            "y": 5500
+          }
+        ],
+        "portal": {
+          "x": 1600,
+          "y": 5500
+        },
+        "lockBarrier": {
+          "x": 1431,
+          "y": 5300,
+          "width": 18,
+          "height": 400
+        }
+      },
+      {
+        "id": "path-local-6",
+        "from": "editor:room-local-6",
+        "to": "editor:room-local-3",
+        "floorRects": [
+          {
+            "x": 1990,
+            "y": 4970,
+            "width": 180,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 2080,
+            "y": 5060
+          },
+          {
+            "x": 2080,
+            "y": 5280
+          }
+        ],
+        "portal": {
+          "x": 2080,
+          "y": 5280
+        },
+        "lockBarrier": {
+          "x": 1990,
+          "y": 5161,
+          "width": 180,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-7",
+        "from": "editor:room-local-7",
+        "to": "editor:room-local-6",
+        "floorRects": [
+          {
+            "x": 1510,
+            "y": 4420,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 1600,
+            "y": 4620
+          },
+          {
+            "x": 1920,
+            "y": 4620
+          }
+        ],
+        "portal": {
+          "x": 1920,
+          "y": 4620
+        },
+        "lockBarrier": {
+          "x": 1751,
+          "y": 4420,
+          "width": 18,
+          "height": 400
+        }
+      },
+      {
+        "id": "path-local-8",
+        "from": "editor:room-local-8",
+        "to": "editor:room-local-7",
+        "floorRects": [
+          {
+            "x": 1030,
+            "y": 3870,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 1280,
+            "y": 3960
+          },
+          {
+            "x": 1280,
+            "y": 4180
+          }
+        ],
+        "portal": {
+          "x": 1280,
+          "y": 4180
+        },
+        "lockBarrier": {
+          "x": 1030,
+          "y": 4061,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-11",
+        "from": "editor:room-local-11",
+        "to": "editor:room-local-5",
+        "floorRects": [
+          {
+            "x": 4230,
+            "y": 5630,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 4480,
+            "y": 5720
+          },
+          {
+            "x": 4480,
+            "y": 5940
+          }
+        ],
+        "portal": {
+          "x": 4480,
+          "y": 5940
+        },
+        "lockBarrier": {
+          "x": 4230,
+          "y": 5821,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-12",
+        "from": "editor:room-local-11",
+        "to": "editor:room-local-12",
+        "floorRects": [
+          {
+            "x": 5030,
+            "y": 5300,
+            "width": 500,
+            "height": 180
+          }
+        ],
+        "points": [
+          {
+            "x": 5120,
+            "y": 5390
+          },
+          {
+            "x": 5440,
+            "y": 5390
+          }
+        ],
+        "portal": {
+          "x": 5440,
+          "y": 5390
+        },
+        "lockBarrier": {
+          "x": 5271,
+          "y": 5300,
+          "width": 18,
+          "height": 180
+        }
+      },
+      {
+        "id": "path-local-13",
+        "from": "editor:room-local-13",
+        "to": "editor:room-local-12",
+        "floorRects": [
+          {
+            "x": 5830,
+            "y": 4750,
+            "width": 180,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 5920,
+            "y": 4840
+          },
+          {
+            "x": 5920,
+            "y": 5060
+          }
+        ],
+        "portal": {
+          "x": 5920,
+          "y": 5060
+        },
+        "lockBarrier": {
+          "x": 5830,
+          "y": 4941,
+          "width": 180,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-15",
+        "from": "editor:room-local-14",
+        "to": "editor:room-local-15",
+        "floorRects": [
+          {
+            "x": 4070,
+            "y": 3540,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 4160,
+            "y": 3740
+          },
+          {
+            "x": 4480,
+            "y": 3740
+          }
+        ],
+        "portal": {
+          "x": 4480,
+          "y": 3740
+        },
+        "lockBarrier": {
+          "x": 4311,
+          "y": 3540,
+          "width": 18,
+          "height": 400
+        }
+      },
+      {
+        "id": "path-local-16",
+        "from": "editor:room-local-15",
+        "to": "editor:room-local-13",
+        "floorRects": [
+          {
+            "x": 4870,
+            "y": 3870,
+            "width": 500,
+            "height": 620
+          },
+          {
+            "x": 5030,
+            "y": 4200,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 5120,
+            "y": 3960
+          },
+          {
+            "x": 5120,
+            "y": 4400
+          },
+          {
+            "x": 5440,
+            "y": 4400
+          }
+        ],
+        "portal": {
+          "x": 5120,
+          "y": 4400
+        },
+        "lockBarrier": {
+          "x": 4870,
+          "y": 4171,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-20",
+        "from": "editor:room-local-19",
+        "to": "editor:room-local-18",
+        "floorRects": [
+          {
+            "x": 6150,
+            "y": 2330,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 6400,
+            "y": 2420
+          },
+          {
+            "x": 6400,
+            "y": 2640
+          }
+        ],
+        "portal": {
+          "x": 6400,
+          "y": 2640
+        },
+        "lockBarrier": {
+          "x": 6150,
+          "y": 2521,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-21",
+        "from": "editor:room-local-20",
+        "to": "editor:room-local-19",
+        "floorRects": [
+          {
+            "x": 5670,
+            "y": 2000,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 5760,
+            "y": 2200
+          },
+          {
+            "x": 6080,
+            "y": 2200
+          }
+        ],
+        "portal": {
+          "x": 6080,
+          "y": 2200
+        },
+        "lockBarrier": {
+          "x": 5911,
+          "y": 2000,
+          "width": 18,
+          "height": 400
+        }
+      },
+      {
+        "id": "path-local-24",
+        "from": "editor:room-local-22",
+        "to": "editor:room-local-23",
+        "floorRects": [
+          {
+            "x": 7110,
+            "y": 2990,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 7360,
+            "y": 3080
+          },
+          {
+            "x": 7360,
+            "y": 3300
+          }
+        ],
+        "portal": {
+          "x": 7360,
+          "y": 3300
+        },
+        "lockBarrier": {
+          "x": 7110,
+          "y": 3181,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-25",
+        "from": "editor:room-local-23",
+        "to": "editor:room-local-24",
+        "floorRects": [
+          {
+            "x": 7110,
+            "y": 3870,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 7360,
+            "y": 3960
+          },
+          {
+            "x": 7360,
+            "y": 4180
+          }
+        ],
+        "portal": {
+          "x": 7360,
+          "y": 4180
+        },
+        "lockBarrier": {
+          "x": 7110,
+          "y": 4061,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-26",
+        "from": "editor:room-local-24",
+        "to": "editor:room-local-25",
+        "floorRects": [
+          {
+            "x": 7590,
+            "y": 4200,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 7680,
+            "y": 4400
+          },
+          {
+            "x": 8000,
+            "y": 4400
+          }
+        ],
+        "portal": {
+          "x": 8000,
+          "y": 4400
+        },
+        "lockBarrier": {
+          "x": 7831,
+          "y": 4200,
+          "width": 18,
+          "height": 400
+        }
+      },
+      {
+        "id": "path-local-27",
+        "from": "editor:room-local-25",
+        "to": "editor:room-local-26",
+        "floorRects": [
+          {
+            "x": 8070,
+            "y": 4750,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 8320,
+            "y": 4840
+          },
+          {
+            "x": 8320,
+            "y": 5060
+          }
+        ],
+        "portal": {
+          "x": 8320,
+          "y": 5060
+        },
+        "lockBarrier": {
+          "x": 8070,
+          "y": 4941,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-28",
+        "from": "editor:room-local-25",
+        "to": "editor:room-local-27",
+        "floorRects": [
+          {
+            "x": 8870,
+            "y": 4200,
+            "width": 340,
+            "height": 180
+          },
+          {
+            "x": 9030,
+            "y": 4200,
+            "width": 180,
+            "height": 400
+          },
+          {
+            "x": 9030,
+            "y": 4420,
+            "width": 340,
+            "height": 180
+          }
+        ],
+        "points": [
+          {
+            "x": 8960,
+            "y": 4290
+          },
+          {
+            "x": 9120,
+            "y": 4290
+          },
+          {
+            "x": 9120,
+            "y": 4510
+          },
+          {
+            "x": 9280,
+            "y": 4510
+          }
+        ],
+        "portal": {
+          "x": 9120,
+          "y": 4510
+        },
+        "lockBarrier": {
+          "x": 9030,
+          "y": 4391,
+          "width": 180,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-32",
+        "from": "editor:room-local-30",
+        "to": "editor:room-local-31",
+        "floorRects": [
+          {
+            "x": 9830,
+            "y": 2880,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 9920,
+            "y": 3080
+          },
+          {
+            "x": 10240,
+            "y": 3080
+          }
+        ],
+        "portal": {
+          "x": 10240,
+          "y": 3080
+        },
+        "lockBarrier": {
+          "x": 10071,
+          "y": 2880,
+          "width": 18,
+          "height": 400
+        }
+      },
+      {
+        "id": "path-local-33",
+        "from": "editor:room-local-31",
+        "to": "editor:room-local-32",
+        "floorRects": [
+          {
+            "x": 10630,
+            "y": 3210,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 10880,
+            "y": 3300
+          },
+          {
+            "x": 10880,
+            "y": 3520
+          }
+        ],
+        "portal": {
+          "x": 10880,
+          "y": 3520
+        },
+        "lockBarrier": {
+          "x": 10630,
+          "y": 3401,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-35",
+        "from": "editor:room-local-30",
+        "to": "editor:room-local-34",
+        "floorRects": [
+          {
+            "x": 9030,
+            "y": 2330,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 9280,
+            "y": 2640
+          },
+          {
+            "x": 9280,
+            "y": 2420
+          }
+        ],
+        "portal": {
+          "x": 9280,
+          "y": 2420
+        },
+        "lockBarrier": {
+          "x": 9030,
+          "y": 2521,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-36",
+        "from": "editor:room-local-35",
+        "to": "editor:room-local-34",
+        "floorRects": [
+          {
+            "x": 9030,
+            "y": 1670,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 9280,
+            "y": 1760
+          },
+          {
+            "x": 9280,
+            "y": 1980
+          }
+        ],
+        "portal": {
+          "x": 9280,
+          "y": 1980
+        },
+        "lockBarrier": {
+          "x": 9030,
+          "y": 1861,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-37",
+        "from": "editor:room-local-36",
+        "to": "editor:room-local-35",
+        "floorRects": [
+          {
+            "x": 8550,
+            "y": 1340,
+            "width": 500,
+            "height": 180
+          }
+        ],
+        "points": [
+          {
+            "x": 8640,
+            "y": 1430
+          },
+          {
+            "x": 8960,
+            "y": 1430
+          }
+        ],
+        "portal": {
+          "x": 8960,
+          "y": 1430
+        },
+        "lockBarrier": {
+          "x": 8791,
+          "y": 1340,
+          "width": 18,
+          "height": 180
+        }
+      },
+      {
+        "id": "path-local-38",
+        "from": "editor:room-local-37",
+        "to": "editor:room-local-36",
+        "floorRects": [
+          {
+            "x": 7270,
+            "y": 1120,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 7360,
+            "y": 1320
+          },
+          {
+            "x": 7680,
+            "y": 1320
+          }
+        ],
+        "portal": {
+          "x": 7680,
+          "y": 1320
+        },
+        "lockBarrier": {
+          "x": 7511,
+          "y": 1120,
+          "width": 18,
+          "height": 400
+        }
+      },
+      {
+        "id": "path-local-43",
+        "from": "editor:room-local-41",
+        "to": "editor:room-local-42",
+        "floorRects": [
+          {
+            "x": 11910,
+            "y": 2330,
+            "width": 180,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 12000,
+            "y": 2420
+          },
+          {
+            "x": 12000,
+            "y": 2640
+          }
+        ],
+        "portal": {
+          "x": 12000,
+          "y": 2640
+        },
+        "lockBarrier": {
+          "x": 11910,
+          "y": 2521,
+          "width": 180,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-44",
+        "from": "editor:room-local-40",
+        "to": "editor:room-local-41",
+        "floorRects": [],
+        "points": [
+          {
+            "x": 11360,
+            "y": 1760
+          }
+        ],
+        "portal": {
+          "x": 11360,
+          "y": 1760
+        },
+        "lockBarrier": {
+          "x": 11200,
+          "y": 1751,
+          "width": 320,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-45",
+        "from": "editor:room-local-43",
+        "to": "editor:room-local-41",
+        "floorRects": [
+          {
+            "x": 11910,
+            "y": 1450,
+            "width": 180,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 12000,
+            "y": 1540
+          },
+          {
+            "x": 12000,
+            "y": 1760
+          }
+        ],
+        "portal": {
+          "x": 12000,
+          "y": 1760
+        },
+        "lockBarrier": {
+          "x": 11910,
+          "y": 1641,
+          "width": 180,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-46",
+        "from": "editor:room-local-44",
+        "to": "editor:room-local-43",
+        "floorRects": [
+          {
+            "x": 11910,
+            "y": 790,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 12160,
+            "y": 880
+          },
+          {
+            "x": 12160,
+            "y": 1100
+          }
+        ],
+        "portal": {
+          "x": 12160,
+          "y": 1100
+        },
+        "lockBarrier": {
+          "x": 11910,
+          "y": 981,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-47",
+        "from": "editor:room-local-46",
+        "to": "editor:room-local-45",
+        "floorRects": [
+          {
+            "x": 9830,
+            "y": 460,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 9920,
+            "y": 660
+          },
+          {
+            "x": 10240,
+            "y": 660
+          }
+        ],
+        "portal": {
+          "x": 10240,
+          "y": 660
+        },
+        "lockBarrier": {
+          "x": 10071,
+          "y": 460,
+          "width": 18,
+          "height": 400
+        }
+      },
+      {
+        "id": "path-local-48",
+        "from": "editor:room-local-45",
+        "to": "editor:room-local-44",
+        "floorRects": [
+          {
+            "x": 11110,
+            "y": 460,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 11200,
+            "y": 660
+          },
+          {
+            "x": 11520,
+            "y": 660
+          }
+        ],
+        "portal": {
+          "x": 11520,
+          "y": 660
+        },
+        "lockBarrier": {
+          "x": 11351,
+          "y": 460,
+          "width": 18,
+          "height": 400
+        }
+      },
+      {
+        "id": "path-local-49",
+        "from": "editor:room-local-43",
+        "to": "editor:room-local-47",
+        "floorRects": [
+          {
+            "x": 12390,
+            "y": 1340,
+            "width": 500,
+            "height": 180
+          }
+        ],
+        "points": [
+          {
+            "x": 12480,
+            "y": 1430
+          },
+          {
+            "x": 12800,
+            "y": 1430
+          }
+        ],
+        "portal": {
+          "x": 12800,
+          "y": 1430
+        },
+        "lockBarrier": {
+          "x": 12631,
+          "y": 1340,
+          "width": 18,
+          "height": 180
+        }
+      },
+      {
+        "id": "path-local-50",
+        "from": "editor:room-local-48",
+        "to": "editor:room-local-47",
+        "floorRects": [
+          {
+            "x": 13190,
+            "y": 1890,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 13440,
+            "y": 2200
+          },
+          {
+            "x": 13440,
+            "y": 1980
+          }
+        ],
+        "portal": {
+          "x": 13440,
+          "y": 1980
+        },
+        "lockBarrier": {
+          "x": 13190,
+          "y": 2081,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-51",
+        "from": "editor:room-local-48",
+        "to": "editor:room-local-49",
+        "floorRects": [
+          {
+            "x": 13190,
+            "y": 2770,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 13440,
+            "y": 2860
+          },
+          {
+            "x": 13440,
+            "y": 3080
+          }
+        ],
+        "portal": {
+          "x": 13440,
+          "y": 3080
+        },
+        "lockBarrier": {
+          "x": 13190,
+          "y": 2961,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-52",
+        "from": "editor:room-local-49",
+        "to": "editor:room-local-50",
+        "floorRects": [
+          {
+            "x": 12870,
+            "y": 3870,
+            "width": 180,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 12960,
+            "y": 3960
+          },
+          {
+            "x": 12960,
+            "y": 4180
+          }
+        ],
+        "portal": {
+          "x": 12960,
+          "y": 4180
+        },
+        "lockBarrier": {
+          "x": 12870,
+          "y": 4061,
+          "width": 180,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-53",
+        "from": "editor:room-local-49",
+        "to": "editor:room-local-51",
+        "floorRects": [
+          {
+            "x": 13510,
+            "y": 3870,
+            "width": 180,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 13600,
+            "y": 3960
+          },
+          {
+            "x": 13600,
+            "y": 4180
+          }
+        ],
+        "portal": {
+          "x": 13600,
+          "y": 4180
+        },
+        "lockBarrier": {
+          "x": 13510,
+          "y": 4061,
+          "width": 180,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-54",
+        "from": "editor:room-local-50",
+        "to": "editor:room-local-52",
+        "floorRects": [],
+        "points": [
+          {
+            "x": 12960,
+            "y": 4840
+          }
+        ],
+        "portal": {
+          "x": 12960,
+          "y": 4840
+        },
+        "lockBarrier": {
+          "x": 12800,
+          "y": 4831,
+          "width": 320,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-55",
+        "from": "editor:room-local-51",
+        "to": "editor:room-local-52",
+        "floorRects": [],
+        "points": [
+          {
+            "x": 13600,
+            "y": 4840
+          }
+        ],
+        "portal": {
+          "x": 13600,
+          "y": 4840
+        },
+        "lockBarrier": {
+          "x": 13440,
+          "y": 4831,
+          "width": 320,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-56",
+        "from": "editor:room-local-53",
+        "to": "editor:room-local-52",
+        "floorRects": [
+          {
+            "x": 15430,
+            "y": 4530,
+            "width": 180,
+            "height": 730
+          },
+          {
+            "x": 13670,
+            "y": 5080,
+            "width": 1940,
+            "height": 180
+          }
+        ],
+        "points": [
+          {
+            "x": 15520,
+            "y": 4620
+          },
+          {
+            "x": 15520,
+            "y": 5170
+          },
+          {
+            "x": 13760,
+            "y": 5170
+          }
+        ],
+        "portal": {
+          "x": 15520,
+          "y": 5170
+        },
+        "lockBarrier": {
+          "x": 14631,
+          "y": 5080,
+          "width": 18,
+          "height": 180
+        }
+      },
+      {
+        "id": "path-local-57",
+        "from": "editor:room-local-3",
+        "to": "editor:room-base",
+        "floorRects": [
+          {
+            "x": 1670,
+            "y": 5630,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 1920,
+            "y": 5720
+          },
+          {
+            "x": 1920,
+            "y": 5940
+          }
+        ],
+        "portal": {
+          "x": 1920,
+          "y": 5940
+        },
+        "lockBarrier": {
+          "x": 1670,
+          "y": 5821,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-58",
+        "from": "editor:room-local-15",
+        "to": "editor:room-local-54",
+        "floorRects": [
+          {
+            "x": 5350,
+            "y": 3540,
+            "width": 500,
+            "height": 180
+          }
+        ],
+        "points": [
+          {
+            "x": 5440,
+            "y": 3630
+          },
+          {
+            "x": 5760,
+            "y": 3630
+          }
+        ],
+        "portal": {
+          "x": 5760,
+          "y": 3630
+        },
+        "lockBarrier": {
+          "x": 5591,
+          "y": 3540,
+          "width": 18,
+          "height": 180
+        }
+      },
+      {
+        "id": "path-local-59",
+        "from": "editor:room-local-18",
+        "to": "editor:room-local-54",
+        "floorRects": [
+          {
+            "x": 6150,
+            "y": 2990,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 6400,
+            "y": 3080
+          },
+          {
+            "x": 6400,
+            "y": 3300
+          }
+        ],
+        "portal": {
+          "x": 6400,
+          "y": 3300
+        },
+        "lockBarrier": {
+          "x": 6150,
+          "y": 3181,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-60",
+        "from": "editor:room-local-19",
+        "to": "editor:room-local-55",
+        "floorRects": [
+          {
+            "x": 6950,
+            "y": 2000,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 7040,
+            "y": 2200
+          },
+          {
+            "x": 7360,
+            "y": 2200
+          }
+        ],
+        "portal": {
+          "x": 7360,
+          "y": 2200
+        },
+        "lockBarrier": {
+          "x": 7191,
+          "y": 2000,
+          "width": 18,
+          "height": 400
+        }
+      },
+      {
+        "id": "path-local-61",
+        "from": "editor:room-local-55",
+        "to": "editor:room-local-22",
+        "floorRects": [
+          {
+            "x": 7430,
+            "y": 2330,
+            "width": 180,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 7520,
+            "y": 2420
+          },
+          {
+            "x": 7520,
+            "y": 2640
+          }
+        ],
+        "portal": {
+          "x": 7520,
+          "y": 2640
+        },
+        "lockBarrier": {
+          "x": 7430,
+          "y": 2521,
+          "width": 180,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-62",
+        "from": "editor:room-local-30",
+        "to": "editor:room-local-29",
+        "floorRects": [
+          {
+            "x": 9350,
+            "y": 3210,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 9600,
+            "y": 3300
+          },
+          {
+            "x": 9600,
+            "y": 3520
+          }
+        ],
+        "portal": {
+          "x": 9600,
+          "y": 3520
+        },
+        "lockBarrier": {
+          "x": 9350,
+          "y": 3401,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-63",
+        "from": "editor:room-local-29",
+        "to": "editor:room-local-27",
+        "floorRects": [
+          {
+            "x": 9670,
+            "y": 4090,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 9920,
+            "y": 4180
+          },
+          {
+            "x": 9920,
+            "y": 4400
+          }
+        ],
+        "portal": {
+          "x": 9920,
+          "y": 4400
+        },
+        "lockBarrier": {
+          "x": 9670,
+          "y": 4281,
+          "width": 500,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-64",
+        "from": "editor:room-local-56",
+        "to": "editor:room-local-31",
+        "floorRects": [
+          {
+            "x": 10630,
+            "y": 2330,
+            "width": 180,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 10720,
+            "y": 2420
+          },
+          {
+            "x": 10720,
+            "y": 2640
+          }
+        ],
+        "portal": {
+          "x": 10720,
+          "y": 2640
+        },
+        "lockBarrier": {
+          "x": 10630,
+          "y": 2521,
+          "width": 180,
+          "height": 18
+        }
+      },
+      {
+        "id": "path-local-65",
+        "from": "editor:room-local-56",
+        "to": "editor:room-local-41",
+        "floorRects": [
+          {
+            "x": 10790,
+            "y": 2000,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 10880,
+            "y": 2200
+          },
+          {
+            "x": 11200,
+            "y": 2200
+          }
+        ],
+        "portal": {
+          "x": 11200,
+          "y": 2200
+        },
+        "lockBarrier": {
+          "x": 11031,
+          "y": 2000,
+          "width": 18,
+          "height": 400
+        }
+      },
+      {
+        "id": "path-local-66",
+        "from": "editor:room-local-8",
+        "to": "editor:room-local-57",
+        "floorRects": [
+          {
+            "x": 1510,
+            "y": 3540,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 1600,
+            "y": 3740
+          },
+          {
+            "x": 1920,
+            "y": 3740
+          }
+        ],
+        "portal": {
+          "x": 1920,
+          "y": 3740
+        },
+        "lockBarrier": {
+          "x": 1751,
+          "y": 3540,
+          "width": 18,
+          "height": 400
+        }
+      },
+      {
+        "id": "path-local-67",
+        "from": "editor:room-local-57",
+        "to": "editor:room-local-14",
+        "floorRects": [
+          {
+            "x": 2790,
+            "y": 3540,
+            "width": 500,
+            "height": 400
+          }
+        ],
+        "points": [
+          {
+            "x": 2880,
+            "y": 3740
+          },
+          {
+            "x": 3200,
+            "y": 3740
+          }
+        ],
+        "portal": {
+          "x": 3200,
+          "y": 3740
+        },
+        "lockBarrier": {
+          "x": 3031,
+          "y": 3540,
+          "width": 18,
+          "height": 400
+        }
+      }
+    ],
+    "walkable": [
+      {
+        "x": 1600,
+        "y": 5940,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 2880,
+        "y": 5940,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 1600,
+        "y": 5280,
+        "width": 640,
+        "height": 440
+      },
+      {
+        "x": 320,
+        "y": 5060,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 4160,
+        "y": 5940,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 1920,
+        "y": 4400,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 640,
+        "y": 4180,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 640,
+        "y": 3300,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 4160,
+        "y": 5060,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 5440,
+        "y": 5060,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 5440,
+        "y": 4180,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 3200,
+        "y": 3300,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 4480,
+        "y": 3300,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 6080,
+        "y": 2640,
+        "width": 640,
+        "height": 440
+      },
+      {
+        "x": 6080,
+        "y": 1760,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 4800,
+        "y": 1980,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 7040,
+        "y": 2640,
+        "width": 640,
+        "height": 440
+      },
+      {
+        "x": 7040,
+        "y": 3300,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 7040,
+        "y": 4180,
+        "width": 640,
+        "height": 440
+      },
+      {
+        "x": 8000,
+        "y": 4180,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 8000,
+        "y": 5060,
+        "width": 640,
+        "height": 440
+      },
+      {
+        "x": 9280,
+        "y": 4400,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 9280,
+        "y": 3520,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 8960,
+        "y": 2640,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 10240,
+        "y": 2640,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 10560,
+        "y": 3520,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 8960,
+        "y": 1980,
+        "width": 640,
+        "height": 440
+      },
+      {
+        "x": 8960,
+        "y": 1320,
+        "width": 640,
+        "height": 440
+      },
+      {
+        "x": 7680,
+        "y": 880,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 6400,
+        "y": 880,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 10880,
+        "y": 1320,
+        "width": 640,
+        "height": 440
+      },
+      {
+        "x": 11200,
+        "y": 1760,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 11520,
+        "y": 2640,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 11840,
+        "y": 1100,
+        "width": 640,
+        "height": 440
+      },
+      {
+        "x": 11520,
+        "y": 220,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 10240,
+        "y": 220,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 8960,
+        "y": 220,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 12800,
+        "y": 1320,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 12800,
+        "y": 2200,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 12800,
+        "y": 3080,
+        "width": 1600,
+        "height": 880
+      },
+      {
+        "x": 12160,
+        "y": 4180,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 13440,
+        "y": 4180,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 12800,
+        "y": 4840,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 14720,
+        "y": 3520,
+        "width": 1600,
+        "height": 1100
+      },
+      {
+        "x": 5760,
+        "y": 3300,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 7360,
+        "y": 1760,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 9920,
+        "y": 1760,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 1920,
+        "y": 3300,
+        "width": 960,
+        "height": 660
+      },
+      {
+        "x": 2470,
+        "y": 6180,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 3750,
+        "y": 6180,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 1190,
+        "y": 5300,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 1990,
+        "y": 4970,
+        "width": 180,
+        "height": 400
+      },
+      {
+        "x": 1510,
+        "y": 4420,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 1030,
+        "y": 3870,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 4230,
+        "y": 5630,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 5030,
+        "y": 5300,
+        "width": 500,
+        "height": 180
+      },
+      {
+        "x": 5830,
+        "y": 4750,
+        "width": 180,
+        "height": 400
+      },
+      {
+        "x": 4070,
+        "y": 3540,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 4870,
+        "y": 3870,
+        "width": 500,
+        "height": 620
+      },
+      {
+        "x": 5030,
+        "y": 4200,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 6150,
+        "y": 2330,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 5670,
+        "y": 2000,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 7110,
+        "y": 2990,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 7110,
+        "y": 3870,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 7590,
+        "y": 4200,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 8070,
+        "y": 4750,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 8870,
+        "y": 4200,
+        "width": 340,
+        "height": 180
+      },
+      {
+        "x": 9030,
+        "y": 4200,
+        "width": 180,
+        "height": 400
+      },
+      {
+        "x": 9030,
+        "y": 4420,
+        "width": 340,
+        "height": 180
+      },
+      {
+        "x": 9830,
+        "y": 2880,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 10630,
+        "y": 3210,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 9030,
+        "y": 2330,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 9030,
+        "y": 1670,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 8550,
+        "y": 1340,
+        "width": 500,
+        "height": 180
+      },
+      {
+        "x": 7270,
+        "y": 1120,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 11910,
+        "y": 2330,
+        "width": 180,
+        "height": 400
+      },
+      {
+        "x": 11910,
+        "y": 1450,
+        "width": 180,
+        "height": 400
+      },
+      {
+        "x": 11910,
+        "y": 790,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 9830,
+        "y": 460,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 11110,
+        "y": 460,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 12390,
+        "y": 1340,
+        "width": 500,
+        "height": 180
+      },
+      {
+        "x": 13190,
+        "y": 1890,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 13190,
+        "y": 2770,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 12870,
+        "y": 3870,
+        "width": 180,
+        "height": 400
+      },
+      {
+        "x": 13510,
+        "y": 3870,
+        "width": 180,
+        "height": 400
+      },
+      {
+        "x": 15430,
+        "y": 4530,
+        "width": 180,
+        "height": 730
+      },
+      {
+        "x": 13670,
+        "y": 5080,
+        "width": 1940,
+        "height": 180
+      },
+      {
+        "x": 1670,
+        "y": 5630,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 5350,
+        "y": 3540,
+        "width": 500,
+        "height": 180
+      },
+      {
+        "x": 6150,
+        "y": 2990,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 6950,
+        "y": 2000,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 7430,
+        "y": 2330,
+        "width": 180,
+        "height": 400
+      },
+      {
+        "x": 9350,
+        "y": 3210,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 9670,
+        "y": 4090,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 10630,
+        "y": 2330,
+        "width": 180,
+        "height": 400
+      },
+      {
+        "x": 10790,
+        "y": 2000,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 1510,
+        "y": 3540,
+        "width": 500,
+        "height": 400
+      },
+      {
+        "x": 2790,
+        "y": 3540,
+        "width": 500,
+        "height": 400
+      }
+    ],
+    "bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 16640,
+      "height": 6820
+    },
+    "baseRoomId": "editor:room-base",
+    "bossRoomId": "editor:room-local-53",
+    "gateRoomIds": [
+      "editor:room-local-8",
+      "editor:room-local-12",
+      "editor:room-local-25",
+      "editor:room-local-31",
+      "editor:room-local-37",
+      "editor:room-local-46",
+      "editor:room-local-50",
+      "editor:room-local-51"
+    ],
+    "gateCandidateRoomIds": []
+  }
+}

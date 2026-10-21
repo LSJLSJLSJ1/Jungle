@@ -27,6 +27,15 @@ def resolve_db_path():
 DB_PATH = resolve_db_path()
 
 
+@app.url_defaults
+def asset_revision(endpoint, values):
+    filename = values.get('filename', '')
+    if endpoint == 'static' and filename.endswith(('.css', '.js')):
+        path = os.path.join(BASE_DIR, 'static', filename)
+        if os.path.isfile(path):
+            values.setdefault('v', os.stat(path).st_mtime_ns)
+
+
 def get_port():
     try:
         return int(os.environ.get('PORT', '5000'))
@@ -68,10 +77,18 @@ def init_db():
 # 앱 시작 시 DB 초기화
 init_db()
 
+@app.route('/index.html')
 @app.route('/')
 def home():
     """메인 개인 소개 페이지"""
     return render_template('index.html')
+
+
+@app.route('/demos/<filename>')
+def demos(filename):
+    if filename not in {'pacman.html', 'skydiving.html'}:
+        return not_found(None)
+    return send_from_directory(os.path.join(BASE_DIR, 'demos'), filename)
 
 @app.route('/image/<path:filename>')
 def serve_image(filename):

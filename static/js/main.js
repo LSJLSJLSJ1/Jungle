@@ -67,6 +67,8 @@ $(document).ready(function () {
 
         if (phase === 'IDLE' && (e.key === 'f' || e.key === 'F' || e.key === ' ')) {
             triggerEject();
+        } else if (phase === 'FAILED' && (e.key === 'f' || e.key === 'F')) {
+            replayCutscene();
         }
     });
 
@@ -87,7 +89,7 @@ $(document).ready(function () {
    ======================================================== */
 function init3DCutscene() {
     const container = document.getElementById('cutscene-3d-container');
-    if (!container) return;
+    if (!container || container.parentElement.hidden) { phase = 'LANDED'; return; }
 
     if (!window.THREE || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         showCutsceneFallback();
@@ -202,6 +204,7 @@ function buildSkyAtmosphere() {
 }
 
 function showCutsceneFallback() {
+    phase = 'LANDED';
     $('#cutscene-overlay').hide();
     document.body.classList.add('cutscene-fallback');
 }
@@ -1437,6 +1440,7 @@ function triggerEject() {
    ========================================================================= */
 function animate3D() {
     requestAnimationFrame(animate3D);
+    if (phase === 'LANDED' || document.hidden) return;
 
     const now = performance.now();
     const dt = Math.min((now - lastFrameTime) / 1000.0, 0.05);
@@ -1663,6 +1667,7 @@ function animate3D() {
                 $('#minigame-hud').fadeOut(300);
                 setTimeout(() => {
                     $('#minigame-fail-box').fadeIn(400);
+                    document.querySelector('#btn-retry')?.focus();
                 }, 550);
             }
         }
@@ -1887,6 +1892,7 @@ function initSectionRevealAnimations() {
    13. Guestbook REST API
    ======================================================== */
 function loadGuestbook() {
+    if (!document.querySelector('#guestbook-list, #guestbook-form')) return;
     if (IS_STATIC_DEPLOYMENT) {
         if (hasSupabaseGuestbookConfig()) {
             loadSupabaseGuestbook();

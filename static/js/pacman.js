@@ -67,6 +67,7 @@
     let animationFrame;
     let lastTime = 0;
     let game;
+    let paused = false;
 
     function createDots() {
         const dots = new Set();
@@ -740,12 +741,13 @@
         if (!lastTime) lastTime = timestamp;
         const dt = Math.min((timestamp - lastTime) / 1000, 0.05);
         lastTime = timestamp;
-        update(dt);
+        if (!paused && !document.hidden) update(dt);
         draw();
         animationFrame = window.requestAnimationFrame(loop);
     }
 
     function handleKeydown(event) {
+        if (document.activeElement !== canvas) return;
         const keyMap = {
             ArrowUp: 'up', ArrowLeft: 'left', ArrowDown: 'down', ArrowRight: 'right',
             w: 'up', a: 'left', s: 'down', d: 'right',
@@ -768,7 +770,7 @@
     function syncAIVisualizationUI() {
         const button = document.getElementById('btn-ai-toggle');
         if (!button || !game) return;
-        button.textContent = game.aiVisible ? '🧠 AI 시각화 끄기' : '🧠 AI 시각화 켜기';
+        button.textContent = game.aiVisible ? 'AI 시각화 끄기' : 'AI 시각화 켜기';
         button.setAttribute('aria-pressed', String(game.aiVisible));
     }
 
@@ -800,6 +802,11 @@
     window.initPacmanGame = initPacmanGame;
     window.resetPacmanGame = resetPacmanGame;
     window.toggleAIVisualization = toggleAIVisualization;
+    window.togglePacmanPause = function () {
+        paused = !paused;
+        const button = document.getElementById('pacman-pause');
+        if (button) button.textContent = paused ? '계속하기' : '일시정지';
+    };
     window.__pacmanDebug = Object.freeze({
         getState: getPacmanDebugState,
         runDiagnostics: runPacmanDiagnostics

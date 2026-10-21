@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>3D 강하 미니게임 | 이성재</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <script src="../static/vendor/three-r128.min.js"></script>
+    <script src="../static/vendor/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <div id="cutscene-overlay" role="dialog" aria-label="3D 강하 인트로">
+      <div id="cutscene-3d-container"></div>
+
+      <div class="hud-top">
+        <div class="hud-stat">
+          <span class="hud-label">착지까지 남은 시간</span>
+          <span id="hud-timer" class="hud-val hud-timer">8.0 s</span>
+        </div>
+        <div class="hud-stat hud-stat-alt">
+          <span class="hud-label">현재 고도</span>
+          <span id="hud-altitude" class="hud-val hud-altitude">2400 m</span>
+        </div>
+      </div>
+
+      <div id="minigame-hud" class="minigame-hud">
+        <div class="center-hud-group">
+          <div class="wasd-keys-box">
+            <div class="wasd-grid">
+              <div class="key-cap key-w" id="key-w">W</div>
+              <div class="key-row">
+                <div class="key-cap key-a" id="key-a">A</div>
+                <div class="key-cap key-s" id="key-s">S</div>
+                <div class="key-cap key-d" id="key-d">D</div>
+              </div>
+            </div>
+          </div>
+          <div class="target-radar-box">
+            <div class="radar-circle">
+              <div id="radar-player-dot" class="radar-dot"></div>
+              <div class="radar-center-cross"></div>
+            </div>
+            <div id="radar-distance" class="radar-dist">착지 오차: 0m</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cutscene-bottom-box" id="cutscene-ui-box">
+        <div class="cutscene-badge">Three.js / WebGL</div>
+        <h1 class="cutscene-title">3D 강하 미니게임</h1>
+        <p class="cutscene-sub">
+          실시간 3D WebGL 비행 강하 미니게임 · WASD로 목표 낙하지점(DZ)을
+          조준하세요
+        </p>
+        <div class="cutscene-btn-row">
+          <button id="btn-drop" class="btn-drop">
+            <span class="key-badge">[F] 뛰어내리기</span>
+          </button>
+          <button
+            id="btn-skip-cutscene"
+            class="btn-skip-cutscene"
+            type="button"
+          >
+            3D 인트로 건너뛰기
+          </button>
+        </div>
+      </div>
+
+      <div id="minigame-fail-box" class="minigame-modal-box">
+        <div class="fail-icon">💥</div>
+        <h2 class="modal-title">착지 오차 범위 초과</h2>
+        <p class="modal-desc">
+          정밀한 조작과 판단이 필요합니다. 다시 도전하여 안전 지점에 착지하세요.
+        </p>
+        <button
+          id="btn-retry"
+          onclick="replayCutscene()"
+          class="btn-drop btn-retry"
+        >
+          [F] 다시 시도
+        </button>
+      </div>
+    </div>
+
+    <div id="main-portfolio">
+      <main
+        id="intro"
+        style="padding: 80px 24px; max-width: 800px; margin: auto; color: white"
+      >
+        <a href="../index.html#more-title">포트폴리오로 돌아가기</a>
+        <h1>3D 강하 미니게임</h1>
+        <p>
+          WASD로 목표 착지 지점에 접근합니다. 모션 줄이기를 사용하거나 WebGL이
+          없으면 3D 효과를 실행하지 않습니다.
+        </p>
+        <button onclick="replayCutscene()">다시 플레이</button>
+      </main>
+    </div>
+    <script>
+      window.SITE_CONFIG = { staticMode: true };
+    </script>
+    <script src="../static/js/main.js"></script>
+    <noscript><style>#cutscene-overlay{display:none!important}</style><p>3D 체험에는 JavaScript가 필요합니다. <a href="../index.html">포트폴리오로 돌아가기</a></p></noscript>
+  </body>
+</html>
