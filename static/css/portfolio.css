@@ -693,7 +693,10 @@ summary::marker {
 .ghost-targets { display:none; }
 .learning-demo figcaption { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-top:16px; font-size:13px; color:var(--muted); }
 .learning-demo [hidden] { display:none !important; }
-.interest-making { grid-template-columns:1fr; gap:32px; }
+.demo-title { margin-bottom:16px; font-size:16px; font-weight:600; }
+.interest-references { border-top:1px solid var(--line); padding-top:40px; margin-top:40px; }
+.interest-references .interest-copy { margin-bottom:32px; }
+.interest-references .interest-copy p { margin-top:12px; }
 .reference-gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
 .reference-gallery figure { min-width:0; }
 .reference-gallery img { width:100%; aspect-ratio:16/10; object-fit:contain; background:var(--surface); border-radius:8px; }
@@ -701,6 +704,7 @@ summary::marker {
 .reference-gallery a { font-size:16px; font-weight:600; text-decoration:none; }
 .reference-gallery a:hover { text-decoration:underline; }
 .reference-gallery span { color:var(--muted); font-size:13px; }
+.reference-gallery p { margin-top:12px; color:var(--muted); font-size:15px; line-height:1.8; }
 .project-meta { margin-top:12px; color:var(--muted); font-size:14px; }
 .work-list > a > div { min-width:0; }
 @media(max-width:1100px) { .interest-feature { gap:40px; } }

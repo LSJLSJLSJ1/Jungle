@@ -146,7 +146,8 @@
         <div class="interest-feature">
           <div class="interest-copy">
             <h3>게임의 규칙과 밸런스</h3>
-            <p>스카이림을 모딩하며 공격력과 스킬 재사용 시간이 플레이를 어떻게 바꾸는지 살펴봤습니다. 지금은 캐릭터의 역할과 전투 규칙을 직접 만들고 있습니다.</p>
+            <p>스카이림을 모딩하며 공격력과 스킬 재사용 시간이 플레이를 어떻게 바꾸는지 살펴봤습니다.</p>
+            <p>연막으로 원거리 캐릭터의 시야를 차단하거나, 밤에 탐험과 방어를 나누게 하는 규칙처럼 플레이어의 선택을 바꾸는 설계에 관심이 있습니다.</p>
           </div>
           <div id="bug-hunt" class="interest-demo">
             <div class="demo-toolbar"><h4>버그 소탕 미니게임</h4><span>점수 <strong id="bug-hunt-score">0</strong></span></div>
@@ -157,10 +158,11 @@
         <div class="interest-feature">
           <div class="interest-copy">
             <h3>게임 AI</h3>
-            <p>팩맨 유령 네 종류의 추격 규칙을 구현하고 움직임을 시각화했습니다.</p>
+            <p>단순한 규칙도 함께 작동하면 포위나 협동처럼 보이는 행동을 만듭니다. 팩맨 유령마다 추격 목표가 다른 점이 흥미로워 네 종류의 규칙을 구현하고 움직임을 시각화했습니다.</p>
             <dl class="ghost-rules"><div><dt>Blinky</dt><dd>현재 위치 추격</dd></div><div><dt>Pinky</dt><dd>이동 방향 4칸 앞</dd></div><div><dt>Inky</dt><dd>Blinky와 전방 지점의 확장 벡터</dd></div><div><dt>Clyde</dt><dd>거리에 따라 추격 또는 후퇴</dd></div></dl>
           </div>
           <div class="interest-demo pacman-demo">
+            <h4 class="demo-title">팩맨 추격 규칙 시연</h4>
             <canvas id="pacman-canvas" width="420" height="420" tabindex="0" aria-label="팩맨 추격 AI 시연" aria-describedby="pacman-controls"></canvas>
             <div class="demo-controls"><button id="btn-ai-toggle" type="button" aria-pressed="false">AI 시각화 켜기</button><button id="pacman-reset" type="button">다시 시작</button><button id="pacman-pause" type="button">일시정지</button></div>
             <p id="pacman-controls" class="demo-hint">화면 선택 후 WASD / 방향키 이동</p>
@@ -168,21 +170,21 @@
           </div>
         </div>
         <div class="interest-feature">
-          <div class="interest-copy"><h3>강화학습</h3><p>게임 AI의 규칙과 학습으로 달라지는 움직임에 관심이 있습니다.</p></div>
+          <div class="interest-copy"><h3>강화학습</h3><p>학습의 목표와 보상 설정이 캐릭터 움직임에 어떤 차이를 만드는지 궁금합니다.</p><p>Embark Studios는 ARC Raiders의 로봇 이동에 강화학습을 활용했습니다. 지형과 충격에 반응하는 움직임을 관심 있게 보고 있습니다.</p></div>
           <figure class="learning-demo">
-            <img id="rl-animation" src="{{ url_for('serve_image', filename='AI_RL.webp') }}" width="647" height="365" loading="lazy" alt="Embark Studios의 학습 기반 캐릭터 이동 시연" />
-            <canvas id="rl-still" width="647" height="365" role="img" aria-label="학습 기반 캐릭터 이동 시연의 정지 화면" hidden></canvas>
-            <figcaption><a href="https://medium.com/embarkstudios/transforming-animation-with-machine-learning-27ac694590c" target="_blank" rel="noopener noreferrer">Embark Studios / 이동 학습 사례</a><button id="rl-toggle" type="button" hidden>일시정지</button></figcaption>
+            <img id="rl-animation" src="{{ url_for('serve_image', filename='AI_RL.webp') }}" width="647" height="365" loading="lazy" alt="Embark Studios가 제작한 ARC Raiders의 로봇 이동 장면" />
+            <canvas id="rl-still" width="647" height="365" role="img" aria-label="ARC Raiders 로봇 이동 장면의 정지 화면" hidden></canvas>
+            <figcaption><a href="https://www.unrealengine.com/developer-interviews/embark-studios-build-the-award-winning-arc-raiders-with-unreal-engine" target="_blank" rel="noopener noreferrer">외부 게임 사례 / ARC Raiders · Embark Studios</a><button id="rl-toggle" type="button" hidden>일시정지</button></figcaption>
           </figure>
         </div>
-        <div class="interest-feature interest-making">
-          <div class="interest-copy"><h3>AI를 활용한 제작</h3><p>생성형 AI로 게임 캐릭터 이미지를 제작하고 객체 검출과 OCR로 영양제 라벨 정보를 추출하는 프로젝트에 참여했습니다.</p></div>
-          <div class="reference-gallery" aria-label="관심 분야 참고 사례">
-            <figure><img src="{{ url_for('serve_image', filename='fable.png') }}" width="686" height="386" loading="lazy" alt="Anthropic Fable 5 소개 이미지" /><figcaption><a href="https://www.anthropic.com/claude/fable" target="_blank" rel="noopener noreferrer">Claude Fable 5</a><span>Anthropic / 언어 모델</span></figcaption></figure>
-            <figure><img src="{{ url_for('serve_image', filename='mimesis.png') }}" width="1920" height="1080" loading="lazy" alt="MIMESIS 게임 이미지" /><figcaption><a href="https://mimesis.relugames.com/" target="_blank" rel="noopener noreferrer">MIMESIS</a><span>ReLU Games / 게임 AI</span></figcaption></figure>
-            <figure><img src="{{ url_for('serve_image', filename='atlas.png') }}" width="792" height="564" loading="lazy" alt="Boston Dynamics의 Atlas 로봇" /><figcaption><a href="https://bostondynamics.com/products/atlas/" target="_blank" rel="noopener noreferrer">Atlas</a><span>Boston Dynamics / 로봇</span></figcaption></figure>
+        <section class="interest-references" aria-labelledby="references-title">
+          <div class="interest-copy"><h3 id="references-title">관심 분야의 외부 사례</h3><p>언어 모델, 게임 AI, 로봇에 AI가 쓰이는 방식을 살펴보고 있습니다.</p></div>
+          <div class="reference-gallery">
+            <figure><img src="{{ url_for('serve_image', filename='fable.png') }}" width="686" height="386" loading="lazy" alt="Anthropic Fable 5 소개 이미지" /><figcaption><a href="https://www.anthropic.com/claude/fable" target="_blank" rel="noopener noreferrer">Claude Fable 5</a><span>제작: Anthropic / 언어 모델</span><p>자연어로 요구사항을 전달해 코드 작성과 검토를 돕는 언어 모델.</p></figcaption></figure>
+            <figure><img src="{{ url_for('serve_image', filename='mimesis.png') }}" width="1920" height="1080" loading="lazy" alt="ReLU Games가 제작한 MIMESIS 게임 이미지" /><figcaption><a href="https://mimesis.relugames.com/" target="_blank" rel="noopener noreferrer">MIMESIS</a><span>제작: ReLU Games / 게임 AI</span><p>동료의 목소리와 행동을 흉내 내는 적이 등장하는 협동 공포 게임. AI의 행동이 플레이어 사이의 신뢰와 의심을 만드는 사례입니다.</p></figcaption></figure>
+            <figure><img src="{{ url_for('serve_image', filename='atlas.png') }}" width="792" height="564" loading="lazy" alt="Boston Dynamics가 제작한 Atlas 로봇" /><figcaption><a href="https://bostondynamics.com/products/atlas/" target="_blank" rel="noopener noreferrer">Atlas</a><span>제작: Boston Dynamics / 로봇</span><p>주변을 인식하고 물체를 옮기는 휴머노이드 로봇. 가상 캐릭터를 넘어 실제 환경에서 움직이는 AI의 사례입니다.</p></figcaption></figure>
           </div>
-        </div>
+        </section>
       </section>
       <section
         id="projects"
@@ -190,7 +192,7 @@
         aria-labelledby="projects-title"
       >
         <div class="section-heading">
-          <h2 id="projects-title">만든 것</h2>
+          <h2 id="projects-title">직접 참여한 작업</h2>
         </div>
         <article class="project" id="demon-king">
           <div class="project-media">
@@ -286,7 +288,7 @@
             rel="noopener noreferrer"
             ><div>
               <h3 translate="no">Auto Battle Tactics</h3>
-              <p>오토배틀러 기획과 게임 에셋 제작 파이프라인</p>
+              <p>오토배틀러 기획과 생성형 AI를 활용한 게임 캐릭터 이미지 제작</p>
             </div>
             <span
               >보고서 PDF
@@ -299,7 +301,7 @@
             rel="noopener noreferrer"
             ><div>
               <h3>영양제 라벨 인식</h3>
-              <p>객체 검출과 OCR을 이용한 정보 추출 연구</p>
+              <p>객체 검출과 OCR을 이용한 정보 추출 연구 참여</p>
             </div>
             <span
               >논문 PDF
