@@ -70,6 +70,7 @@ const rpg = `<dl class="case-meta"><div><dt>제작</dt><dd>5일 이내 / 3인 �
 <section><h2>테스트에서 확인한 문제와 조정</h2><dl class="design-case"><div><dt>관찰</dt><dd>낮에 충분히 성장하면 후반에도 한 명이 웨이브를 모두 막을 수 있었습니다.</dd></div><div><dt>조정</dt><dd>증강 효과를 하향하고 레벨업 경험치를 조정했습니다.</dd></div><div><dt>목표</dt><dd>후반 방어에 두 명이 필요하도록 맞추는 것이 조정 목표였습니다.</dd></div></dl></section>
 <section><h2>레벨 구조</h2><p>3개 구역, ${world.rooms.length}개 방을 연결했습니다. 게이트로 구역 진행을 나누고 웨이포인트로 탐험과 귀환 경로를 연결합니다.</p><figure class="note-map"><svg viewBox="0 0 ${world.bounds.width} ${world.bounds.height}" role="img" aria-label="공식 맵의 세 구역, 방과 연결 통로"><title>5일 뒤 마왕 공식 맵</title>${corridors}${mapRects}</svg><figcaption>흰색: 베이스 / 붉은색: 게이트 / 금색: 보스 방</figcaption></figure></section>
 <section><h2>현재 직업별 기본 수치</h2><p>장비와 증강을 적용하기 전의 기본값입니다.</p><div class="table-scroll" tabindex="0" role="region" aria-label="직업별 수치 표"><table><thead><tr><th scope="col">직업</th><th scope="col">체력</th><th scope="col">기본 피해</th><th scope="col">공격 거리</th><th scope="col">공격 주기</th></tr></thead><tbody>${rows}</tbody></table></div></section>
+<section><h2>돌아보며</h2><p>초기 기획안은 플레이테스트를 거치며 많이 바뀌었습니다. 개발 기간이 5일이 채 안 돼 고도화하지 못한 점이 아쉽습니다.</p><p>시간이 더 있었다면 적이 베이스에 도착하는 로직과 보스 패턴처럼 플레이어의 전략적 선택과 컨트롤이 드러나는 시스템을 더 정교하게 만들고 싶었습니다.</p></section>
 <section><h2>소스 코드</h2><p><a href="https://github.com/LSJLSJLSJ1/Jungle/tree/main/demos/vendor/game-core" target="_blank" rel="noopener noreferrer">게임 규칙과 공식 맵</a></p></section>`;
 await writeFile(
   resolve(output, "design-demon-king.html"),
@@ -101,6 +102,7 @@ const shooter = `<dl class="case-meta"><div><dt>제작</dt><dd>5일 이내 / 4�
 <section><h2>전술 슈터에서 병과 조합으로</h2><p>PUBG BLINDSPOT에서 영감을 받아 시작했습니다. 초기에는 섬광탄을 활용하는 Rainbow Six 스타일의 전술을 기획했습니다. 이후 Overwatch처럼 병과를 다양화하면서 아군과 상대 팀의 조합에 초점을 맞췄습니다.</p></section>
 <section><h2>연막으로 원거리 시야에 대응</h2><p>Counter-Strike와 VALORANT를 참고해 연막 안팎의 시야 규칙을 설계했습니다. 원거리 캐릭터에게 유리한 시야를 차단하는 것이 목적이었습니다.</p><dl class="design-case"><div><dt>설계 목표</dt><dd>긴 사거리와 시야의 이점을 연막으로 줄이기</dd></div><div><dt>게임 규칙</dt><dd>연막 안과 밖의 시야를 분리하고 섬광으로 잠시 정보를 차단</dd></div><div><dt>체험판에서 볼 지점</dt><dd>엄폐물 모서리, 조준 방향, 연막 안팎에서 보이는 영역</dd></div></dl></section>
 <section><h2>프로젝트의 병과 설정</h2><p>10종 병과 중 네 병과의 현재 설정입니다.</p><div class="table-scroll" tabindex="0" role="region" aria-label="병과별 역할과 제약 비교 표"><table><thead><tr><th scope="col">병과</th><th scope="col">역할</th><th scope="col">기본 공격</th><th scope="col">능력과 제약</th></tr></thead><tbody>${operatorRows}</tbody></table></div></section>
+<section><h2>돌아보며</h2><p>초기 기획안은 플레이테스트를 거치며 많이 바뀌었습니다. 개발 기간이 5일이 채 안 돼 시스템을 더 다듬지 못한 점이 아쉽습니다.</p></section>
 <section><h2>소스 코드</h2><p><a href="https://github.com/LSJLSJLSJ1/Jungle/tree/main/static/games/shooter" target="_blank" rel="noopener noreferrer">시야, 병과와 전투 규칙</a></p></section>`;
 await writeFile(
   resolve(output, "design-shooter.html"),
