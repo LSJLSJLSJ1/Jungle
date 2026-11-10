@@ -12,18 +12,26 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SITE_URL = "https://lsjlsjlsj1.github.io/Jungle/"
 
 
-def replace_flask_urls(html: str, site_url: str = DEFAULT_SITE_URL) -> str:
+# Extra pages: template name -> (Flask endpoint, output folder under the site root).
+PAGES = {"pearlabyss.html": ("pearlabyss", "pearlabyss")}
+
+
+def replace_flask_urls(html: str, site_url: str = DEFAULT_SITE_URL, depth: int = 0) -> str:
+    up = "../" * depth or "./"
+    page_paths = {endpoint: f"{folder}/" for endpoint, folder in PAGES.values()}
     def replace(match):
         endpoint, arguments = match.group(1), match.group(2)
         filename = re.search(r"filename\s*=\s*['\"]([^'\"]+)['\"]", arguments)
         if endpoint == "home":
-            path = "./"
+            path = ""
+        elif endpoint in page_paths:
+            path = page_paths[endpoint]
         elif endpoint in {"static", "demos", "serve_image"} and filename:
             prefix = {"static": "static", "demos": "demos", "serve_image": "image"}[endpoint]
-            path = f"./{prefix}/{filename.group(1)}"
+            path = f"{prefix}/{filename.group(1)}"
         else:
             raise ValueError(f"Unsupported template endpoint: {endpoint}")
-        return urljoin(site_url, path) if "_external=True" in arguments or "_external = True" in arguments else path
+        return urljoin(site_url, path) if "_external=True" in arguments or "_external = True" in arguments else up + path
 
     return re.sub(r"\{\{\s*url_for\(['\"]([^'\"]+)['\"]([^)]*)\)\s*\}\}", replace, html)
 
@@ -54,6 +62,12 @@ def build(output: Path, site_url: str = DEFAULT_SITE_URL) -> None:
     if "{{" in html or "url_for(" in html:
         raise ValueError("Unresolved template syntax")
     (output / "index.html").write_text(html, encoding="utf-8")
+    for template, (_, folder) in PAGES.items():
+        page_html = replace_flask_urls((ROOT / "templates" / template).read_text(encoding="utf-8"), site_url, depth=1)
+        if "{{" in page_html or "url_for(" in page_html:
+            raise ValueError(f"Unresolved template syntax in {template}")
+        (output / folder).mkdir()
+        (output / folder / "index.html").write_text(page_html, encoding="utf-8")
     shutil.copytree(ROOT / "static", output / "static")
     shutil.copytree(ROOT / "image", output / "image")
     (output / "demos").mkdir()

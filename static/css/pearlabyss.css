@@ -1,0 +1,145 @@
+/* Portfolio page without the drop intro. Colours and type come from portfolio.css.
+   Motion follows design-taste-frontend (references/motion.md): one hero entrance,
+   one type moment, and a hover/press layer. Nothing else moves. */
+.pa-page {
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  --m-in: 150ms;
+  --m-out: 120ms;
+  --header: 72px;
+}
+
+/* Header stays reachable on a long page. */
+.pa-page .site-header { position: sticky; top: 0; z-index: 20; }
+.pa-page .header-inner { min-height: var(--header); }
+.pa-page section[id], .pa-page article[id] { scroll-margin-top: calc(var(--header) + 24px); }
+.pa-page .site-header nav a,
+.pa-page .header-github {
+  background: linear-gradient(currentColor, currentColor) no-repeat 0 calc(100% - 8px) / 0 1px;
+  transition: background-size var(--m-in) var(--ease), color var(--m-in);
+}
+.pa-page .site-header nav a { color: var(--muted); }
+.pa-page .site-header nav a[aria-current="true"] { color: var(--text); background-size: 100% 1px; }
+
+/* Hero: alone on the first screen, the name large, contact and the page index in view. */
+.pa-page .intro-section {
+  min-height: calc(100svh - var(--header) - 1px);
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: 72px;
+  padding-block: 64px 80px;
+}
+.pa-page .hero-copy h1 { font-size: clamp(40px, 4.6vw, 68px); line-height: 1.16; }
+.pa-page .hero-mail { margin-top: 32px; }
+.pa-page .hero-mail a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 17px;
+  text-underline-offset: 6px;
+  text-decoration-color: var(--line);
+  transition: text-decoration-color var(--m-in);
+}
+.hero-index { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.hero-index a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20px;
+  gap: 6px 24px;
+  align-items: center;
+  padding: 24px 16px;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  transition: background-color var(--m-in);
+}
+.hero-index strong { font-size: 21px; font-weight: 650; letter-spacing: -0.02em; }
+.hero-index span { grid-column: 1; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.hero-index svg { grid-column: 2; grid-row: 1 / span 2; color: var(--muted); transition: transform var(--m-in) var(--ease), color var(--m-in); }
+
+/* Hero entrance, once. With animations off everything is simply in place. */
+@keyframes pa-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.pa-enter > * { animation: pa-rise 0.8s var(--ease-enter) both; }
+.pa-enter > :nth-child(2) { animation-delay: 0.08s; }
+.pa-enter > :nth-child(3) { animation-delay: 0.16s; }
+.pa-enter > :nth-child(4) { animation-delay: 0.24s; }
+.pa-enter > :nth-child(5) { animation-delay: 0.32s; }
+.pa-enter-late > * { animation-delay: 0.3s; }
+.pa-enter-late > :nth-child(2) { animation-delay: 0.38s; }
+.pa-enter-late > :nth-child(3) { animation-delay: 0.46s; }
+
+/* Sections: one rhythm, one lead style. */
+.pa-page .interests-section { padding-block: 88px 96px; }
+.pa-page .projects-section { padding-block: 88px 48px; border-top: 1px solid var(--line); }
+.pa-page .more-work { padding-block: 72px 96px; }
+.pa-page .section-heading { margin-bottom: 24px; }
+.pa-page .section-heading h2 { font-size: clamp(28px, 2.6vw, 36px); }
+.section-lead { max-width: 46em; margin-bottom: 40px; color: var(--muted); font-size: 18px; line-height: 1.8; text-wrap: pretty; }
+.pa-page .interest-feature { padding-block: 48px; }
+.pa-page .interest-feature:first-of-type { padding-top: 24px; }
+.pa-page .screenshot-link { border: 1px solid var(--line); }
+.pa-page .watch-case img, .pa-page .watch-case canvas { border: 1px solid var(--line); }
+
+/* Type moment: the reason for applying lights up word by word as it crosses the screen. */
+.pa-page .interest-closing { margin-top: 72px; max-width: none; padding: 56px 48px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.pa-page .interest-closing h3 { font-size: 18px; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.pa-page .interest-closing p { max-width: 34em; margin-top: 24px; color: var(--text); font-size: clamp(20px, 2vw, 26px); font-weight: 600; line-height: 1.6; letter-spacing: -0.015em; text-wrap: pretty; }
+.pa-page .interest-closing p + p { margin-top: 20px; }
+.interest-closing .w { color: #f1f4f540; transition: color 0.3s linear; }
+.interest-closing .w.is-lit { color: var(--text); }
+
+/* Hover and press layer (fine pointers only; focus shows the same states). */
+.pa-page .button { transition: background-color var(--m-in), border-color var(--m-in), transform var(--m-in) var(--ease); }
+.pa-page .button svg, .pa-page .work-list > a > span svg { transition: transform var(--m-in) var(--ease); }
+.pa-page .team-practice li { transition: border-color var(--m-in); }
+.pa-page .screenshot-link img { transition: transform 0.6s var(--ease); }
+.pa-page .button:active { transform: translateY(1px) scale(0.985); }
+.pa-page .hero-index a:focus-visible { background: var(--surface); }
+@media (hover: hover) and (pointer: fine) {
+  .pa-page .site-header nav a:hover, .pa-page .header-github:hover { color: #fff; background-size: 100% 1px; text-decoration: none; }
+  .pa-page .hero-mail a:hover { text-decoration-color: currentColor; }
+  .hero-index a:hover { background: var(--surface); }
+  .hero-index a:hover svg { color: var(--accent); transform: translateX(3px); }
+  .pa-page .button:hover { transform: translateY(-1px); }
+  .pa-page .button:hover svg { transform: translateX(3px); }
+  .pa-page .button:active { transform: translateY(1px) scale(0.985); }
+  .pa-page .screenshot-link:hover img { transform: scale(1.03); }
+  .pa-page .work-list > a:hover > span svg { transform: translate(3px, -3px); }
+  .pa-page .team-practice li:hover { border-color: var(--accent); }
+}
+
+/* Footer: picture credits in one line. */
+.pa-page .site-footer { flex-wrap: wrap; gap: 8px 24px; align-items: center; }
+.pa-page .site-footer .credits { flex: 1 1 320px; }
+.pa-page .site-footer a { display: inline-flex; align-items: center; min-height: 44px; }
+
+@media (max-width: 1100px) {
+  .pa-page .intro-section { gap: 48px; }
+  .pa-page .hero-copy h1 { font-size: 44px; }
+}
+@media (max-width: 760px) {
+  .pa-page { --header: 0px; }
+  .pa-page .site-header { position: static; }
+  .pa-page .header-inner { flex-wrap: wrap; row-gap: 0; padding-block: 12px 4px; }
+  .pa-page .site-header nav { flex-basis: 100%; gap: 0 16px; flex-wrap: wrap; }
+  .pa-page .intro-section { grid-template-columns: 1fr; min-height: 0; gap: 40px; padding-block: 48px 56px; }
+  .pa-page .hero-copy h1 { font-size: 40px; }
+  .hero-index a { padding-block: 20px; }
+  .hero-index strong { font-size: 19px; }
+  .pa-page .interests-section, .pa-page .projects-section { padding-block: 56px; }
+  .pa-page .more-work { padding-block: 40px 56px; }
+  .section-lead { font-size: 16px; margin-bottom: 24px; }
+  .pa-page .interest-feature { padding-block: 36px; }
+  .pa-page .interest-closing { margin-top: 48px; padding: 32px 20px; }
+}
+
+/* Rules this page needs from the not-yet-published portfolio.css round, scoped here. */
+.pa-page .hero-role { margin-top: 24px; color: var(--accent); font-size: 18px; font-weight: 650; line-height: 1.5; }
+.pa-page .watch-topic.no-media .watch-copy { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; align-items: start; }
+.pa-page .watch-topic.no-media .watch-copy h4 { grid-column: 1 / -1; }
+.pa-page .watch-topic.no-media .watch-links { margin-top: 14px; }
+@media (max-width: 760px) {
+  .pa-page .hero-role { font-size: 16px; }
+  .pa-page .watch-topic.no-media .watch-copy { grid-template-columns: 1fr; }
+  .pa-page .watch-topic.no-media .watch-copy h4 { grid-column: auto; }
+}

@@ -84,6 +84,12 @@ def home():
     return render_template('index.html')
 
 
+@app.route('/pearlabyss/')
+def pearlabyss():
+    """게임 기획(오픈월드 RPG) 지원용 페이지. 강하 인트로 없이 소개로 시작한다."""
+    return render_template('pearlabyss.html')
+
+
 @app.route('/demos/<filename>')
 def demos(filename):
     if filename not in {'pacman.html', 'skydiving.html'}:
